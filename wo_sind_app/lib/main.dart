@@ -12,6 +12,7 @@ class WoSindApp extends StatelessWidget {
         title: const Text(
           'WoSind',
           style: TextStyle(color: Colors.green),
+          textAlign: TextAlign.center,
         ),
         backgroundColor: Colors.white,
         shadowColor: Colors.white,
