@@ -7,8 +7,14 @@ class WoSindApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('WoSind'),
+        title: const Text(
+          'WoSind',
+          style: TextStyle(color: Colors.green),
+        ),
+        backgroundColor: Colors.white,
+        shadowColor: Colors.white,
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
