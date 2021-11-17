@@ -10,14 +10,18 @@ class WoSindApp extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
-          'Finde passende Projekte',
-          style: TextStyle(color: Colors.green),
+          'Finde das passende Werkzeug',
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
-        backgroundColor: Colors.white,
-        shadowColor: Colors.white,
+        backgroundColor: Colors.lightGreen,
+        shadowColor: Colors.lightGreen,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.green,
+        backgroundColor: Colors.lightGreen,
+        currentIndex: 1,
+        selectedItemColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.integration_instructions_outlined),
