@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 void main() => runApp(WoSindApp());
 
 class WoSindApp extends StatelessWidget {
+  var colorBackground = Colors.lightGreen;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,11 +17,11 @@ class WoSindApp extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        backgroundColor: Colors.lightGreen,
-        shadowColor: Colors.lightGreen,
+        backgroundColor: colorBackground,
+        shadowColor: colorBackground,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: colorBackground,
         currentIndex: 1,
         selectedItemColor: Colors.white,
         items: const <BottomNavigationBarItem>[
