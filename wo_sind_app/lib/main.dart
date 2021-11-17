@@ -12,12 +12,12 @@ class WoSindApp extends StatelessWidget {
         title: const Text(
           'Finde passende Projekte',
           style: TextStyle(color: Colors.green),
-          textAlign: TextAlign.center,
         ),
         backgroundColor: Colors.white,
         shadowColor: Colors.white,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.green,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.integration_instructions_outlined),
@@ -28,7 +28,7 @@ class WoSindApp extends StatelessWidget {
             label: 'Marktplatz',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.settings_outlined),
             label: 'Einstellungen',
           ),
         ],
