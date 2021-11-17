@@ -10,7 +10,7 @@ class WoSindApp extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
-          'WoSind',
+          'Finde passende Projekte',
           style: TextStyle(color: Colors.green),
           textAlign: TextAlign.center,
         ),
@@ -20,15 +20,15 @@ class WoSindApp extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.accessible_forward_rounded),
+            icon: Icon(Icons.integration_instructions_outlined),
             label: 'Anleitungen',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_shopping_cart_rounded),
+            icon: Icon(Icons.shopping_cart_outlined),
             label: 'Marktplatz',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.access_alarms),
+            icon: Icon(Icons.settings),
             label: 'Einstellungen',
           ),
         ],
