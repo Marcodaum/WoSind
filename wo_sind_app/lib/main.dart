@@ -12,12 +12,12 @@ class WoSindApp extends StatelessWidget {
         title: const Text(
           'WoSind',
           style: TextStyle(color: Colors.green),
-          textAlign: TextAlign.center,
         ),
         backgroundColor: Colors.white,
         shadowColor: Colors.white,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.green,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.accessible_forward_rounded),
@@ -28,7 +28,7 @@ class WoSindApp extends StatelessWidget {
             label: 'Marktplatz',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.access_alarms),
+            icon: Icon(Icons.settings_outlined),
             label: 'Einstellungen',
           ),
         ],
