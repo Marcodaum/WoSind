@@ -23,41 +23,69 @@ class WoSindApp extends StatelessWidget {
       body: Center(
         child: GridView.count(
           primary: false,
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(20),
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           crossAxisCount: 1,
           childAspectRatio: 3,
           children: <Widget>[
             Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text("Hammer"),
+              padding: const EdgeInsets.only(top: 16, left: 150),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text("Hammer",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))),
               color: Colors.green[100],
             ),
             Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Schraubenzieher'),
-              color: Colors.green[200],
+              padding: const EdgeInsets.only(top: 16, left: 150),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text("Schraubenzieher",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))),
+              color: Colors.green[100],
             ),
             Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Mülleimer'),
-              color: Colors.green[300],
+              padding: const EdgeInsets.only(top: 16, left: 150),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text("Mülleimer",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))),
+              color: Colors.green[100],
             ),
             Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Rüttelplatte'),
-              color: Colors.green[500],
+              padding: const EdgeInsets.only(top: 16, left: 150),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Rüttelplatte",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  )),
+              color: Colors.green[100],
             ),
             Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Schneider'),
-              color: Colors.green[500],
+              padding: const EdgeInsets.only(top: 16, left: 150),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text("Schneider",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))),
+              color: Colors.green[100],
             ),
             Container(
-              padding: const EdgeInsets.all(8),
-              child: const Text('Waage'),
-              color: Colors.green[600],
+              padding: const EdgeInsets.only(
+                top: 16,
+                left: 150,
+              ),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text("Waage",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))),
+              color: Colors.green[100],
             ),
           ],
         ),
