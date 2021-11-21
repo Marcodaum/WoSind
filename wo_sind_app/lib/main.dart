@@ -20,6 +20,48 @@ class WoSindApp extends StatelessWidget {
         backgroundColor: colorBackground,
         shadowColor: colorBackground,
       ),
+      body: Center(
+        child: GridView.count(
+          primary: false,
+          padding: const EdgeInsets.all(10),
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 1,
+          childAspectRatio: 3,
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text("Hammer"),
+              color: Colors.green[100],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Schraubenzieher'),
+              color: Colors.green[200],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Mülleimer'),
+              color: Colors.green[300],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Rüttelplatte'),
+              color: Colors.green[500],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Schneider'),
+              color: Colors.green[500],
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              child: const Text('Waage'),
+              color: Colors.green[600],
+            ),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: colorBackground,
         currentIndex: 1,
