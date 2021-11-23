@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(WoSindApp());
 
 class WoSindApp extends StatelessWidget {
-  var colorBackground = Colors.lightGreen;
+  var colorBackground = Colors.teal[100];
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +30,16 @@ class WoSindApp extends StatelessWidget {
           childAspectRatio: 3,
           children: <Widget>[
             Container(
+              decoration: new BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Colors.green[100],
+              ),
               padding: const EdgeInsets.only(top: 16, left: 150),
               child: const Align(
                   alignment: Alignment.topLeft,
                   child: Text("Hammer",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 20))),
-              color: Colors.green[100],
             ),
             Container(
               padding: const EdgeInsets.only(top: 16, left: 150),
