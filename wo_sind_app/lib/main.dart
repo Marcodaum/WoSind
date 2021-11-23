@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(WoSindApp());
+void main() => runApp(const WoSindApp());
 
 class WoSindApp extends StatelessWidget {
+  const WoSindApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: MarketPlace());
+  }
+}
+
+class MarketPlace extends StatelessWidget {
   var colorBackground = Colors.teal[100];
+
+  MarketPlace({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,66 +40,239 @@ class WoSindApp extends StatelessWidget {
           crossAxisCount: 1,
           childAspectRatio: 3,
           children: <Widget>[
-            Container(
-              decoration: new BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                color: Colors.green[100],
-              ),
-              padding: const EdgeInsets.only(top: 16, left: 150),
-              child: const Align(
-                  alignment: Alignment.topLeft,
-                  child: Text("Hammer",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20))),
-            ),
-            Container(
-              padding: const EdgeInsets.only(top: 16, left: 150),
-              child: const Align(
-                  alignment: Alignment.topLeft,
-                  child: Text("Schraubenzieher",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20))),
-              color: Colors.green[100],
-            ),
-            Container(
-              padding: const EdgeInsets.only(top: 16, left: 150),
-              child: const Align(
-                  alignment: Alignment.topLeft,
-                  child: Text("Mülleimer",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20))),
-              color: Colors.green[100],
-            ),
-            Container(
-              padding: const EdgeInsets.only(top: 16, left: 150),
-              child: const Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "Rüttelplatte",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  )),
-              color: Colors.green[100],
-            ),
-            Container(
-              padding: const EdgeInsets.only(top: 16, left: 150),
-              child: const Align(
-                  alignment: Alignment.topLeft,
-                  child: Text("Schneider",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20))),
-              color: Colors.green[100],
-            ),
-            Container(
-              padding: const EdgeInsets.only(
-                top: 16,
-                left: 150,
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromRGBO(100, 160, 90, 1.0)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
               ),
               child: const Align(
                   alignment: Alignment.topLeft,
-                  child: Text("Waage",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20))),
-              color: Colors.green[100],
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 16, left: 150),
+                      child: Text("Frau Illic",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          )))),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromRGBO(100, 160, 90, 1.0)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 16, left: 150),
+                      child: Text("Cipi",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          )))),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromRGBO(100, 160, 90, 1.0)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 16, left: 150),
+                      child: Text("Jonas",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          )))),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromRGBO(100, 160, 90, 1.0)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 16, left: 150),
+                      child: Text("Schaufel",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          )))),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromRGBO(100, 160, 90, 1.0)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 16, left: 150),
+                      child: Text("Waage",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          )))),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromRGBO(100, 160, 90, 1.0)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 16, left: 150),
+                      child: Text("Uhr",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          )))),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromRGBO(100, 160, 90, 1.0)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 16, left: 150),
+                      child: Text("Kilian",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          )))),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromRGBO(100, 160, 90, 1.0)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 16, left: 150),
+                      child: Text("Dusche",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          )))),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromRGBO(100, 160, 90, 1.0)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+              ),
+              child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 16, left: 150),
+                      child: Text("Rüttelplatte",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          )))),
             ),
           ],
         ),
@@ -113,5 +297,29 @@ class WoSindApp extends StatelessWidget {
         ],
       ),
     ));
+  }
+}
+
+class ProductPage extends StatelessWidget {
+  const ProductPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Produktseite"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(builder: (context) => MarketPlace()),
+            );
+          },
+          child: const Text('Zurück'),
+        ),
+      ),
+    );
   }
 }
