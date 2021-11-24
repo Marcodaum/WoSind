@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/*void main() => runApp(const WoSindApp());
+void main() => runApp(const WoSindApp());
 
 class WoSindApp extends StatelessWidget {
   const WoSindApp({Key? key}) : super(key: key);
@@ -309,21 +309,47 @@ class ProductPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Produktseite"),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(
-              context,
-              MaterialPageRoute(builder: (context) => MarketPlace()),
-            );
-          },
-          child: const Text('Zurück'),
-        ),
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Text(
+            'Hammer',
+            style: TextStyle(fontSize: 25),
+          ),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: 5,
+              itemBuilder: (BuildContext context, int index) => Card(
+                child: Center(
+                    child: Text(
+                        '                                              Picture                                                  ')),
+              ),
+            ),
+          ),
+          Text(
+            'Anbieter',
+            style: TextStyle(fontSize: 18),
+          ),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemBuilder: (ctx, int) {
+                return Card(
+                  child: ListTile(
+                      title: Text('Anbieter $int'),
+                      subtitle: Text('Beschreibung')),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
 }
-*/
+/*
 
 void main() => runApp(const MyApp());
 
@@ -445,3 +471,4 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   }
 // #docregion _FavoriteWidgetState-fields
 }
+*/
