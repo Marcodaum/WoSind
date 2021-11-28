@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 
-import 'GUI/topAppBar.dart';
-import 'GUI/bottomNavigationBar.dart';
-import 'pageContent/marketplaceContent.dart';
+import '../GUI/topAppBar.dart';
+import '../GUI/bottomNavigationBar.dart';
+import '../pageContent/marketplaceContent.dart';
 
 void main() => runApp(const MyApp());
 
