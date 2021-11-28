@@ -312,9 +312,12 @@ class ProductPage extends StatelessWidget {
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(
-            'Hammer',
-            style: TextStyle(fontSize: 25),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+            child: Text(
+              'Hammer',
+              style: TextStyle(fontSize: 25),
+            ),
           ),
           Expanded(
             child: ListView.builder(
