@@ -1,10 +1,9 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import '../main.dart';
 
-class ProductPage extends StatelessWidget {
-  const ProductPage({Key? key}) : super(key: key);
-
+class ProductPage extends State<Screen2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

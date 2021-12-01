@@ -8,7 +8,10 @@ import '../main.dart';
 
 ElevatedButton createElevatedButton(BuildContext context) {
   return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Screen2()));
+      },
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(
             const Color.fromRGBO(100, 160, 90, 1.0)),
