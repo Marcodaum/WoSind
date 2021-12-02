@@ -15,25 +15,26 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Home(),
     );
   }
 }
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  @override
-  _createPage({required String title}) => Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: //test());
-          marketplaceContent(context));
+  _createPage() => Scaffold(
+      body: _selectedPage == 0
+          ? projectsContent(context)
+          : _selectedPage == 1
+              ? marketplaceContent(context)
+              : profileContent(context));
 
   final int _pageAmount = 3;
 
@@ -42,6 +43,7 @@ class _HomeState extends State<Home> {
 
   bool product = false;
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: createAppBar(_selectedPage),
@@ -49,8 +51,8 @@ class _HomeState extends State<Home> {
           controller: _pageController,
           onPageChanged: (value) => setState(() => _selectedPage = value),
           // Create pages
-          children: List<Scaffold>.generate(
-              _pageAmount, (index) => _createPage(title: 'Page ${index + 1}')),
+          children:
+              List<Scaffold>.generate(_pageAmount, (index) => _createPage()),
           // Create pages
 
           /*
@@ -95,6 +97,17 @@ class _HomeState extends State<Home> {
             ]));
   }
 
+  GridView projectsContent(BuildContext context) {
+    return GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 1,
+        childAspectRatio: 3,
+        children: const <Widget>[Text("Projekte")]);
+  }
+
   GridView marketplaceContent(BuildContext context) {
     return GridView.count(
         primary: false,
@@ -111,9 +124,22 @@ class _HomeState extends State<Home> {
           createElevatedButton(context),
         ]);
   }
+
+  GridView profileContent(BuildContext context) {
+    return GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 1,
+        childAspectRatio: 3,
+        children: const <Widget>[Text("Profile")]);
+  }
 }
 
 class Screen2 extends StatefulWidget {
+  const Screen2({Key? key}) : super(key: key);
+
   @override
   ProductPage createState() => ProductPage();
 }
