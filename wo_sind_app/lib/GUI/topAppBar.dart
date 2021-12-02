@@ -14,19 +14,30 @@ AppBar createAppBar(int index) {
           padding: const EdgeInsets.all(8.0),
           child: Align(
               alignment: Alignment.center,
-              child: Text(
-                'WOSIND',
-                style: TextStyle(
-                    color: mainColors.Text,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25),
+              child: Column(
+                children: [
+                  Text(
+                    'WOSIND',
+                    style: TextStyle(
+                        color: mainColors.Text,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25),
+                  ),
+                  Text(
+                    'Projekte',
+                    style: TextStyle(
+                        color: mainColors.Text,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  )
+                ],
               )),
         ),
       ),
     );
   } else if (index == 1) {
     return AppBar(
-      backgroundColor: Color(0x440000),
+      backgroundColor: Color(0x4400000),
       elevation: 0,
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(20.0),
@@ -34,12 +45,23 @@ AppBar createAppBar(int index) {
           padding: const EdgeInsets.all(8.0),
           child: Align(
               alignment: Alignment.center,
-              child: Text(
-                'WOSIND',
-                style: TextStyle(
-                    color: mainColors.Text,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25),
+              child: Column(
+                children: [
+                  Text(
+                    'WOSIND',
+                    style: TextStyle(
+                        color: mainColors.Text,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25),
+                  ),
+                  Text(
+                    'Baugeräte',
+                    style: TextStyle(
+                        color: mainColors.Text,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  )
+                ],
               )),
         ),
       ),
@@ -54,12 +76,23 @@ AppBar createAppBar(int index) {
           padding: const EdgeInsets.all(8.0),
           child: Align(
               alignment: Alignment.center,
-              child: Text(
-                'WOSIND',
-                style: TextStyle(
-                    color: mainColors.Text,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25),
+              child: Column(
+                children: [
+                  Text(
+                    'WOSIND',
+                    style: TextStyle(
+                        color: mainColors.Text,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25),
+                  ),
+                  Text(
+                    'Profileinstellungen',
+                    style: TextStyle(
+                        color: mainColors.Text,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  )
+                ],
               )),
         ),
       ),
