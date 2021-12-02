@@ -14,8 +14,7 @@ BottomNavigationBar createBottomNavigationBar(
       showUnselectedLabels: true,
       // Change page tap page number
       onTap: (value) => controller.animateToPage(value,
-          duration: const Duration(microseconds: 250000),
-          curve: Curves.decelerate),
+          duration: const Duration(microseconds: 250000), curve: Curves.easeIn),
       // Create page numbers
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
