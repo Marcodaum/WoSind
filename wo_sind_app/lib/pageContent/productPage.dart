@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import '../main.dart';
-import 'imageList.dart';
 import '../GUI/mainColors.dart';
 
 class ProductPage extends State<Screen2> {

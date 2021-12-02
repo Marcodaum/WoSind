@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wo_sind_app/GUI/mainColors.dart';
 import 'package:wo_sind_app/GUI/topAppBar.dart';
 // main.dart
 
@@ -70,9 +71,9 @@ class _HomeState extends State<Home> {
             //createBottomNavigationBar(_selectedPage, _pageController)),
             BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
-                backgroundColor: Colors.green[200],
+                backgroundColor: mainColors.background,
                 currentIndex: _selectedPage,
-                selectedItemColor: Colors.white,
+                selectedItemColor: mainColors.selector_light_green,
                 unselectedItemColor: Colors.blueGrey[600],
                 showSelectedLabels: true,
                 showUnselectedLabels: true,
@@ -117,11 +118,11 @@ class _HomeState extends State<Home> {
         crossAxisCount: 1,
         childAspectRatio: 3,
         children: <Widget>[
-          createElevatedButton(context),
-          createElevatedButton(context),
-          createElevatedButton(context),
-          createElevatedButton(context),
-          createElevatedButton(context),
+          createElevatedButton(context, mainColors.selector_dark_green),
+          createElevatedButton(context, mainColors.selector_light_green),
+          createElevatedButton(context, mainColors.selector_dark_green),
+          createElevatedButton(context, mainColors.selector_light_green),
+          createElevatedButton(context, mainColors.selector_dark_green),
         ]);
   }
 
