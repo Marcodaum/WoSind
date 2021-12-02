@@ -15,13 +15,15 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Home(),
     );
   }
 }
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -41,6 +43,7 @@ class _HomeState extends State<Home> {
 
   bool product = false;
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: createAppBar(_selectedPage),
@@ -102,7 +105,7 @@ class _HomeState extends State<Home> {
         mainAxisSpacing: 10,
         crossAxisCount: 1,
         childAspectRatio: 3,
-        children: <Widget>[Text("Projekte")]);
+        children: const <Widget>[Text("Projekte")]);
   }
 
   GridView marketplaceContent(BuildContext context) {
@@ -130,7 +133,7 @@ class _HomeState extends State<Home> {
         mainAxisSpacing: 10,
         crossAxisCount: 1,
         childAspectRatio: 3,
-        children: <Widget>[Text("Profile")]);
+        children: const <Widget>[Text("Profile")]);
   }
 }
 
