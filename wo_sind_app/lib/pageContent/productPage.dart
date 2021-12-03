@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
 import '../GUI/mainColors.dart';
+import '../GUI/mainLayout.dart';
 
 class ProductPage extends State<Screen2> {
   @override
@@ -11,17 +12,39 @@ class ProductPage extends State<Screen2> {
         body: SingleChildScrollView(
             child: Stack(
       children: <Widget>[
-        AspectRatio(
-          aspectRatio: 16 / 15,
-          child: FittedBox(
-            fit: BoxFit.cover,
-            child: Image.asset('assets/unnamed.jpeg'),
-          ),
-        ),
+        SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: AspectRatio(
+                    aspectRatio: 16 / 15,
+                    child: FittedBox(
+                      fit: BoxFit.cover,
+                      child: Image.asset('assets/unnamed.jpeg'),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: AspectRatio(
+                    aspectRatio: 16 / 15,
+                    child: FittedBox(
+                      fit: BoxFit.cover,
+                      child: Image.asset('assets/Download.jpeg'),
+                    ),
+                  ),
+                )
+              ],
+            )),
         Padding(
             padding: const EdgeInsets.fromLTRB(20, 40, 0, 0),
             child: Container(
               decoration: BoxDecoration(
+                boxShadow: [
+                  mainLayout.boxShadow,
+                ],
                 shape: BoxShape.circle,
                 color: mainColors.main_btn,
               ),
@@ -48,12 +71,8 @@ class ProductPage extends State<Screen2> {
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: mainColors.background,
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50),
-                        ),
-                      ),
+                          color: mainColors.background,
+                          borderRadius: mainLayout.borderRadiusTop),
                       child: Column(children: [
                         Padding(
                           padding: EdgeInsets.fromLTRB(40, 40, 0, 0),
@@ -63,11 +82,7 @@ class ProductPage extends State<Screen2> {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   "Poolbau",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: mainColors.Text,
-                                  ),
+                                  style: mainLayout.projectPageHedlines,
                                 ),
                               ),
                             ],
@@ -83,7 +98,7 @@ class ProductPage extends State<Screen2> {
                                   "Schwierigkeitsgrad: mittel",
                                   style: TextStyle(
                                     fontSize: 15,
-                                    color: mainColors.Text_description,
+                                    color: mainColors.Text_description_grey,
                                   ),
                                 ),
                               ),
@@ -95,16 +110,11 @@ class ProductPage extends State<Screen2> {
                           child: Column(
                             children: [
                               Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "Datum",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: mainColors.Text,
-                                  ),
-                                ),
-                              ),
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "Datum",
+                                    style: mainLayout.projectPageHedlines,
+                                  )),
                             ],
                           ),
                         ),
@@ -114,14 +124,8 @@ class ProductPage extends State<Screen2> {
                             children: [
                               Align(
                                 alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "Beschreibung",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: mainColors.Text,
-                                  ),
-                                ),
+                                child: Text("Beschreibung",
+                                    style: mainLayout.projectPageHedlines),
                               ),
                             ],
                           ),
@@ -136,7 +140,7 @@ class ProductPage extends State<Screen2> {
                                   "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.",
                                   style: TextStyle(
                                     fontSize: 15,
-                                    color: mainColors.Text_description,
+                                    color: mainColors.Text_description_grey,
                                   ),
                                 ),
                               ),
@@ -148,18 +152,13 @@ class ProductPage extends State<Screen2> {
               ],
             )),
         Padding(
-            padding: const EdgeInsets.fromLTRB(280, 270, 0, 0),
+            padding: const EdgeInsets.fromLTRB(320, 270, 0, 0),
             child: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: mainColors.background,
                 boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: const Offset(0, 3), // changes position of shadow
-                  ),
+                  mainLayout.boxShadow,
                 ],
               ),
               child: IconButton(

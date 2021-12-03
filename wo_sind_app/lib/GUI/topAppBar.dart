@@ -19,14 +19,14 @@ AppBar createAppBar(int index) {
                   Text(
                     'WOSIND',
                     style: TextStyle(
-                        color: mainColors.Text,
+                        color: mainColors.Text_black,
                         fontWeight: FontWeight.bold,
                         fontSize: 25),
                   ),
                   Text(
                     'Projekte',
                     style: TextStyle(
-                        color: mainColors.Text,
+                        color: mainColors.Text_black,
                         fontWeight: FontWeight.bold,
                         fontSize: 15),
                   )
@@ -50,14 +50,14 @@ AppBar createAppBar(int index) {
                   Text(
                     'WOSIND',
                     style: TextStyle(
-                        color: mainColors.Text,
+                        color: mainColors.Text_black,
                         fontWeight: FontWeight.bold,
                         fontSize: 25),
                   ),
                   Text(
                     'Baugeräte',
                     style: TextStyle(
-                        color: mainColors.Text,
+                        color: mainColors.Text_black,
                         fontWeight: FontWeight.bold,
                         fontSize: 15),
                   )
@@ -81,14 +81,14 @@ AppBar createAppBar(int index) {
                   Text(
                     'WOSIND',
                     style: TextStyle(
-                        color: mainColors.Text,
+                        color: mainColors.Text_black,
                         fontWeight: FontWeight.bold,
                         fontSize: 25),
                   ),
                   Text(
                     'Profileinstellungen',
                     style: TextStyle(
-                        color: mainColors.Text,
+                        color: mainColors.Text_black,
                         fontWeight: FontWeight.bold,
                         fontSize: 15),
                   )
@@ -110,7 +110,7 @@ AppBar createAppBar(int index) {
               child: Text(
                 'WOSIND',
                 style: TextStyle(
-                    color: mainColors.Text,
+                    color: mainColors.Text_black,
                     fontWeight: FontWeight.bold,
                     fontSize: 25),
               )),

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import '../GUI/topAppBar.dart';
+import '../GUI/mainLayout.dart';
 import '../GUI/bottomNavigationBar.dart';
 import './productPage.dart';
 import 'package:wo_sind_app/GUI/mainColors.dart';
@@ -20,7 +21,7 @@ ElevatedButton createElevatedButton(BuildContext context, Color color) {
         backgroundColor: MaterialStateProperty.all<Color>(color),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
+            borderRadius: mainLayout.borderRadiusAll,
           ),
         ),
       ),
@@ -32,9 +33,5 @@ Align createChild() {
       alignment: Alignment.topLeft,
       child: Padding(
           padding: EdgeInsets.only(top: 16, left: 150),
-          child: Text("Werkzeug",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ))));
+          child: Text("Werkzeug", style: mainLayout.marketplaceHeadlineStyle)));
 }
