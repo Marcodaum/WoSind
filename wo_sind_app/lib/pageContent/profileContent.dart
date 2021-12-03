@@ -2,13 +2,14 @@
 
 import 'package:flutter/material.dart';
 import '../GUI/mainColors.dart';
+import '../GUI/mainLayout.dart';
 
-List<Row> profileTestContent() {
+List<Row> profileContentRows(BuildContext context) {
   List<Row> rows = <Row>[];
-  Row row1 = Row(
+  Row profilePictureRow = Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      Text(
+      const Text(
         "Abonennten \n\n 420",
         style: TextStyle(
           fontSize: 15,
@@ -32,7 +33,7 @@ List<Row> profileTestContent() {
         ),
         child: Image.asset('assets/profilePicture.png'),
       ),
-      Text(
+      const Text(
         "Abonniert \n\n 69",
         style: TextStyle(
           fontSize: 15,
@@ -43,12 +44,102 @@ List<Row> profileTestContent() {
       ),
     ],
   );
-  rows.add(row1);
+  Row dividerRow1 = mainLayout().dividerRow();
+  Row messagesRow = Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Container(
+        margin: const EdgeInsets.only(left: 75),
+        child: TextButton(
+          child: const Text(
+            "Nachrichten",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: mainColors.Text_black,
+            ),
+          ),
+          onPressed: () {},
+        ),
+      )
+    ],
+  );
+  Row dividerRow2 = mainLayout().dividerRow();
+  Row dataRow = Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Container(
+        margin: const EdgeInsets.only(left: 75),
+        child: TextButton(
+          child: const Text(
+            "Persönliche Daten",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: mainColors.Text_black,
+            ),
+          ),
+          onPressed: () {},
+        ),
+      )
+    ],
+  );
+  Row dividerRow3 = mainLayout().dividerRow();
+  Row shareRow = Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Container(
+        margin: const EdgeInsets.only(left: 75),
+        child: TextButton(
+          child: const Text(
+            "In anderen Apps teilen",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: mainColors.Text_black,
+            ),
+          ),
+          onPressed: () {},
+        ),
+      )
+    ],
+  );
+  Row dividerRow4 = mainLayout().dividerRow();
+  Row editRow = Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Container(
+        margin: const EdgeInsets.only(left: 75),
+        child: TextButton(
+          child: const Text(
+            "Profil bearbeiten",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: mainColors.Text_black,
+            ),
+          ),
+          onPressed: () {},
+        ),
+      )
+    ],
+  );
+  Row dividerRow5 = mainLayout().dividerRow();
+  rows.add(profilePictureRow);
+  rows.add(dividerRow1);
+  rows.add(messagesRow);
+  rows.add(dividerRow2);
+  rows.add(dataRow);
+  rows.add(dividerRow3);
+  rows.add(shareRow);
+  rows.add(dividerRow4);
+  rows.add(editRow);
+  rows.add(dividerRow5);
   return rows;
 }
 
-ListView profileContent() {
-  return ListView(children: profileTestContent());
+ListView profileContent(BuildContext context) {
+  return ListView(children: profileContentRows(context));
 }
 /*GridView profileContent(BuildContext context) {
   return GridView.count(

@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
           ? projectsContent(context)
           : _selectedPage == 1
               ? marketplaceContent(context)
-              : profileContent());
+              : profileContent(context));
 
   final int _pageAmount = 3;
 
