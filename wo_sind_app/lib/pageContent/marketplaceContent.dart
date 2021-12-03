@@ -38,3 +38,20 @@ Align createChild() {
                 fontSize: 20,
               ))));
 }
+
+GridView marketplaceContent(BuildContext context) {
+  return GridView.count(
+      primary: false,
+      padding: const EdgeInsets.all(20),
+      crossAxisSpacing: 10,
+      mainAxisSpacing: 10,
+      crossAxisCount: 1,
+      childAspectRatio: 3,
+      children: <Widget>[
+        createElevatedButton(context, mainColors.selector_dark_green),
+        createElevatedButton(context, mainColors.selector_light_green),
+        createElevatedButton(context, mainColors.selector_dark_green),
+        createElevatedButton(context, mainColors.selector_light_green),
+        createElevatedButton(context, mainColors.selector_dark_green),
+      ]);
+}
