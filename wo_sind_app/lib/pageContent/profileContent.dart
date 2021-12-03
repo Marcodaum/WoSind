@@ -13,7 +13,7 @@ List<Row> profileTestContent() {
         style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.bold,
-          color: mainColors.Text,
+          color: mainColors.Text_black,
         ),
         textAlign: TextAlign.center,
       ),
@@ -37,7 +37,7 @@ List<Row> profileTestContent() {
         style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.bold,
-          color: mainColors.Text,
+          color: mainColors.Text_black,
         ),
         textAlign: TextAlign.center,
       ),
