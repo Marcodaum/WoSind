@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import '../GUI/topAppBar.dart';
 import '../GUI/bottomNavigationBar.dart';
 import '../pageContent/marketplaceContent.dart';
+import '../pageContent/projectsContent.dart';
 import '../pageContent/productPage.dart';
+import '../pageContent/profileContent.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,7 +37,7 @@ class _HomeState extends State<Home> {
           ? projectsContent(context)
           : _selectedPage == 1
               ? marketplaceContent(context)
-              : profileContent(context));
+              : profileContent());
 
   final int _pageAmount = 3;
 
@@ -54,18 +56,6 @@ class _HomeState extends State<Home> {
           // Create pages
           children:
               List<Scaffold>.generate(_pageAmount, (index) => _createPage()),
-          // Create pages
-
-          /*
-        child: FlatButton(
-          color: Colors.teal,
-          textColor: Colors.white,
-          onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Screen2()));
-          },
-          child: Text('GO TO SCREEN 2'),
-        ),*/
         ),
         bottomNavigationBar:
             //createBottomNavigationBar(_selectedPage, _pageController)),
@@ -96,45 +86,6 @@ class _HomeState extends State<Home> {
                 label: 'Profil',
               ),
             ]));
-  }
-
-  GridView projectsContent(BuildContext context) {
-    return GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(20),
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        crossAxisCount: 1,
-        childAspectRatio: 3,
-        children: const <Widget>[Text("Projekte")]);
-  }
-
-  GridView marketplaceContent(BuildContext context) {
-    return GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(20),
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        crossAxisCount: 1,
-        childAspectRatio: 3,
-        children: <Widget>[
-          createElevatedButton(context, mainColors.selector_dark_green),
-          createElevatedButton(context, mainColors.selector_light_green),
-          createElevatedButton(context, mainColors.selector_dark_green),
-          createElevatedButton(context, mainColors.selector_light_green),
-          createElevatedButton(context, mainColors.selector_dark_green),
-        ]);
-  }
-
-  GridView profileContent(BuildContext context) {
-    return GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(20),
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        crossAxisCount: 1,
-        childAspectRatio: 3,
-        children: const <Widget>[Text("Profile")]);
   }
 }
 

@@ -35,3 +35,20 @@ Align createChild() {
           padding: EdgeInsets.only(top: 16, left: 150),
           child: Text("Werkzeug", style: mainLayout.marketplaceHeadlineStyle)));
 }
+
+GridView marketplaceContent(BuildContext context) {
+  return GridView.count(
+      primary: false,
+      padding: const EdgeInsets.all(20),
+      crossAxisSpacing: 10,
+      mainAxisSpacing: 10,
+      crossAxisCount: 1,
+      childAspectRatio: 3,
+      children: <Widget>[
+        createElevatedButton(context, mainColors.selector_dark_green),
+        createElevatedButton(context, mainColors.selector_light_green),
+        createElevatedButton(context, mainColors.selector_dark_green),
+        createElevatedButton(context, mainColors.selector_light_green),
+        createElevatedButton(context, mainColors.selector_dark_green),
+      ]);
+}
