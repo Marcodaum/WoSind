@@ -6,16 +6,16 @@ import 'package:wo_sind_app/GUI/mainColors.dart';
 AppBar createAppBar(int index) {
   if (index == 0) {
     return AppBar(
-      backgroundColor: Color(0x4400000),
+      backgroundColor: const Color(0x04400000),
       elevation: 0,
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(20.0),
+        preferredSize: const Size.fromHeight(20.0),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Align(
               alignment: Alignment.center,
               child: Column(
-                children: [
+                children: const [
                   Text(
                     'WOSIND',
                     style: TextStyle(
@@ -37,16 +37,16 @@ AppBar createAppBar(int index) {
     );
   } else if (index == 1) {
     return AppBar(
-      backgroundColor: Color(0x4400000),
+      backgroundColor: const Color(0x04400000),
       elevation: 0,
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(20.0),
+        preferredSize: const Size.fromHeight(20.0),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Align(
               alignment: Alignment.center,
               child: Column(
-                children: [
+                children: const [
                   Text(
                     'WOSIND',
                     style: TextStyle(
@@ -68,16 +68,16 @@ AppBar createAppBar(int index) {
     );
   } else if (index == 2) {
     return AppBar(
-      backgroundColor: Color(0x4400000),
+      backgroundColor: const Color(0x04400000),
       elevation: 0,
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(20.0),
+        preferredSize: const Size.fromHeight(20.0),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Align(
               alignment: Alignment.center,
               child: Column(
-                children: [
+                children: const [
                   Text(
                     'WOSIND',
                     style: TextStyle(
@@ -99,12 +99,12 @@ AppBar createAppBar(int index) {
     );
   } else {
     return AppBar(
-      backgroundColor: Color(0x4400000),
+      backgroundColor: const Color(0x04400000),
       elevation: 0,
-      bottom: PreferredSize(
+      bottom: const PreferredSize(
         preferredSize: Size.fromHeight(20.0),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0),
           child: Align(
               alignment: Alignment.center,
               child: Text(
