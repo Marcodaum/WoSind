@@ -8,12 +8,13 @@ import '../InstructionClasses/Instruction.dart';
 
 class ProductPage extends State<Screen2> with Instruction {
   ProductPage(List<String> images, String title, String subtitle, String date,
-      String description) {
+      String description, List<String> detail_images) {
     this.images = images;
     this.subtitle = subtitle;
     this.title = title;
     this.date = date;
     this.description = description;
+    this.detail_images = detail_images;
   }
 
   @override
@@ -155,6 +156,100 @@ class ProductPage extends State<Screen2> with Instruction {
                                           ],
                                         ),
                                       ),
+                                      Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            40, 7, 40, 40),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                mainLayout.borderRadiusAll,
+                                          ),
+                                          height: 300,
+                                          child: ListView(
+                                              scrollDirection: Axis.horizontal,
+                                              shrinkWrap: true,
+                                              children: <Widget>[
+                                                Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width -
+                                                            80,
+                                                    decoration: BoxDecoration(
+                                                        color: mainColors
+                                                            .background,
+                                                        borderRadius: mainLayout
+                                                            .borderRadiusAll),
+                                                    child: AspectRatio(
+                                                        aspectRatio: 16 / 9,
+                                                        child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                            child: FittedBox(
+                                                              fit: BoxFit.fill,
+                                                              child:
+                                                                  Image.asset(
+                                                                detail_images[
+                                                                    0],
+                                                              ),
+                                                            )))),
+                                                Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width -
+                                                            80,
+                                                    decoration: BoxDecoration(
+                                                        color: mainColors
+                                                            .background,
+                                                        borderRadius: mainLayout
+                                                            .borderRadiusAll),
+                                                    child: AspectRatio(
+                                                        aspectRatio: 16 / 9,
+                                                        child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                            child: FittedBox(
+                                                              fit: BoxFit.fill,
+                                                              child:
+                                                                  Image.asset(
+                                                                detail_images[
+                                                                    1],
+                                                              ),
+                                                            )))),
+                                                Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width -
+                                                            80,
+                                                    decoration: BoxDecoration(
+                                                        color: mainColors
+                                                            .background,
+                                                        borderRadius: mainLayout
+                                                            .borderRadiusAll),
+                                                    child: AspectRatio(
+                                                        aspectRatio: 16 / 9,
+                                                        child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                            child: FittedBox(
+                                                              fit: BoxFit.fill,
+                                                              child:
+                                                                  Image.asset(
+                                                                detail_images[
+                                                                    2],
+                                                              ),
+                                                            )))),
+                                              ]),
+                                        ),
+                                      )
                                     ]),
                                   )),
                             ],
