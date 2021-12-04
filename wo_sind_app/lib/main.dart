@@ -70,7 +70,7 @@ class _HomeState extends State<Home> {
                 // Change page tap page number
                 onTap: (value) => _pageController.animateToPage(value,
                     duration: const Duration(microseconds: 250000),
-                    curve: Curves.decelerate),
+                    curve: Curves.fastOutSlowIn),
                 // Create page numbers
                 items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
