@@ -51,12 +51,14 @@ class _HomeState extends State<Home> {
     return Scaffold(
         appBar: createAppBar(_selectedPage),
         body: PageView(
-          controller: _pageController,
-          onPageChanged: (value) => setState(() => _selectedPage = value),
-          // Create pages
-          children:
-              List<Scaffold>.generate(_pageAmount, (index) => _createPage()),
-        ),
+            controller: _pageController,
+            onPageChanged: (value) => setState(() => _selectedPage = value),
+            // Create pages
+            children: [
+              projectsContent(context),
+              marketplaceContent(context),
+              profileContent(context),
+            ]),
         bottomNavigationBar:
             //createBottomNavigationBar(_selectedPage, _pageController)),
             BottomNavigationBar(
@@ -69,8 +71,8 @@ class _HomeState extends State<Home> {
                 showUnselectedLabels: true,
                 // Change page tap page number
                 onTap: (value) => _pageController.animateToPage(value,
-                    duration: const Duration(microseconds: 250000),
-                    curve: Curves.fastOutSlowIn),
+                    duration: const Duration(microseconds: 150000),
+                    curve: Curves.linear),
                 // Create page numbers
                 items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
