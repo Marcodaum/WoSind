@@ -32,12 +32,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  _createPage() => Scaffold(
+  /*_createPage() => Scaffold(
       body: _selectedPage == 0
           ? projectsContent(context)
           : _selectedPage == 1
               ? marketplaceContent(context)
-              : profileContent(context));
+              : profileContent(context));*/
 
   final int _pageAmount = 3;
 
