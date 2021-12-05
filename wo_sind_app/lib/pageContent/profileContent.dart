@@ -44,6 +44,24 @@ List<Row> profileContentRows(BuildContext context) {
       ),
     ],
   );
+  Row nameRow = Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Expanded(
+        child: Container(
+            margin: const EdgeInsets.only(top: 5.0, bottom: 25.0),
+            child: const Text(
+              "Max Mustermann - Ingolstadt",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                color: mainColors.Text_black,
+              ),
+              textAlign: TextAlign.center,
+            )),
+      )
+    ],
+  );
   Row dividerRow1 = mainLayout().dividerRow();
   Row messagesRow = Row(
     crossAxisAlignment: CrossAxisAlignment.center,
@@ -126,6 +144,7 @@ List<Row> profileContentRows(BuildContext context) {
   );
   Row dividerRow5 = mainLayout().dividerRow();
   rows.add(profilePictureRow);
+  rows.add(nameRow);
   rows.add(dividerRow1);
   rows.add(messagesRow);
   rows.add(dividerRow2);
@@ -141,31 +160,3 @@ List<Row> profileContentRows(BuildContext context) {
 ListView profileContent(BuildContext context) {
   return ListView(children: profileContentRows(context));
 }
-/*GridView profileContent(BuildContext context) {
-  return GridView.count(
-    primary: false,
-    padding: const EdgeInsets.all(20),
-    crossAxisSpacing: 10,
-    mainAxisSpacing: 10,
-    crossAxisCount: 1,
-    childAspectRatio: 3,
-    children: <Widget>[
-      Container(
-        width: 300.0,
-        height: 300.0,
-        margin: const EdgeInsets.all(.0),
-        padding: const EdgeInsets.all(12.5),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          //borderRadius: BorderRadius.circular(10.0),
-          border: Border.all(
-            color: mainColors.selector_light_green,
-            width: 5,
-          ),
-        ),
-        child: Image.asset('assets/profilePicture.png'),
-      )
-    ],
-  );
-}
-*/
