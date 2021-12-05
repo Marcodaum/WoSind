@@ -25,6 +25,7 @@ List<Row> profileContentRows(BuildContext context) {
         padding: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
+          boxShadow: [mainLayout.boxShadow],
           //borderRadius: BorderRadius.circular(10.0),
           border: Border.all(
             color: mainColors.selector_light_green,
@@ -135,6 +136,7 @@ List<Row> profileContentRows(BuildContext context) {
   rows.add(dividerRow4);
   rows.add(editRow);
   rows.add(dividerRow5);
+
   return rows;
 }
 

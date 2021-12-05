@@ -69,7 +69,7 @@ class _HomeState extends State<Home> {
                 showUnselectedLabels: true,
                 // Change page tap page number
                 onTap: (value) => _pageController.animateToPage(value,
-                    duration: const Duration(microseconds: 250000),
+                    duration: const Duration(microseconds: 1),
                     curve: Curves.fastOutSlowIn),
                 // Create page numbers
                 items: const <BottomNavigationBarItem>[
