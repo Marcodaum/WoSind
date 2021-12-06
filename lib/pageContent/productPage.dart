@@ -56,7 +56,7 @@ class ProductPage extends State<Screen2> with Instruction {
           SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 220, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(0, 200, 0, 0),
                   child: Stack(
                     children: [
                       Padding(
@@ -296,6 +296,198 @@ class ProductPage extends State<Screen2> with Instruction {
                   },
                 ),
               )),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                    height: MediaQuery.of(context).size.height / 4,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      borderRadius: mainLayout.borderRadiusTop,
+                      boxShadow: [
+                        mainLayout.boxShadow,
+                      ],
+                      shape: BoxShape.rectangle,
+                      color: mainColors.background,
+                    ),
+                    child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                        child: Column(
+                          children: [
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      child: AspectRatio(
+                                          aspectRatio: 16 / 11,
+                                          child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              child: FittedBox(
+                                                fit: BoxFit.fill,
+                                                child: Image.asset(
+                                                  detail_images[0],
+                                                ),
+                                              )))),
+                                  const SizedBox(width: 15), // give it width
+
+                                  SizedBox(
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      child: AspectRatio(
+                                          aspectRatio: 16 / 11,
+                                          child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              child: FittedBox(
+                                                fit: BoxFit.fill,
+                                                child: Image.asset(
+                                                  detail_images[1],
+                                                ),
+                                              )))),
+                                  const SizedBox(width: 15), // give it width
+
+                                  SizedBox(
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      child: AspectRatio(
+                                          aspectRatio: 16 / 11,
+                                          child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              child: FittedBox(
+                                                fit: BoxFit.fill,
+                                                child: Image.asset(
+                                                  detail_images[2],
+                                                ),
+                                              )))),
+                                  const SizedBox(width: 15), // give it width
+
+                                  SizedBox(
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      child: AspectRatio(
+                                          aspectRatio: 16 / 11,
+                                          child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              child: FittedBox(
+                                                fit: BoxFit.fill,
+                                                child: Image.asset(
+                                                  detail_images[0],
+                                                ),
+                                              )))),
+                                  const SizedBox(width: 15), // give it width
+
+                                  SizedBox(
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      child: AspectRatio(
+                                          aspectRatio: 16 / 11,
+                                          child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              child: FittedBox(
+                                                fit: BoxFit.fill,
+                                                child: Image.asset(
+                                                  detail_images[0],
+                                                ),
+                                              )))),
+                                  const SizedBox(width: 15), // give it width
+
+                                  SizedBox(
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      child: AspectRatio(
+                                          aspectRatio: 16 / 11,
+                                          child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                              child: FittedBox(
+                                                fit: BoxFit.fill,
+                                                child: Image.asset(
+                                                  detail_images[0],
+                                                ),
+                                              )))),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                              child: Stack(
+                                children: [
+                                  Align(
+                                      alignment: Alignment.topLeft,
+                                      child: ConstrainedBox(
+                                          constraints: BoxConstraints.tightFor(
+                                            width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    2 -
+                                                30,
+                                            height: 60,
+                                          ),
+                                          child: ElevatedButton(
+                                            onPressed: () {},
+                                            style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty.all(
+                                                        mainColors.main_btn),
+                                                shape: MaterialStateProperty.all<
+                                                        RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          18.0),
+                                                ))),
+                                            child: const Text(
+                                              "buy selected",
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                              ),
+                                            ),
+                                          ))),
+                                  Align(
+                                      alignment: Alignment.topRight,
+                                      child: ConstrainedBox(
+                                          constraints: BoxConstraints.tightFor(
+                                            width: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    2 -
+                                                30,
+                                            height: 60,
+                                          ),
+                                          child: ElevatedButton(
+                                            onPressed: () {},
+                                            style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty.all(
+                                                        mainColors.main_btn),
+                                                shape: MaterialStateProperty.all<
+                                                        RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          18.0),
+                                                ))),
+                                            child: const Text(
+                                              "buy all",
+                                              style: TextStyle(
+                                                fontSize: 18,
+                                              ),
+                                            ),
+                                          ))),
+                                ],
+                              ),
+                            )
+                          ],
+                        )))),
+          )
         ],
       ),
     );
