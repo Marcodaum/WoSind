@@ -22,3 +22,23 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 .vscode/launch.json
+.dart_tool/flutter_build/518e48dbcece36977846c23abb4603ce/.filecache
+.dart_tool/flutter_build/518e48dbcece36977846c23abb4603ce/app.dill
+.dart_tool/flutter_build/518e48dbcece36977846c23abb4603ce/debug_ios_bundle_flutter_assets.stamp
+.dart_tool/flutter_build/518e48dbcece36977846c23abb4603ce/flutter_assets.d
+.dart_tool/flutter_build/518e48dbcece36977846c23abb4603ce/kernel_snapshot.d
+.dart_tool/flutter_build/518e48dbcece36977846c23abb4603ce/kernel_snapshot.stamp
+build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill
+build/ios/Debug-iphonesimulator/App.framework/App
+build/ios/Debug-iphonesimulator/App.framework/_CodeSignature/CodeResources
+build/ios/Debug-iphonesimulator/App.framework/flutter_assets/kernel_blob.bin
+build/ios/Debug-iphonesimulator/Runner.app/Runner
+build/ios/Debug-iphonesimulator/Runner.app/_CodeSignature/CodeResources
+build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/App
+build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources
+build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin
+build/ios/iphonesimulator/Runner.app/Runner
+build/ios/iphonesimulator/Runner.app/_CodeSignature/CodeResources
+build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/App
+build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/_CodeSignature/CodeResources
+build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/kernel_blob.bin

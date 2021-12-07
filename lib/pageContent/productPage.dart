@@ -6,8 +6,11 @@ import '../main.dart';
 import '../GUI/mainColors.dart';
 import '../GUI/mainLayout.dart';
 import '../InstructionClasses/Instruction.dart';
+import 'elements/PictureSelect.dart';
+import 'elements/detailedImages.dart';
 
-class ProductPage extends State<Screen2> with Instruction {
+class ProductPage extends State<Screen2>
+    with Instruction, TickerProviderStateMixin {
   ProductPage(List<String> images, String title, String subtitle, String date,
       String description, List<String> detail_images) {
     this.images = images;
@@ -17,15 +20,13 @@ class ProductPage extends State<Screen2> with Instruction {
     this.description = description;
     this.detail_images = detail_images;
   }
-  static final _containerHeight = 100.0;
+  List<bool> isSelected = [true, true, true, true];
+  static final _containerHeight = 200.0;
 
   // You don't need to change any of these variables
-  var _fromTop = -_containerHeight;
   var _controller = ScrollController();
-  var _allowReverse = true, _allowForward = true;
-  var _prevOffset = 0.0;
-  var _prevForwardOffset = -_containerHeight;
-  var _prevReverseOffset = 0.0;
+  bool reversed = true;
+  bool opacity = true;
 
   @override
   void initState() {
@@ -33,36 +34,32 @@ class ProductPage extends State<Screen2> with Instruction {
     _controller.addListener(_listener);
   }
 
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   // entire logic is inside this listener for ListView
   void _listener() {
-    double offset = _controller.offset;
     var direction = _controller.position.userScrollDirection;
 
     if (direction == ScrollDirection.reverse) {
-      _allowForward = true;
-      if (_allowReverse) {
-        _allowReverse = false;
-        _prevOffset = offset;
-        _prevForwardOffset = _fromTop;
+      if (reversed) {
+        setState(() {
+          opacity = false;
+        });
+        reversed = !reversed;
       }
-
-      var difference = offset - _prevOffset;
-      _fromTop = _prevForwardOffset + difference;
-      if (_fromTop > 0) _fromTop = 0;
     } else if (direction == ScrollDirection.forward) {
-      _allowReverse = true;
-      if (_allowForward) {
-        _allowForward = false;
-        _prevOffset = offset;
-        _prevReverseOffset = _fromTop;
+      if (!reversed) {
+        setState(() {
+          opacity = true;
+        });
+        reversed = !reversed;
       }
-
-      var difference = offset - _prevOffset;
-      _fromTop = _prevReverseOffset + difference;
-      if (_fromTop < -_containerHeight) _fromTop = -_containerHeight;
     }
-    setState(
-        () {}); // for simplicity I'm calling setState here, you can put bool values to only call setState when there is a genuine change in _fromTop
+    // for simplicity I'm calling setState here, you can put bool values to only call setState when there is a genuine change in _fromTop
   }
 
   @override
@@ -217,92 +214,15 @@ class ProductPage extends State<Screen2> with Instruction {
                                             ),
                                             height: 300,
                                             child: ListView(
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                shrinkWrap: true,
-                                                children: <Widget>[
-                                                  Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width -
-                                                              80,
-                                                      decoration: BoxDecoration(
-                                                          color: mainColors
-                                                              .background,
-                                                          borderRadius: mainLayout
-                                                              .borderRadiusAll),
-                                                      child: AspectRatio(
-                                                          aspectRatio: 16 / 9,
-                                                          child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10.0),
-                                                              child: FittedBox(
-                                                                fit:
-                                                                    BoxFit.fill,
-                                                                child:
-                                                                    Image.asset(
-                                                                  detail_images[
-                                                                      0],
-                                                                ),
-                                                              )))),
-                                                  Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width -
-                                                              80,
-                                                      decoration: BoxDecoration(
-                                                          color: mainColors
-                                                              .background,
-                                                          borderRadius: mainLayout
-                                                              .borderRadiusAll),
-                                                      child: AspectRatio(
-                                                          aspectRatio: 16 / 9,
-                                                          child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10.0),
-                                                              child: FittedBox(
-                                                                fit:
-                                                                    BoxFit.fill,
-                                                                child:
-                                                                    Image.asset(
-                                                                  detail_images[
-                                                                      1],
-                                                                ),
-                                                              )))),
-                                                  Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width -
-                                                              80,
-                                                      decoration: BoxDecoration(
-                                                          color: mainColors
-                                                              .background,
-                                                          borderRadius: mainLayout
-                                                              .borderRadiusAll),
-                                                      child: AspectRatio(
-                                                          aspectRatio: 16 / 9,
-                                                          child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10.0),
-                                                              child: FittedBox(
-                                                                fit:
-                                                                    BoxFit.fill,
-                                                                child:
-                                                                    Image.asset(
-                                                                  detail_images[
-                                                                      2],
-                                                                ),
-                                                              )))),
-                                                ]),
+                                              scrollDirection: Axis.horizontal,
+                                              shrinkWrap: true,
+                                              children: List.generate(
+                                                  detail_images.length,
+                                                  (index) => detailedImages(
+                                                          detail_images)
+                                                      .scrollBar(
+                                                          context, index)),
+                                            ),
                                           ),
                                         )
                                       ]),
@@ -355,8 +275,9 @@ class ProductPage extends State<Screen2> with Instruction {
               )),
           Align(
             alignment: Alignment.bottomLeft,
-            child: Opacity(
-              opacity: (-_fromTop / _containerHeight),
+            child: AnimatedOpacity(
+              opacity: opacity ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 200),
               child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Container(
@@ -370,7 +291,7 @@ class ProductPage extends State<Screen2> with Instruction {
                             spreadRadius: 40,
                             blurRadius: 70,
                             offset: const Offset(
-                                0, 3), // changes position of shadow
+                                3, 0), // changes position of shadow
                           )
                         ],
                         shape: BoxShape.rectangle,
@@ -380,111 +301,15 @@ class ProductPage extends State<Screen2> with Instruction {
                           padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
                           child: Column(
                             children: [
-                              SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  children: [
-                                    SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                4,
-                                        child: AspectRatio(
-                                            aspectRatio: 16 / 11,
-                                            child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                                child: FittedBox(
-                                                  fit: BoxFit.fill,
-                                                  child: Image.asset(
-                                                    detail_images[0],
-                                                  ),
-                                                )))),
-                                    const SizedBox(width: 15), // give it width
-
-                                    SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                4,
-                                        child: AspectRatio(
-                                            aspectRatio: 16 / 11,
-                                            child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                                child: FittedBox(
-                                                  fit: BoxFit.fill,
-                                                  child: Image.asset(
-                                                    detail_images[1],
-                                                  ),
-                                                )))),
-                                    const SizedBox(width: 15), // give it width
-
-                                    SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                4,
-                                        child: AspectRatio(
-                                            aspectRatio: 16 / 11,
-                                            child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                                child: FittedBox(
-                                                  fit: BoxFit.fill,
-                                                  child: Image.asset(
-                                                    detail_images[2],
-                                                  ),
-                                                )))),
-                                    const SizedBox(width: 15), // give it width
-
-                                    SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                4,
-                                        child: AspectRatio(
-                                            aspectRatio: 16 / 11,
-                                            child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                                child: FittedBox(
-                                                  fit: BoxFit.fill,
-                                                  child: Image.asset(
-                                                    detail_images[0],
-                                                  ),
-                                                )))),
-                                    const SizedBox(width: 15), // give it width
-
-                                    SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                4,
-                                        child: AspectRatio(
-                                            aspectRatio: 16 / 11,
-                                            child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                                child: FittedBox(
-                                                  fit: BoxFit.fill,
-                                                  child: Image.asset(
-                                                    detail_images[0],
-                                                  ),
-                                                )))),
-                                    const SizedBox(width: 15), // give it width
-
-                                    SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                4,
-                                        child: AspectRatio(
-                                            aspectRatio: 16 / 11,
-                                            child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                                child: FittedBox(
-                                                  fit: BoxFit.fill,
-                                                  child: Image.asset(
-                                                    detail_images[0],
-                                                  ),
-                                                )))),
-                                  ],
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height / 14,
+                                child: ListView(
+                                  scrollDirection: Axis.horizontal,
+                                  shrinkWrap: true,
+                                  children: List.generate(
+                                      detail_images.length,
+                                      (index) => PictureSelect(detail_images)
+                                          .scrollBar(context, index)),
                                 ),
                               ),
                               Padding(
@@ -517,7 +342,7 @@ class ProductPage extends State<Screen2> with Instruction {
                                                             18.0),
                                                   ))),
                                               child: const Text(
-                                                "buy selected",
+                                                "alle leihen",
                                                 style: TextStyle(
                                                   fontSize: 18,
                                                 ),
@@ -549,7 +374,7 @@ class ProductPage extends State<Screen2> with Instruction {
                                                             18.0),
                                                   ))),
                                               child: const Text(
-                                                "buy all",
+                                                "auswahl leihen",
                                                 style: TextStyle(
                                                   fontSize: 18,
                                                 ),

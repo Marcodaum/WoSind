@@ -96,12 +96,9 @@ class Screen2 extends StatefulWidget {
 
 // The data inserted in the constructor should later be called from the server -> Therefore it's currently okay to use constant Strings / Lists.
   @override
+  // ignore: no_logic_in_create_state
   ProductPage createState() => ProductPage(
-      [
-        "assets/Download.jpeg",
-        "assets/Pool_2-1024x683.jpeg",
-        "assets/unnamed.jpeg"
-      ],
+      ["assets/unnamed.jpeg"],
       "Poolbau",
       "Schwierigkeitsgrad mittel",
       " ",
@@ -109,6 +106,8 @@ class Screen2 extends StatefulWidget {
       [
         "assets/Download.jpeg",
         "assets/Pool_2-1024x683.jpeg",
-        "assets/unnamed.jpeg"
+        "assets/unnamed.jpeg",
+        "assets/heizungstechnik-schueller-pool-mit-wartungsluke.jpeg",
+        "assets/poolbau-desjoyaux-1024x624.jpeg"
       ]);
 }
