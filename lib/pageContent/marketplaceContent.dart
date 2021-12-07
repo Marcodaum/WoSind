@@ -176,25 +176,6 @@ Row marketplaceEntry() {
           onPressed: () {},
         ),
       ),
-      /*SizedBox(
-        height: 50,
-        width: 150,
-        child: TextButton(
-          style: TextButton.styleFrom(
-              padding: EdgeInsets.zero, alignment: Alignment.centerLeft),
-          child: const Align(
-              alignment: Alignment.center,
-              child: Text(
-                "Hammer",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                  color: mainColors.Text_black,
-                ),
-              )),
-          onPressed: () {},
-        ),
-      ),*/
     ],
   );
 }
