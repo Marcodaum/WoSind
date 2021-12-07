@@ -1,4 +1,0 @@
-#Tue Dec 07 21:11:11 CET 2021
-base.0=/Users/marcodaum/dev/WoSind/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
