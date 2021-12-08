@@ -56,7 +56,7 @@ Align createChild() {
 
 List<Row> marketplaceContentRows(BuildContext context) {
   List<Row> rows = <Row>[];
-  Row entry1 = marketplaceEntry();
+  Row entry1 = marketplaceEntry(context);
   Row divider1 = mainLayout().dividerRow();
   Row divider2 = mainLayout().dividerRow();
   rows.add(divider1);
@@ -69,7 +69,7 @@ ListView marketplaceContent(BuildContext context) {
   return ListView(children: marketplaceContentRows(context));
 }
 
-Row marketplaceEntry() {
+Row marketplaceEntry(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
@@ -173,7 +173,12 @@ Row marketplaceEntry() {
                           ),
                         )),
                   ])),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Screen2()),
+            );
+          },
         ),
       ),
     ],

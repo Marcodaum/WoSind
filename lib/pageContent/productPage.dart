@@ -273,120 +273,126 @@ class ProductPage extends State<Screen2>
                   },
                 ),
               )),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: AnimatedOpacity(
-              opacity: opacity ? 1.0 : 0.0,
-              duration: const Duration(milliseconds: 200),
-              child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: Container(
-                      height: MediaQuery.of(context).size.height / 4,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        borderRadius: mainLayout.borderRadiusTop,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.white.withOpacity(1),
-                            spreadRadius: 40,
-                            blurRadius: 70,
-                            offset: const Offset(
-                                3, 0), // changes position of shadow
-                          )
-                        ],
-                        shape: BoxShape.rectangle,
-                        color: mainColors.background,
-                      ),
-                      child: Padding(
-                          padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 14,
-                                child: ListView(
-                                  scrollDirection: Axis.horizontal,
-                                  shrinkWrap: true,
-                                  children: List.generate(
-                                      detail_images.length,
-                                      (index) => PictureSelect(detail_images)
-                                          .scrollBar(context, index)),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                                child: Stack(
-                                  children: [
-                                    Align(
-                                        alignment: Alignment.topLeft,
-                                        child: ConstrainedBox(
-                                            constraints:
-                                                BoxConstraints.tightFor(
-                                              width: MediaQuery.of(context)
-                                                          .size
-                                                          .width /
-                                                      2 -
-                                                  30,
-                                              height: 60,
-                                            ),
-                                            child: ElevatedButton(
-                                              onPressed: () {},
-                                              style: ButtonStyle(
-                                                  backgroundColor:
-                                                      MaterialStateProperty.all(
-                                                          mainColors.main_btn),
-                                                  shape: MaterialStateProperty
-                                                      .all<RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            18.0),
-                                                  ))),
-                                              child: const Text(
-                                                "alle leihen",
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                ),
-                                              ),
-                                            ))),
-                                    Align(
-                                        alignment: Alignment.topRight,
-                                        child: ConstrainedBox(
-                                            constraints:
-                                                BoxConstraints.tightFor(
-                                              width: MediaQuery.of(context)
-                                                          .size
-                                                          .width /
-                                                      2 -
-                                                  30,
-                                              height: 60,
-                                            ),
-                                            child: ElevatedButton(
-                                              onPressed: () {},
-                                              style: ButtonStyle(
-                                                  backgroundColor:
-                                                      MaterialStateProperty.all(
-                                                          mainColors.main_btn),
-                                                  shape: MaterialStateProperty
-                                                      .all<RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            18.0),
-                                                  ))),
-                                              child: const Text(
-                                                "auswahl leihen",
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                ),
-                                              ),
-                                            ))),
-                                  ],
-                                ),
+          IgnorePointer(
+              ignoring: !opacity,
+              child: AnimatedOpacity(
+                opacity: opacity ? 1.0 : 0.0,
+                duration: const Duration(milliseconds: 200),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: Container(
+                          height: MediaQuery.of(context).size.height / 4,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            borderRadius: mainLayout.borderRadiusTop,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.white.withOpacity(1),
+                                spreadRadius: 40,
+                                blurRadius: 70,
+                                offset: const Offset(
+                                    3, 0), // changes position of shadow
                               )
                             ],
-                          )))),
-            ),
-          ),
+                            shape: BoxShape.rectangle,
+                            color: mainColors.background,
+                          ),
+                          child: Padding(
+                              padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    height:
+                                        MediaQuery.of(context).size.height / 14,
+                                    child: ListView(
+                                      scrollDirection: Axis.horizontal,
+                                      shrinkWrap: true,
+                                      children: List.generate(
+                                          detail_images.length,
+                                          (index) =>
+                                              PictureSelect(detail_images)
+                                                  .scrollBar(context, index)),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                                    child: Stack(
+                                      children: [
+                                        Align(
+                                            alignment: Alignment.topLeft,
+                                            child: ConstrainedBox(
+                                                constraints:
+                                                    BoxConstraints.tightFor(
+                                                  width: MediaQuery.of(context)
+                                                              .size
+                                                              .width /
+                                                          2 -
+                                                      30,
+                                                  height: 60,
+                                                ),
+                                                child: ElevatedButton(
+                                                  onPressed: () {},
+                                                  style: ButtonStyle(
+                                                      backgroundColor:
+                                                          MaterialStateProperty
+                                                              .all(mainColors
+                                                                  .main_btn),
+                                                      shape: MaterialStateProperty.all<
+                                                              RoundedRectangleBorder>(
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(18.0),
+                                                      ))),
+                                                  child: const Text(
+                                                    "alle leihen",
+                                                    style: TextStyle(
+                                                      fontSize: 18,
+                                                    ),
+                                                  ),
+                                                ))),
+                                        Align(
+                                            alignment: Alignment.topRight,
+                                            child: ConstrainedBox(
+                                                constraints:
+                                                    BoxConstraints.tightFor(
+                                                  width: MediaQuery.of(context)
+                                                              .size
+                                                              .width /
+                                                          2 -
+                                                      30,
+                                                  height: 60,
+                                                ),
+                                                child: ElevatedButton(
+                                                  onPressed: () {},
+                                                  style: ButtonStyle(
+                                                      backgroundColor:
+                                                          MaterialStateProperty
+                                                              .all(mainColors
+                                                                  .main_btn),
+                                                      shape: MaterialStateProperty.all<
+                                                              RoundedRectangleBorder>(
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(18.0),
+                                                      ))),
+                                                  child: const Text(
+                                                    "auswahl leihen",
+                                                    style: TextStyle(
+                                                      fontSize: 18,
+                                                    ),
+                                                  ),
+                                                ))),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              )))),
+                ),
+              )),
         ],
       ),
     );
