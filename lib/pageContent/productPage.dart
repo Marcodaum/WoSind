@@ -11,9 +11,9 @@ import 'elements/detailedImages.dart';
 
 class ProductPage extends State<Screen2>
     with Instruction, TickerProviderStateMixin {
-  ProductPage(List<String> images, String title, String subtitle, String date,
+  ProductPage(String title_image, String title, String subtitle, String date,
       String description, List<String> detail_images) {
-    this.images = images;
+    this.title_image = title_image;
     this.subtitle = subtitle;
     this.title = title;
     this.date = date;
@@ -27,6 +27,10 @@ class ProductPage extends State<Screen2>
   var _controller = ScrollController();
   bool reversed = true;
   bool opacity = true;
+
+// These variables control the sensitivity of the select bar at the bottom
+  int counter_up = 0;
+  int counter_down = 0;
 
   @override
   void initState() {
@@ -43,22 +47,24 @@ class ProductPage extends State<Screen2>
   // entire logic is inside this listener for ListView
   void _listener() {
     var direction = _controller.position.userScrollDirection;
-
     if (direction == ScrollDirection.reverse) {
-      if (reversed) {
+      counter_up = 0;
+      counter_down++;
+      if (counter_down > 25) {
         setState(() {
           opacity = false;
         });
-        reversed = !reversed;
       }
     } else if (direction == ScrollDirection.forward) {
-      if (!reversed) {
+      counter_down = 0;
+      counter_up++;
+      if (counter_up > 25) {
         setState(() {
           opacity = true;
         });
-        reversed = !reversed;
       }
     }
+
     // for simplicity I'm calling setState here, you can put bool values to only call setState when there is a genuine change in _fromTop
   }
 
@@ -79,21 +85,10 @@ class ProductPage extends State<Screen2>
                           aspectRatio: 16 / 15,
                           child: FittedBox(
                             fit: BoxFit.cover,
-                            child: Image.asset(images.last),
+                            child: Image.asset(title_image),
                           ),
                         ),
                       ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          child: AspectRatio(
-                            aspectRatio: 16 / 15,
-                            child: FittedBox(
-                              fit: BoxFit.cover,
-                              child: Image.asset(
-                                images.first,
-                              ),
-                            ),
-                          ))
                     ],
                   )),
             ],
@@ -122,7 +117,7 @@ class ProductPage extends State<Screen2>
                                       child: Column(children: [
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                              40, 40, 0, 0),
+                                              20, 40, 0, 0),
                                           child: Column(
                                             children: [
                                               Align(
@@ -138,7 +133,7 @@ class ProductPage extends State<Screen2>
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                              40, 7, 0, 0),
+                                              20, 7, 0, 0),
                                           child: Column(
                                             children: [
                                               Align(
@@ -157,7 +152,7 @@ class ProductPage extends State<Screen2>
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                              40, 30, 0, 0),
+                                              20, 30, 0, 0),
                                           child: Column(
                                             children: const [
                                               Align(
@@ -173,7 +168,7 @@ class ProductPage extends State<Screen2>
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                              40, 30, 0, 0),
+                                              20, 30, 0, 0),
                                           child: Column(
                                             children: const [
                                               Align(
@@ -187,26 +182,23 @@ class ProductPage extends State<Screen2>
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                              40, 7, 40, 40),
+                                              20, 7, 20, 20),
                                           child: Column(
                                             children: [
                                               Align(
                                                 alignment: Alignment.center,
                                                 child: Text(
                                                   description,
-                                                  style: const TextStyle(
-                                                    fontSize: 15,
-                                                    color: mainColors
-                                                        .Text_description_grey,
-                                                  ),
+                                                  style: mainLayout
+                                                      .projectDescription,
                                                 ),
-                                              ),
+                                              )
                                             ],
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                              40, 7, 40, 40),
+                                              20, 7, 20, 20),
                                           child: Container(
                                             decoration: BoxDecoration(
                                               borderRadius:
@@ -250,29 +242,25 @@ class ProductPage extends State<Screen2>
                     ))
               ]),
           Padding(
-              padding: const EdgeInsets.fromLTRB(20, 40, 0, 0),
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    mainLayout.boxShadow,
-                  ],
-                  shape: BoxShape.circle,
-                  color: mainColors.main_btn,
-                ),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    size: 25,
-                    color: mainColors.background,
-                  ),
-                  onPressed: () {
-                    Navigator.pop(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Home()),
-                    );
-                  },
-                ),
-              )),
+            padding: const EdgeInsets.fromLTRB(20, 60, 0, 0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                  padding: EdgeInsets.all(10),
+                  primary: mainColors.main_btn),
+              child: const Icon(
+                Icons.arrow_back,
+                size: 25,
+                color: mainColors.background,
+              ),
+              onPressed: () {
+                Navigator.pop(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Home()),
+                );
+              },
+            ),
+          ),
           IgnorePointer(
               ignoring: !opacity,
               child: AnimatedOpacity(
@@ -283,7 +271,7 @@ class ProductPage extends State<Screen2>
                   child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Container(
-                          height: MediaQuery.of(context).size.height / 4,
+                          height: MediaQuery.of(context).size.height / 5.2,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                             borderRadius: mainLayout.borderRadiusTop,
@@ -300,7 +288,7 @@ class ProductPage extends State<Screen2>
                             color: mainColors.background,
                           ),
                           child: Padding(
-                              padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+                              padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
                               child: Column(
                                 children: [
                                   SizedBox(
@@ -330,7 +318,7 @@ class ProductPage extends State<Screen2>
                                                               .width /
                                                           2 -
                                                       30,
-                                                  height: 60,
+                                                  height: 50,
                                                 ),
                                                 child: ElevatedButton(
                                                   onPressed: () {},
@@ -363,7 +351,7 @@ class ProductPage extends State<Screen2>
                                                               .width /
                                                           2 -
                                                       30,
-                                                  height: 60,
+                                                  height: 50,
                                                 ),
                                                 child: ElevatedButton(
                                                   onPressed: () {},

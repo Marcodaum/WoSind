@@ -2,7 +2,7 @@
 import '../pageContent/elements/PictureSelect.dart';
 
 class Instruction {
-  List images = [""];
+  String title_image = " ";
   String title = "";
   String subtitle = "";
   String date = "";

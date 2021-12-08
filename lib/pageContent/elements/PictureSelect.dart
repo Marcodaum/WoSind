@@ -18,7 +18,7 @@ class PictureSelect {
           SizedBox(
             width: MediaQuery.of(context).size.width / 4,
             child: AspectRatio(
-                aspectRatio: 16 / 11,
+                aspectRatio: 16 / 9,
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
                     child: FittedBox(
@@ -35,7 +35,7 @@ class PictureSelect {
     return SizedBox(
       width: MediaQuery.of(context).size.width / 4,
       child: AspectRatio(
-          aspectRatio: 16 / 11,
+          aspectRatio: 16 / 9,
           child: ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
               child: FittedBox(

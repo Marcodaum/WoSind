@@ -14,17 +14,19 @@ class mainLayout {
     fontWeight: FontWeight.bold,
     fontSize: 20,
     color: mainColors.Text_white,
+    fontFamily: 'Montserrat-Light',
   );
 
   static const TextStyle projectPageHedlines = TextStyle(
-    fontWeight: FontWeight.bold,
-    fontSize: 20,
+    fontSize: 25,
     color: mainColors.Text_black,
+    fontFamily: 'Montserrat-Medium',
   );
 
   static const TextStyle projectDescription = TextStyle(
     fontSize: 15,
     color: mainColors.Text_description_grey,
+    fontFamily: 'Montserrat-Medium',
   );
 
   static BoxShadow boxShadow = BoxShadow(
