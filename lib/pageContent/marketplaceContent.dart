@@ -1,8 +1,6 @@
-// ignore: file_names
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import '../GUI/topAppBar.dart';
 import '../GUI/mainLayout.dart';
 import '../GUI/bottomNavigationBar.dart';
 import './productPage.dart';
@@ -16,7 +14,7 @@ ElevatedButton createElevatedButton(BuildContext context, Color color) {
   return ElevatedButton(
       onPressed: () {
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => Screen2()));
+            .push(MaterialPageRoute(builder: (context) => const Screen2()));
       },
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(color),

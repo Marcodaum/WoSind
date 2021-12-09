@@ -1,21 +1,22 @@
+// ignore_for_file: no_logic_in_create_state
+
 import 'package:flutter/material.dart';
 import 'package:wo_sind_app/GUI/mainColors.dart';
 import 'package:wo_sind_app/GUI/topAppBar.dart';
 // main.dart
 
-import 'package:flutter/material.dart';
-
 import '../GUI/topAppBar.dart';
-import '../GUI/bottomNavigationBar.dart';
 import '../pageContent/marketplaceContent.dart';
 import '../pageContent/projectsContent.dart';
 import '../pageContent/productPage.dart';
 import '../pageContent/profileContent.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 /// This Widget is the main application widget.
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -32,15 +33,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  /*_createPage() => Scaffold(
-      body: _selectedPage == 0
-          ? projectsContent(context)
-          : _selectedPage == 1
-              ? marketplaceContent(context)
-              : profileContent(context));*/
-
-  final int _pageAmount = 3;
-
   final _pageController = PageController(initialPage: 1);
   int _selectedPage = 1;
 
@@ -86,6 +78,10 @@ class _HomeState extends State<Home> {
               BottomNavigationBarItem(
                 icon: Icon(Icons.person),
                 label: 'Profil',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings_outlined),
+                label: 'Einstellungen',
               ),
             ]));
   }
