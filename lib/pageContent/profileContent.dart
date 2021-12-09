@@ -6,7 +6,7 @@ import '../GUI/mainLayout.dart';
 
 List<Row> profileContentRows(BuildContext context) {
   List<Row> rows = <Row>[];
-  /*Row profilePictureRow = Row(
+  Row profilePictureRow = Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       const Text(
@@ -155,7 +155,6 @@ List<Row> profileContentRows(BuildContext context) {
   rows.add(dividerRow4);
   rows.add(editRow);
   rows.add(dividerRow5);
-*/
   return rows;
 }
 

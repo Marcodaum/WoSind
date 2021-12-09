@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import '../GUI/mainLayout.dart';
 import '../GUI/mainColors.dart';
-
 import '../main.dart';
 
 const i = 0;
@@ -50,17 +49,68 @@ Align createChild() {
       ]);
 }*/
 
-List<Row> marketplaceContentRows(BuildContext context) {
-  List<Row> rows = <Row>[];
+List<Widget> marketplaceContentRows(BuildContext context) {
+  List<Widget> widgets = <Widget>[];
   //Row entry1 = marketplaceEntry(context);
   //Row divider1 = mainLayout().dividerRow();
   //Row divider2 = mainLayout().dividerRow();
   //rows.add(divider1);
   //rows.add(entry1);
   //rows.add(divider2);
-  Row searchBar = searchBarRow();
-  rows.add(searchBar);
-  return rows;
+  RoundedSearchInput searchBar = RoundedSearchInput(
+      hintText: "Bohrmaschine, Kettensäge, …",
+      textController: TextEditingController());
+  Row placeholderRow1 = placeholderRow();
+  Row placeholderRow2 = placeholderRow();
+  Row textRow1 = textRow();
+  Row buttonRow = Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      SizedBox(
+        width: 140,
+        height: 50,
+        child: TextButton(
+          child: const Text(
+            "Top Werkzeuge",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                //decoration: TextDecoration.underline,
+                fontSize: 15,
+                color: mainColors.Text_blue,
+                shadows: [
+                  Shadow(
+                    blurRadius: 100.0,
+                    color: Colors.grey,
+                    offset: Offset(5.0, 5.0),
+                  ),
+                ]),
+          ),
+          onPressed: () {},
+        ),
+      ),
+      SizedBox(
+        width: 140,
+        height: 50,
+        child: TextButton(
+          child: const Text(
+            "Top Projekte",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 15,
+              color: mainColors.Button_unselected,
+            ),
+          ),
+          onPressed: () {},
+        ),
+      )
+    ],
+  );
+  widgets.add(placeholderRow1);
+  widgets.add(textRow1);
+  widgets.add(searchBar);
+  widgets.add(buttonRow);
+  //widgets.add(search);
+  return widgets;
 }
 
 ListView marketplaceContent(BuildContext context) {
@@ -183,6 +233,96 @@ Row marketplaceEntry(BuildContext context) {
   );
 }
 
-Row searchBarRow() {
-  return Row(mainAxisAlignment: MainAxisAlignment.center, children: []);
+Row textRow() {
+  String test = "abc";
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: const [
+      Align(
+        alignment: Alignment.center,
+        child: Text(
+          "Finde deine Werkzeuge...",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+            color: mainColors.Text_blue,
+          ),
+        ),
+      )
+    ],
+  );
+}
+
+Row placeholderRow() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: const [
+      SizedBox(
+        height: 20,
+        width: 100,
+      ),
+    ],
+  );
+}
+
+class RoundedSearchInput extends StatelessWidget {
+  final TextEditingController textController;
+  final String hintText;
+  const RoundedSearchInput(
+      {required this.textController, required this.hintText, Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(
+          top: 30.0, right: 40.0, left: 40.0, bottom: 20.0),
+      padding: const EdgeInsets.all(0),
+      decoration: const BoxDecoration(boxShadow: [
+        BoxShadow(
+            offset: Offset(12, 26),
+            blurRadius: 1000,
+            spreadRadius: 1,
+            color: Colors.grey),
+      ]),
+      child: TextField(
+        controller: textController,
+        onChanged: (value) {
+          //Do something wi
+        },
+        decoration: InputDecoration(
+          suffixIcon: Container(
+            width: 20,
+            height: 20,
+            padding: const EdgeInsets.all(0),
+            margin: const EdgeInsets.only(top: 5, right: 10, bottom: 5),
+            child: const Icon(
+              Icons.search,
+              color: mainColors.selector_dark_green,
+              size: 25,
+            ),
+            decoration: const BoxDecoration(
+                shape: BoxShape.circle, color: mainColors.searchBarIcon_grey),
+          ),
+          filled: true,
+          fillColor: Colors.white,
+          hintText: hintText,
+          hintStyle: TextStyle(color: Colors.black.withOpacity(.25)),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+          border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(45.0)),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey[300]!, width: 1.0),
+            borderRadius: const BorderRadius.all(Radius.circular(45.0)),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey[400]!, width: 1.5),
+            borderRadius: const BorderRadius.all(Radius.circular(45.0)),
+          ),
+        ),
+      ),
+    );
+  }
 }
