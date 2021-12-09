@@ -35,6 +35,7 @@ class mainLayout {
     blurRadius: 7,
     offset: const Offset(0, 3), // changes position of shadow
   );
+
   Row dividerRow() {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       Expanded(
@@ -45,6 +46,21 @@ class mainLayout {
               height: 25,
               thickness: 0.25,
             )),
+      )
+    ]);
+  }
+
+  Row textRow(String text) {
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
+      Text(
+        "",
+        textAlign: TextAlign.left,
+        maxLines: 1,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
+          color: mainColors.Text_black,
+        ),
       )
     ]);
   }

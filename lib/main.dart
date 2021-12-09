@@ -93,7 +93,6 @@ class Screen2 extends StatefulWidget {
 
 // The data inserted in the constructor should later be called from the server -> Therefore it's currently okay to use constant Strings / Lists.
   @override
-  // ignore: no_logic_in_create_state
   ProductPage createState() => ProductPage(
           "assets/unnamed.jpeg",
           "Poolbau",

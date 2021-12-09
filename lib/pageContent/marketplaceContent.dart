@@ -52,12 +52,14 @@ Align createChild() {
 
 List<Row> marketplaceContentRows(BuildContext context) {
   List<Row> rows = <Row>[];
-  Row entry1 = marketplaceEntry(context);
-  Row divider1 = mainLayout().dividerRow();
-  Row divider2 = mainLayout().dividerRow();
-  rows.add(divider1);
-  rows.add(entry1);
-  rows.add(divider2);
+  //Row entry1 = marketplaceEntry(context);
+  //Row divider1 = mainLayout().dividerRow();
+  //Row divider2 = mainLayout().dividerRow();
+  //rows.add(divider1);
+  //rows.add(entry1);
+  //rows.add(divider2);
+  Row searchBar = searchBarRow();
+  rows.add(searchBar);
   return rows;
 }
 
@@ -179,4 +181,8 @@ Row marketplaceEntry(BuildContext context) {
       ),
     ],
   );
+}
+
+Row searchBarRow() {
+  return Row(mainAxisAlignment: MainAxisAlignment.center, children: []);
 }
