@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 import '../GUI/mainLayout.dart';
-import '../GUI/bottomNavigationBar.dart';
-import './productPage.dart';
 import '../GUI/mainColors.dart';
 
 import '../main.dart';
@@ -174,7 +172,7 @@ Row marketplaceEntry(BuildContext context) {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Screen2()),
+              MaterialPageRoute(builder: (context) => const Screen2()),
             );
           },
         ),

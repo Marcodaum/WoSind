@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers, unnecessary_this, non_constant_identifier_names, unused_import, file_names
+// ignore_for_file: avoid_unnecessary_containers, unnecessary_this, non_constant_identifier_names, unused_import, file_names, camel_case_types
 
 import 'package:flutter/material.dart';
 import '../../GUI/mainColors.dart';

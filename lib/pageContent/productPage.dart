@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, non_constant_identifier_names, unused_field
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -21,10 +21,10 @@ class ProductPage extends State<Screen2>
     this.detail_images = detail_images;
   }
   List<bool> isSelected = [true, true, true, true];
-  static final _containerHeight = 200.0;
+  static const _containerHeight = 200.0;
 
   // You don't need to change any of these variables
-  var _controller = ScrollController();
+  final _controller = ScrollController();
   bool reversed = true;
   bool opacity = true;
 
@@ -245,8 +245,8 @@ class ProductPage extends State<Screen2>
             padding: const EdgeInsets.fromLTRB(20, 60, 0, 0),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  shape: CircleBorder(),
-                  padding: EdgeInsets.all(10),
+                  shape: const CircleBorder(),
+                  padding: const EdgeInsets.all(10),
                   primary: mainColors.main_btn),
               child: const Icon(
                 Icons.arrow_back,
@@ -305,7 +305,8 @@ class ProductPage extends State<Screen2>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 20, 0, 0),
                                     child: Stack(
                                       children: [
                                         Align(
