@@ -35,7 +35,7 @@ Align createChild() {
           child: Text("Werkzeug", style: mainLayout.marketplaceHeadlineStyle)));
 }
 
-GridView marketplaceContent(BuildContext context) {
+/*GridView marketplaceContent(BuildContext context) {
   return GridView.count(
       primary: false,
       padding: const EdgeInsets.all(20),
@@ -50,4 +50,135 @@ GridView marketplaceContent(BuildContext context) {
         createElevatedButton(context, mainColors.selector_light_green),
         createElevatedButton(context, mainColors.selector_dark_green),
       ]);
+}*/
+
+List<Row> marketplaceContentRows(BuildContext context) {
+  List<Row> rows = <Row>[];
+  Row entry1 = marketplaceEntry(context);
+  Row divider1 = mainLayout().dividerRow();
+  Row divider2 = mainLayout().dividerRow();
+  rows.add(divider1);
+  rows.add(entry1);
+  rows.add(divider2);
+  return rows;
+}
+
+ListView marketplaceContent(BuildContext context) {
+  return ListView(children: marketplaceContentRows(context));
+}
+
+Row marketplaceEntry(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Container(
+        width: 100.0,
+        height: 100.0,
+        margin: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(15.0),
+        decoration: BoxDecoration(
+          boxShadow: [mainLayout.boxShadow],
+          //borderRadius: BorderRadius.circular(10.0),
+          border: Border.all(
+            color: mainColors.selector_light_green,
+            width: 2,
+          ),
+        ),
+        child: Image.asset('assets/hammer.png'),
+      ),
+      SizedBox(
+        height: 100,
+        width: 200,
+        child: TextButton(
+          style: TextButton.styleFrom(
+              padding: EdgeInsets.zero, alignment: Alignment.centerLeft),
+          child: Align(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const <Widget>[
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Hammer",
+                          textAlign: TextAlign.left,
+                          maxLines: 1,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: mainColors.Text_black,
+                          ),
+                        )),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "\t\t\tPrice: 69€",
+                          textAlign: TextAlign.left,
+                          maxLines: 1,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            color: mainColors.Text_description_grey,
+                          ),
+                        )),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "\t\t\tAvailability: 3 days",
+                          textAlign: TextAlign.left,
+                          maxLines: 1,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            color: mainColors.Text_description_grey,
+                          ),
+                        )),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "\t\t\tDuration: 1 week",
+                          textAlign: TextAlign.left,
+                          maxLines: 1,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            color: mainColors.Text_description_grey,
+                          ),
+                        )),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "\t\t\tSafety regulation: No",
+                          textAlign: TextAlign.left,
+                          maxLines: 1,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            color: mainColors.Text_description_grey,
+                          ),
+                        )),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "\t\t\tRating: 3/5",
+                          textAlign: TextAlign.left,
+                          maxLines: 1,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            color: mainColors.Text_description_grey,
+                          ),
+                        )),
+                  ])),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Screen2()),
+            );
+          },
+        ),
+      ),
+    ],
+  );
 }
