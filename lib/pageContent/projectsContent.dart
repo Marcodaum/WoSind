@@ -134,18 +134,69 @@ class _ProjectPageState extends State<projectPage> {
                                               color: Colors.white),
                                         ),
                                       ],
-                                    ) /*const Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Bohrmaschine mit Zubehör\nVerleiher: Stefan Miller',
-                          style: TextStyle(fontSize: 12, color: Colors.white),
-                        ),
-                      ),*/
-                                    )))
+                                    ))))
                       ],
                     )),
               ])
-            : Container(),
+            : Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Container(
+                    width: 325,
+                    height: 183,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: mainColors.Button_unselected,
+                    ),
+                    margin: const EdgeInsets.only(
+                        top: 10, right: 0, bottom: 0, left: 0),
+                    padding: const EdgeInsets.only(
+                        top: 0, right: 0, bottom: 0, left: 0),
+                    child: Stack(
+                      children: [
+                        Align(
+                            alignment: Alignment.center,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20.0),
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/hecke.jpg'),
+                                      fit: BoxFit.fill),
+                                )))),
+                        Positioned(
+                            // The Positioned widget is used to position the text inside the Stack widget
+                            bottom: 0,
+                            right: 0,
+                            child: ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                    bottomRight: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20)),
+                                child: Container(
+                                    // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
+                                    width: 325,
+                                    height: 40,
+                                    color: Colors.black.withOpacity(0.5),
+                                    margin: const EdgeInsets.only(bottom: 0),
+                                    padding: const EdgeInsets.all(0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: const [
+                                        Text('Heckenmuster',
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold)),
+                                        Text(
+                                          'Verfasser: Marco Daum',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.white),
+                                        ),
+                                      ],
+                                    ))))
+                      ],
+                    )),
+              ]),
         toolPage
             ? Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Container(
@@ -203,18 +254,69 @@ class _ProjectPageState extends State<projectPage> {
                                               color: Colors.white),
                                         ),
                                       ],
-                                    ) /*const Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Bohrmaschine mit Zubehör\nVerleiher: Stefan Miller',
-                          style: TextStyle(fontSize: 12, color: Colors.white),
-                        ),
-                      ),*/
-                                    )))
+                                    ))))
                       ],
                     )),
               ])
-            : Container(),
+            : Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Container(
+                    width: 325,
+                    height: 183,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: mainColors.Button_unselected,
+                    ),
+                    margin: const EdgeInsets.only(
+                        top: 10, right: 0, bottom: 0, left: 0),
+                    padding: const EdgeInsets.only(
+                        top: 0, right: 0, bottom: 0, left: 0),
+                    child: Stack(
+                      children: [
+                        Align(
+                            alignment: Alignment.center,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20.0),
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/hütte.jpg'),
+                                      fit: BoxFit.fill),
+                                )))),
+                        Positioned(
+                            // The Positioned widget is used to position the text inside the Stack widget
+                            bottom: 0,
+                            right: 0,
+                            child: ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                    bottomRight: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20)),
+                                child: Container(
+                                    // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
+                                    width: 325,
+                                    height: 40,
+                                    color: Colors.black.withOpacity(0.5),
+                                    margin: const EdgeInsets.only(bottom: 0),
+                                    padding: const EdgeInsets.all(0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: const [
+                                        Text('Gartenhütte',
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold)),
+                                        Text(
+                                          'Verfasser: Ciprian Cosneac',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.white),
+                                        ),
+                                      ],
+                                    ))))
+                      ],
+                    )),
+              ]),
         toolPage
             ? Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Container(
@@ -275,7 +377,65 @@ class _ProjectPageState extends State<projectPage> {
                       ],
                     )),
               ])
-            : Container(),
+            : Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Container(
+                    width: 325,
+                    height: 183,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: mainColors.Button_unselected,
+                    ),
+                    margin: const EdgeInsets.only(
+                        top: 10, right: 0, bottom: 0, left: 0),
+                    padding: const EdgeInsets.only(
+                        top: 0, right: 0, bottom: 0, left: 0),
+                    child: Stack(
+                      children: [
+                        Align(
+                            alignment: Alignment.center,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20.0),
+                                child: Container(
+                                    decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/blume.jpg'),
+                                      fit: BoxFit.fill),
+                                )))),
+                        Positioned(
+                            // The Positioned widget is used to position the text inside the Stack widget
+                            bottom: 0,
+                            right: 0,
+                            child: ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                    bottomRight: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20)),
+                                child: Container(
+                                    // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
+                                    width: 325,
+                                    height: 40,
+                                    color: Colors.black.withOpacity(0.5),
+                                    margin: const EdgeInsets.only(bottom: 0),
+                                    padding: const EdgeInsets.all(0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: const [
+                                        Text('Pflanze umtopfen',
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold)),
+                                        Text(
+                                          'Verfasser: Iris Eberl',
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.white),
+                                        ),
+                                      ],
+                                    ))))
+                      ],
+                    )),
+              ]),
       ],
     );
   }
