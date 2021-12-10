@@ -50,6 +50,7 @@ Align createChild() {
 }*/
 
 List<Widget> marketplaceContentRows(BuildContext context) {
+  bool toolPage = true;
   List<Widget> widgets = <Widget>[];
   //Row entry1 = marketplaceEntry(context);
   //Row divider1 = mainLayout().dividerRow();
@@ -85,7 +86,9 @@ List<Widget> marketplaceContentRows(BuildContext context) {
                   ),
                 ]),
           ),
-          onPressed: () {},
+          onPressed: () {
+            toolPage = true;
+          },
         ),
       ),
       SizedBox(
@@ -100,193 +103,211 @@ List<Widget> marketplaceContentRows(BuildContext context) {
               color: mainColors.Button_unselected,
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            toolPage = false;
+          },
         ),
       )
     ],
   );
-  Row toolRow1 = Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-    Container(
-        width: 325,
-        height: 183,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: mainColors.Button_unselected,
-        ),
-        margin: const EdgeInsets.only(top: 20, right: 0, bottom: 0, left: 0),
-        padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 0),
-        child: Stack(
-          children: [
-            Align(
-                alignment: Alignment.center,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Image.asset('assets/toolSet.jpg'),
-                )),
-            Positioned(
-                // The Positioned widget is used to position the text inside the Stack widget
-                bottom: 0,
-                right: 0,
-                child: ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(20),
-                        bottomLeft: Radius.circular(20)),
-                    child: Container(
-                        // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
-                        width: 325,
-                        height: 40,
-                        color: Colors.black.withOpacity(0.45),
-                        margin: const EdgeInsets.only(bottom: 0),
-                        padding: const EdgeInsets.all(0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text('Werkzeug Set',
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold)),
-                            Text(
-                              'Verleiher: Stefan Miller',
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.white),
-                            ),
-                          ],
-                        ) /*const Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Bohrmaschine mit Zubehör\nVerleiher: Stefan Miller',
-                          style: TextStyle(fontSize: 12, color: Colors.white),
-                        ),
-                      ),*/
-                        )))
-          ],
-        )),
-  ]);
-  Row toolRow2 = Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-    Container(
-        width: 325,
-        height: 183,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: mainColors.Button_unselected,
-        ),
-        margin: const EdgeInsets.only(top: 20, right: 0, bottom: 0, left: 0),
-        padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 0),
-        child: Stack(
-          children: [
-            Align(
-                alignment: Alignment.center,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Image.asset('assets/winkelschleifer.jpg'),
-                )),
-            Positioned(
-                // The Positioned widget is used to position the text inside the Stack widget
-                bottom: 0,
-                right: 0,
-                child: ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(20),
-                        bottomLeft: Radius.circular(20)),
-                    child: Container(
-                        // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
-                        width: 325,
-                        height: 40,
-                        color: Colors.black.withOpacity(0.45),
-                        margin: const EdgeInsets.only(bottom: 0),
-                        padding: const EdgeInsets.all(0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text('Winkelschleifer und Kleinbohrer',
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold)),
-                            Text(
-                              'Verleiher: OBI',
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.white),
-                            ),
-                          ],
-                        ) /*const Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Bohrmaschine mit Zubehör\nVerleiher: Stefan Miller',
-                          style: TextStyle(fontSize: 12, color: Colors.white),
-                        ),
-                      ),*/
-                        )))
-          ],
-        )),
-  ]);
-  Row toolRow3 = Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-    Container(
-        width: 325,
-        height: 183,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: mainColors.Button_unselected,
-        ),
-        margin: const EdgeInsets.only(top: 20, right: 0, bottom: 0, left: 0),
-        padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 0),
-        child: Stack(
-          children: [
-            Align(
-                alignment: Alignment.center,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Image.asset('assets/winkelschleifer.jpg'),
-                )),
-            Positioned(
-                // The Positioned widget is used to position the text inside the Stack widget
-                bottom: 0,
-                right: 0,
-                child: ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(20),
-                        bottomLeft: Radius.circular(20)),
-                    child: Container(
-                        // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
-                        width: 325,
-                        height: 40,
-                        color: Colors.black.withOpacity(0.45),
-                        margin: const EdgeInsets.only(bottom: 0),
-                        padding: const EdgeInsets.all(0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text('Winkelschleifer und Kleinbohrer',
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold)),
-                            Text(
-                              'Verleiher: OBI',
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.white),
-                            ),
-                          ],
-                        ) /*const Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Bohrmaschine mit Zubehör\nVerleiher: Stefan Miller',
-                          style: TextStyle(fontSize: 12, color: Colors.white),
-                        ),
-                      ),*/
-                        )))
-          ],
-        )),
-  ]);
 
   widgets.add(placeholderRow1);
   widgets.add(textRow1);
   widgets.add(searchBar);
   widgets.add(buttonRow);
-  widgets.add(toolRow1);
-  widgets.add(toolRow2);
-  widgets.add(toolRow3);
+
+  if (toolPage) {
+    Row toolRow1 = Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Container(
+          width: 325,
+          height: 183,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: mainColors.Button_unselected,
+          ),
+          margin: const EdgeInsets.only(top: 10, right: 0, bottom: 0, left: 0),
+          padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 0),
+          child: Stack(
+            children: [
+              Align(
+                  alignment: Alignment.center,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: Container(
+                          decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/driver.jpg'),
+                            fit: BoxFit.fill),
+                      )))),
+              Positioned(
+                  // The Positioned widget is used to position the text inside the Stack widget
+                  bottom: 0,
+                  right: 0,
+                  child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                          bottomRight: Radius.circular(20),
+                          bottomLeft: Radius.circular(20)),
+                      child: Container(
+                          // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
+                          width: 325,
+                          height: 40,
+                          color: Colors.black.withOpacity(0.5),
+                          margin: const EdgeInsets.only(bottom: 0),
+                          padding: const EdgeInsets.all(0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Text('Kleinbohrer mit Zubehör',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold)),
+                              Text(
+                                'Verleiher: Stefan Miller',
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.white),
+                              ),
+                            ],
+                          ) /*const Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Bohrmaschine mit Zubehör\nVerleiher: Stefan Miller',
+                          style: TextStyle(fontSize: 12, color: Colors.white),
+                        ),
+                      ),*/
+                          )))
+            ],
+          )),
+    ]);
+    Row toolRow2 = Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Container(
+          width: 325,
+          height: 183,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: mainColors.Button_unselected,
+          ),
+          margin: const EdgeInsets.only(top: 15, right: 0, bottom: 0, left: 0),
+          padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 0),
+          child: Stack(
+            children: [
+              Align(
+                  alignment: Alignment.center,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: Container(
+                          decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/winkelschleifer.jpg'),
+                            fit: BoxFit.fill),
+                      )))),
+              Positioned(
+                  // The Positioned widget is used to position the text inside the Stack widget
+                  bottom: 0,
+                  right: 0,
+                  child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                          bottomRight: Radius.circular(20),
+                          bottomLeft: Radius.circular(20)),
+                      child: Container(
+                          // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
+                          width: 325,
+                          height: 40,
+                          color: Colors.black.withOpacity(0.5),
+                          margin: const EdgeInsets.only(bottom: 0),
+                          padding: const EdgeInsets.all(0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Text('Winkelschleifer und Kleinbohrer',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold)),
+                              Text(
+                                'Verleiher: OBI',
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.white),
+                              ),
+                            ],
+                          ) /*const Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Bohrmaschine mit Zubehör\nVerleiher: Stefan Miller',
+                          style: TextStyle(fontSize: 12, color: Colors.white),
+                        ),
+                      ),*/
+                          )))
+            ],
+          )),
+    ]);
+    Row toolRow3 = Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      Container(
+          width: 325,
+          height: 183,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: mainColors.Button_unselected,
+          ),
+          margin: const EdgeInsets.only(top: 15, right: 0, bottom: 0, left: 0),
+          padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 0),
+          child: Stack(
+            children: [
+              Align(
+                  alignment: Alignment.center,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child: Container(
+                          decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/drill2.jpg'),
+                            fit: BoxFit.fill),
+                      )))),
+              Positioned(
+                  // The Positioned widget is used to position the text inside the Stack widget
+                  bottom: 0,
+                  right: 0,
+                  child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                          bottomRight: Radius.circular(20),
+                          bottomLeft: Radius.circular(20)),
+                      child: Container(
+                          // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
+                          width: 325,
+                          height: 40,
+                          color: Colors.black.withOpacity(0.5),
+                          margin: const EdgeInsets.only(bottom: 0),
+                          padding: const EdgeInsets.all(0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Text('Schlagbohrer',
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold)),
+                              Text(
+                                'Verleiher: Jonas Jehle',
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.white),
+                              ),
+                            ],
+                          ) /*const Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Bohrmaschine mit Zubehör\nVerleiher: Stefan Miller',
+                          style: TextStyle(fontSize: 12, color: Colors.white),
+                        ),
+                      ),*/
+                          )))
+            ],
+          )),
+    ]);
+
+    widgets.add(toolRow1);
+    widgets.add(toolRow2);
+    widgets.add(toolRow3);
+  }
   return widgets;
 }
 
