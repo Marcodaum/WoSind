@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
             onPageChanged: (value) => setState(() => _selectedPage = value),
             // Create pages
             children: [
-              projectsContent(context),
+              const projectPage(),
               marketplaceContent(context),
               profileContent(context),
             ]),
