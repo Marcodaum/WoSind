@@ -51,17 +51,21 @@ class mainLayout {
   }
 
   Row textRow(String text) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
-      Text(
-        "",
-        textAlign: TextAlign.left,
-        maxLines: 1,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 15,
-          color: mainColors.Text_black,
-        ),
-      )
-    ]);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Align(
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: mainColors.Text_blue,
+            ),
+          ),
+        )
+      ],
+    );
   }
 }
