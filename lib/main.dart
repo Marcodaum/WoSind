@@ -10,6 +10,7 @@ import '../pageContent/marketplaceContent.dart';
 import '../pageContent/projectsContent.dart';
 import '../pageContent/productPage.dart';
 import '../pageContent/profileContent.dart';
+import '../pageContent/settingsContent.dart';
 
 void main() => runApp(const MyApp());
 
@@ -51,6 +52,7 @@ class _HomeState extends State<Home> {
               const projectPage(),
               marketplaceContent(context),
               profileContent(context),
+              settingsContent(context),
             ]),
         bottomNavigationBar:
             //createBottomNavigationBar(_selectedPage, _pageController)),

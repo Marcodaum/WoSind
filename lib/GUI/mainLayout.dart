@@ -68,4 +68,38 @@ class mainLayout {
       ],
     );
   }
+
+  Row placeholderRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const [
+        SizedBox(
+          height: 20,
+          width: 100,
+        ),
+      ],
+    );
+  }
+
+  Row buttonRow(String text) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          margin: const EdgeInsets.only(left: 75),
+          child: TextButton(
+            child: Text(
+              text,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: mainColors.Text_black,
+              ),
+            ),
+            onPressed: () {},
+          ),
+        )
+      ],
+    );
+  }
 }

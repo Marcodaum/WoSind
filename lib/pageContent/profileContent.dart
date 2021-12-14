@@ -63,98 +63,18 @@ List<Row> profileContentRows(BuildContext context) {
       )
     ],
   );
-  Row dividerRow1 = mainLayout().dividerRow();
-  Row messagesRow = Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      Container(
-        margin: const EdgeInsets.only(left: 75),
-        child: TextButton(
-          child: const Text(
-            "Nachrichten",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: mainColors.Text_black,
-            ),
-          ),
-          onPressed: () {},
-        ),
-      )
-    ],
-  );
-  Row dividerRow2 = mainLayout().dividerRow();
-  Row dataRow = Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      Container(
-        margin: const EdgeInsets.only(left: 75),
-        child: TextButton(
-          child: const Text(
-            "Persönliche Daten",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: mainColors.Text_black,
-            ),
-          ),
-          onPressed: () {},
-        ),
-      )
-    ],
-  );
-  Row dividerRow3 = mainLayout().dividerRow();
-  Row shareRow = Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      Container(
-        margin: const EdgeInsets.only(left: 75),
-        child: TextButton(
-          child: const Text(
-            "In anderen Apps teilen",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: mainColors.Text_black,
-            ),
-          ),
-          onPressed: () {},
-        ),
-      )
-    ],
-  );
-  Row dividerRow4 = mainLayout().dividerRow();
-  Row editRow = Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      Container(
-        margin: const EdgeInsets.only(left: 75),
-        child: TextButton(
-          child: const Text(
-            "Profil bearbeiten",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: mainColors.Text_black,
-            ),
-          ),
-          onPressed: () {},
-        ),
-      )
-    ],
-  );
-  Row dividerRow5 = mainLayout().dividerRow();
   rows.add(profilePictureRow);
   rows.add(nameRow);
-  rows.add(dividerRow1);
-  rows.add(messagesRow);
-  rows.add(dividerRow2);
-  rows.add(dataRow);
-  rows.add(dividerRow3);
-  rows.add(shareRow);
-  rows.add(dividerRow4);
-  rows.add(editRow);
-  rows.add(dividerRow5);
+  rows.add(mainLayout().dividerRow());
+  //rows.add(messagesRow);
+  rows.add(mainLayout().buttonRow("Nachrichten"));
+  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().buttonRow("Persönliche Daten"));
+  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().buttonRow("In anderen Apps teilen"));
+  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().buttonRow("Profil bearbeiten"));
+  rows.add(mainLayout().dividerRow());
   return rows;
 }
 

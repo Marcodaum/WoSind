@@ -21,7 +21,7 @@ class _ProjectPageState extends State<projectPage> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        placeholderRow(),
+        mainLayout().placeholderRow(),
         mainLayout().textRow("Finde deine Werkzeuge…"),
         RoundedSearchInput(
             hintText: "Bohrmaschine, Kettensäge, …",
@@ -98,18 +98,6 @@ class _ProjectPageState extends State<projectPage> {
       ],
     );
   }
-}
-
-Row placeholderRow() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: const [
-      SizedBox(
-        height: 20,
-        width: 100,
-      ),
-    ],
-  );
 }
 
 class RoundedSearchInput extends StatelessWidget {
