@@ -18,22 +18,26 @@ List<Row> profileContentRows(BuildContext context) {
         ),
         textAlign: TextAlign.center,
       ),
-      Container(
-        width: 150.0,
-        height: 150.0,
-        margin: const EdgeInsets.all(10.0),
-        padding: const EdgeInsets.all(15.0),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          boxShadow: [mainLayout.boxShadow],
-          //borderRadius: BorderRadius.circular(10.0),
-          border: Border.all(
-            color: mainColors.selector_light_green,
-            width: 5,
-          ),
-        ),
-        child: Image.asset('assets/profilePicture.png'),
-      ),
+      SizedBox(
+          height: 150,
+          child: Container(
+              height: 150,
+              width: 150,
+              margin: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(15.0),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [mainLayout.boxShadow],
+                //borderRadius: BorderRadius.circular(10.0),
+                border: Border.all(
+                  color: mainColors.main_btn,
+                  width: 5,
+                ),
+              ),
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: Image.asset('assets/werk.png'),
+              ))),
       const Text(
         "Abonniert \n\n 69",
         style: TextStyle(

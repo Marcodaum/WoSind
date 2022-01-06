@@ -33,6 +33,9 @@ class _ProjectPageState extends State<projectPage> {
               width: 140,
               height: 50,
               child: TextButton(
+                style: TextButton.styleFrom(
+                  primary: mainColors.main_btn,
+                ),
                 child: Text(
                   "Top Werkzeuge",
                   style: TextStyle(
@@ -40,7 +43,7 @@ class _ProjectPageState extends State<projectPage> {
                       //decoration: TextDecoration.underline,
                       fontSize: 15,
                       color: toolPage
-                          ? mainColors.Text_blue
+                          ? mainColors.main_btn
                           : mainColors.Button_unselected,
                       shadows: const [
                         Shadow(
@@ -61,6 +64,9 @@ class _ProjectPageState extends State<projectPage> {
               width: 140,
               height: 50,
               child: TextButton(
+                style: TextButton.styleFrom(
+                  primary: mainColors.main_btn,
+                ),
                 child: Text(
                   "Top Projekte",
                   style: TextStyle(
@@ -68,7 +74,7 @@ class _ProjectPageState extends State<projectPage> {
                     fontSize: 15,
                     color: toolPage
                         ? mainColors.Button_unselected
-                        : mainColors.Text_blue,
+                        : mainColors.main_btn,
                   ),
                 ),
                 onPressed: () {
@@ -83,8 +89,8 @@ class _ProjectPageState extends State<projectPage> {
         toolPage
             ? recommendedRow(context, 'assets/driver.jpg',
                 "Kleinbohrer mit Zubehör", "Verleiher: Stefan Miller")
-            : recommendedRow(context, 'assets/pool.jpg', "Outdoor Pool",
-                "Verfasser: Marco Daum"),
+            : recommendedRow(context, 'assets/Pool_2-1024x683.jpeg',
+                "Outdoor Pool", "Verfasser: Marco Daum"),
         toolPage
             ? recommendedRow(context, 'assets/winkelschleifer.jpg',
                 "Winkelschleifer und Kleinbohrer", "Verleiher: OBI")

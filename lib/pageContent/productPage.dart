@@ -73,25 +73,18 @@ class ProductPage extends State<Screen2>
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Stack(
-            children: [
-              SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: AspectRatio(
-                          aspectRatio: 16 / 15,
-                          child: FittedBox(
-                            fit: BoxFit.cover,
-                            child: Image.asset(title_image),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )),
-            ],
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: AspectRatio(
+                aspectRatio: 16 / 15,
+                child: FittedBox(
+                  fit: BoxFit.fill,
+                  child: Image.asset(title_image),
+                ),
+              ),
+            ),
           ),
           ListView(
               controller: _controller,
@@ -111,9 +104,18 @@ class ProductPage extends State<Screen2>
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                          color: mainColors.background,
-                                          borderRadius:
-                                              mainLayout.borderRadiusTop),
+                                        color: mainColors.background,
+                                        borderRadius:
+                                            mainLayout.borderRadiusTop,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: mainColors.searchBarIcon_grey
+                                                .withOpacity(0.5),
+                                            blurRadius: 40,
+                                            offset: const Offset(0, 3), //
+                                          )
+                                        ],
+                                      ),
                                       child: Column(children: [
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
@@ -143,26 +145,10 @@ class ProductPage extends State<Screen2>
                                                   style: const TextStyle(
                                                     fontSize: 15,
                                                     color: mainColors
-                                                        .Text_description_grey,
+                                                        .Text_description_orange,
                                                   ),
                                                 ),
                                               ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              20, 30, 0, 0),
-                                          child: Column(
-                                            children: const [
-                                              Align(
-                                                  alignment:
-                                                      Alignment.centerLeft,
-                                                  child: Text(
-                                                    "Datum",
-                                                    style: mainLayout
-                                                        .projectPageHedlines,
-                                                  )),
                                             ],
                                           ),
                                         ),
@@ -338,7 +324,7 @@ class ProductPage extends State<Screen2>
                                                   child: const Text(
                                                     "alle leihen",
                                                     style: TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: 15,
                                                     ),
                                                   ),
                                                 ))),
@@ -371,7 +357,7 @@ class ProductPage extends State<Screen2>
                                                   child: const Text(
                                                     "auswahl leihen",
                                                     style: TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: 15,
                                                     ),
                                                   ),
                                                 ))),

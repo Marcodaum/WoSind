@@ -18,7 +18,7 @@ class mainLayout {
   );
 
   static const TextStyle projectPageHedlines = TextStyle(
-    fontSize: 25,
+    fontSize: 20,
     color: mainColors.Text_black,
     fontFamily: 'Montserrat-Medium',
   );
@@ -61,7 +61,7 @@ class mainLayout {
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
-              color: mainColors.Text_blue,
+              color: mainColors.main_btn,
             ),
           ),
         )
