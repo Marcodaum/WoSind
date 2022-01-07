@@ -55,7 +55,7 @@ AppBar createAppBar(int index) {
                         fontSize: 25),
                   ),
                   Text(
-                    'Baugeräte',
+                    'Werkzeuge',
                     style: TextStyle(
                         color: mainColors.Text_black,
                         fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ AppBar createAppBar(int index) {
                         fontSize: 25),
                   ),
                   Text(
-                    'Profileinstellungen',
+                    'Profil',
                     style: TextStyle(
                         color: mainColors.Text_black,
                         fontWeight: FontWeight.bold,

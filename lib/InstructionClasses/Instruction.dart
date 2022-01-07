@@ -6,5 +6,6 @@ class Instruction {
   String subtitle = "";
   String date = "";
   String description = "";
+  List description_images = [""];
   List detail_images = [""];
 }

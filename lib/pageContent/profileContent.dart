@@ -10,7 +10,7 @@ List<Row> profileContentRows(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       const Text(
-        "Abonennten \n\n 420",
+        "Abonennten \n\n 32",
         style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ List<Row> profileContentRows(BuildContext context) {
                 child: Image.asset('assets/werk.png'),
               ))),
       const Text(
-        "Abonniert \n\n 69",
+        "Abonniert \n\n 15",
         style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.bold,
@@ -71,6 +71,10 @@ List<Row> profileContentRows(BuildContext context) {
   rows.add(nameRow);
   rows.add(mainLayout().dividerRow());
   //rows.add(messagesRow);
+  rows.add(mainLayout().buttonRow("Gemietet"));
+  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().buttonRow("Vermietet"));
+  rows.add(mainLayout().dividerRow());
   rows.add(mainLayout().buttonRow("Nachrichten"));
   rows.add(mainLayout().dividerRow());
   rows.add(mainLayout().buttonRow("Persönliche Daten"));

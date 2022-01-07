@@ -7,14 +7,14 @@ import '../GUI/mainColors.dart';
 import '../main.dart';
 import '../GUI/mainLayout.dart';
 
-class projectPage extends StatefulWidget {
-  const projectPage({Key? key}) : super(key: key);
+class toolPage extends StatefulWidget {
+  const toolPage({Key? key}) : super(key: key);
 
   @override
   _ProjectPageState createState() => _ProjectPageState();
 }
 
-class _ProjectPageState extends State<projectPage> {
+class _ProjectPageState extends State<toolPage> {
   bool toolPage = true;
 
   @override
@@ -22,9 +22,9 @@ class _ProjectPageState extends State<projectPage> {
     return ListView(
       children: [
         mainLayout().placeholderRow(),
-        mainLayout().textRow_projects("Finde deine Projekte"),
+        mainLayout().textRow_tools("Finde deine Werkzeuge"),
         RoundedSearchInput(
-            hintText: "Hochbeet bauen, Terasse reinigen …",
+            hintText: "Bohrmaschine, Kettensäge, …",
             textController: TextEditingController()),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -34,16 +34,16 @@ class _ProjectPageState extends State<projectPage> {
               height: 50,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  primary: mainColors.main_btn,
+                  primary: mainColors.tools_description,
                 ),
                 child: Text(
-                  "Top Projekte",
+                  "Top Werkzeuge",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       //decoration: TextDecoration.underline,
                       fontSize: 15,
                       color: toolPage
-                          ? mainColors.main_btn
+                          ? mainColors.tools_description
                           : mainColors.Button_unselected,
                       shadows: const [
                         Shadow(
@@ -65,16 +65,16 @@ class _ProjectPageState extends State<projectPage> {
               height: 50,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  primary: mainColors.main_btn,
+                  primary: mainColors.tools_description,
                 ),
                 child: Text(
-                  "Alle Projekte",
+                  "Alle Werkzeuge",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
                     color: toolPage
                         ? mainColors.Button_unselected
-                        : mainColors.main_btn,
+                        : mainColors.tools_description,
                   ),
                 ),
                 onPressed: () {
@@ -87,23 +87,29 @@ class _ProjectPageState extends State<projectPage> {
           ],
         ),
         toolPage
-            ? recommendedRow(context, 'assets/fliesenkleber-dicke.jpeg',
-                "Fließen legen", "Verfasser: Samuel Miller")
-            : recommendedRow(context, 'assets/Pool_2-1024x683.jpeg',
-                "Outdoor Pool", "Verfasser: Marco Daum"),
-        toolPage
-            ? recommendedRow(context, 'assets/heizkoerper-montieren.jpeg',
-                "Heizkörper montieren", "Verfasser: Michael Müller")
-            : recommendedRow(context, 'assets/hütte.jpg', "Gartenhütte",
-                "Verfasser: Ciprian Cosneac"),
+            ? recommendedRow(context, 'assets/driver.jpg',
+                "Kleinbohrer mit Zubehör", "Verleiher: Stefan Miller")
+            : recommendedRow(
+                context,
+                'assets/Stihl-Steinflex-Trennschleifer@2x.jpeg',
+                "Steinflex",
+                "Vermieter: Marco Daum"),
         toolPage
             ? recommendedRow(
                 context,
-                'assets/Holzterrasse-Heimwerker-Gummistiefel-Hochdruckreiniger.jpeg',
-                "Terasse reinigen",
-                "Verfasser: Jonas Jehle")
-            : recommendedRow(context, 'assets/blume.jpg', "Pflanze umtopfen",
-                "Verfasser: Iris Eberl")
+                'assets/winkelschleifer.jpg',
+                "Winkelschleifer und Kleinbohrer",
+                "Vermieter: OBI-Markt Ingolstadt")
+            : recommendedRow(
+                context,
+                'assets/Vertikutierer-Hand-871470-blp-msg.jpeg',
+                "Vertikutiergerät",
+                "Verfasser: Ciprian Cosneac"),
+        toolPage
+            ? recommendedRow(context, 'assets/drill2.jpg', "Schlagbohrer",
+                "Verleiher: Jonas Jehle")
+            : recommendedRow(context, 'assets/612e312384f12086149721.jpeg',
+                "Rohrbiegemaschine", "Vermieter: Iris Eberl")
       ],
     );
   }

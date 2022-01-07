@@ -11,13 +11,20 @@ import 'elements/detailedImages.dart';
 
 class ProductPage extends State<Screen2>
     with Instruction, TickerProviderStateMixin {
-  ProductPage(String title_image, String title, String subtitle, String date,
-      String description, List<String> detail_images) {
+  ProductPage(
+      String title_image,
+      String title,
+      String subtitle,
+      String date,
+      String description,
+      List<String> description_images,
+      List<String> detail_images) {
     this.title_image = title_image;
     this.subtitle = subtitle;
     this.title = title;
     this.date = date;
     this.description = description;
+    this.description_images = description_images;
     this.detail_images = detail_images;
   }
   List<bool> isSelected = [true, true, true, true];
@@ -119,7 +126,7 @@ class ProductPage extends State<Screen2>
                                       child: Column(children: [
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                              20, 40, 0, 0),
+                                              20, 30, 0, 0),
                                           child: Column(
                                             children: [
                                               Align(
@@ -127,7 +134,7 @@ class ProductPage extends State<Screen2>
                                                 child: Text(
                                                   title,
                                                   style: mainLayout
-                                                      .projectPageHedlines,
+                                                      .projectPageTitle,
                                                 ),
                                               ),
                                             ],
@@ -161,14 +168,14 @@ class ProductPage extends State<Screen2>
                                                 alignment: Alignment.centerLeft,
                                                 child: Text("Beschreibung",
                                                     style: mainLayout
-                                                        .projectPageHedlines),
+                                                        .projectPageDescriptionHeadline),
                                               ),
                                             ],
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                              20, 7, 20, 20),
+                                              20, 10, 20, 20),
                                           child: Column(
                                             children: [
                                               Align(
@@ -195,9 +202,9 @@ class ProductPage extends State<Screen2>
                                               scrollDirection: Axis.horizontal,
                                               shrinkWrap: true,
                                               children: List.generate(
-                                                  detail_images.length,
+                                                  description_images.length,
                                                   (index) => detailedImages(
-                                                          detail_images)
+                                                          description_images)
                                                       .scrollBar(
                                                           context, index)),
                                             ),

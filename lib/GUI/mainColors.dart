@@ -13,6 +13,7 @@ class mainColors {
   static const Color Button_unselected = Color.fromRGBO(120, 120, 120, 0.5);
   static const Color searchBarIcon_grey = Color.fromRGBO(100, 100, 100, 0.2);
   static const Color Text_white = Color.fromRGBO(255, 255, 255, 1);
+  static const Color tools_description = Color.fromRGBO(140, 100, 70, 1);
 
   static const LinearGradient large_btn = LinearGradient(
     begin: Alignment.topLeft,
