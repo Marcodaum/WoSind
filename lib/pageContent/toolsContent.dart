@@ -104,10 +104,10 @@ class _ProjectPageState extends State<toolPage> {
                 context,
                 'assets/Vertikutierer-Hand-871470-blp-msg.jpeg',
                 "Vertikutiergerät",
-                "Verfasser: Ciprian Cosneac"),
+                "Vermieter: Ciprian Cosneac"),
         toolPage
             ? recommendedRow(context, 'assets/drill2.jpg', "Schlagbohrer",
-                "Verleiher: Jonas Jehle")
+                "Vermieter: Jonas Jehle")
             : recommendedRow(context, 'assets/612e312384f12086149721.jpeg',
                 "Rohrbiegemaschine", "Vermieter: Iris Eberl")
       ],
