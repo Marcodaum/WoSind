@@ -88,7 +88,7 @@ class _ProjectPageState extends State<toolPage> {
         ),
         toolPage
             ? recommendedRow(context, 'assets/driver.jpg',
-                "Kleinbohrer mit Zubehör", "Verleiher: Stefan Miller")
+                "Kleinbohrer mit Zubehör", "Vermieter: Stefan Miller")
             : recommendedRow(
                 context,
                 'assets/Stihl-Steinflex-Trennschleifer@2x.jpeg',
