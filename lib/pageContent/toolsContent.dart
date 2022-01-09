@@ -148,7 +148,7 @@ class RoundedSearchInput extends StatelessWidget {
             margin: const EdgeInsets.only(top: 5, right: 10, bottom: 5),
             child: const Icon(
               Icons.search,
-              color: mainColors.selector_dark_green,
+              color: mainColors.tools_description,
               size: 25,
             ),
             decoration: const BoxDecoration(
