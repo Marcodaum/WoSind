@@ -191,6 +191,7 @@ class ProductPage extends State<Screen2>
                                                   description,
                                                   style: mainLayout
                                                       .projectDescription,
+                                                  textAlign: TextAlign.justify,
                                                 ),
                                               )
                                             ],
