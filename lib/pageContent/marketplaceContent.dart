@@ -10,5 +10,7 @@ GridView marketplaceContent(BuildContext context) {
       mainAxisSpacing: 10,
       crossAxisCount: 1,
       childAspectRatio: 3,
-      children: const <Widget>[Text("Werkzeuge")]);
+      children: const <Widget>[
+        Text("Site currently under construction. Please try again later!")
+      ]);
 }

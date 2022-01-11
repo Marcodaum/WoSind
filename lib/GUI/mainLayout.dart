@@ -17,10 +17,16 @@ class mainLayout {
     fontFamily: 'Montserrat-Light',
   );
 
-  static const TextStyle projectPageHedlines = TextStyle(
-    fontSize: 25,
+  static const TextStyle projectPageTitle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 20,
     color: mainColors.Text_black,
     fontFamily: 'Montserrat-Medium',
+  );
+
+  static const TextStyle projectPageDescriptionHeadline = TextStyle(
+    fontSize: 20,
+    color: mainColors.Text_black,
   );
 
   static const TextStyle projectDescription = TextStyle(
@@ -50,6 +56,25 @@ class mainLayout {
     ]);
   }
 
+  Row textRow_projects(String text) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Align(
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: mainColors.main_btn,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
   Row textRow(String text) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -61,7 +86,26 @@ class mainLayout {
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
-              color: mainColors.Text_blue,
+              color: mainColors.main_btn,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Row textRow_tools(String text) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Align(
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: mainColors.tools_description,
             ),
           ),
         )

@@ -6,7 +6,7 @@ import 'package:wo_sind_app/GUI/mainColors.dart';
 AppBar createAppBar(int index) {
   if (index == 0) {
     return AppBar(
-      backgroundColor: const Color(0x04400000),
+      backgroundColor: const Color(0x00000000),
       elevation: 0,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(20.0),
@@ -37,7 +37,7 @@ AppBar createAppBar(int index) {
     );
   } else if (index == 1) {
     return AppBar(
-      backgroundColor: const Color(0x04400000),
+      backgroundColor: const Color(0x00000000),
       elevation: 0,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(20.0),
@@ -55,7 +55,7 @@ AppBar createAppBar(int index) {
                         fontSize: 25),
                   ),
                   Text(
-                    'Baugeräte',
+                    'Werkzeuge',
                     style: TextStyle(
                         color: mainColors.Text_black,
                         fontWeight: FontWeight.bold,
@@ -68,7 +68,7 @@ AppBar createAppBar(int index) {
     );
   } else if (index == 2) {
     return AppBar(
-      backgroundColor: const Color(0x04400000),
+      backgroundColor: const Color(0x00000000),
       elevation: 0,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(20.0),
@@ -86,7 +86,7 @@ AppBar createAppBar(int index) {
                         fontSize: 25),
                   ),
                   Text(
-                    'Profileinstellungen',
+                    'Profil',
                     style: TextStyle(
                         color: mainColors.Text_black,
                         fontWeight: FontWeight.bold,
@@ -99,7 +99,7 @@ AppBar createAppBar(int index) {
     );
   } else {
     return AppBar(
-      backgroundColor: const Color(0x04400000),
+      backgroundColor: const Color(0x00000000),
       elevation: 0,
       bottom: const PreferredSize(
         preferredSize: Size.fromHeight(20.0),

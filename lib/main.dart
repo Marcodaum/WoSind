@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:wo_sind_app/GUI/mainColors.dart';
 import 'package:wo_sind_app/GUI/topAppBar.dart';
+import 'package:wo_sind_app/pageContent/toolsContent.dart';
 // main.dart
 
 import '../GUI/topAppBar.dart';
@@ -50,7 +51,7 @@ class _HomeState extends State<Home> {
             // Create pages
             children: [
               const projectPage(),
-              marketplaceContent(context),
+              const toolPage(),
               profileContent(context),
               settingsContent(context),
             ]),
@@ -60,7 +61,7 @@ class _HomeState extends State<Home> {
                 type: BottomNavigationBarType.fixed,
                 backgroundColor: mainColors.background,
                 currentIndex: _selectedPage,
-                selectedItemColor: mainColors.selector_light_green,
+                selectedItemColor: mainColors.main_btn,
                 unselectedItemColor: Colors.blueGrey[600],
                 showSelectedLabels: true,
                 showUnselectedLabels: true,
@@ -96,16 +97,25 @@ class Screen2 extends StatefulWidget {
 // The data inserted in the constructor should later be called from the server -> Therefore it's currently okay to use constant Strings / Lists.
   @override
   ProductPage createState() => ProductPage(
-          "assets/unnamed.jpeg",
+          "assets/Pool_2-1024x683.jpeg",
           "Poolbau",
           "Schwierigkeitsgrad mittel",
           " ",
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.sss",
+          "Nachdem Du alle Rechts- und Standortfragen zu Deinem Pool geklärt hast, kannst Du mit dem Bau beginnen. Der erste Schritt ist der Aushub. Je nach der Höhe Deines Beckens bestimmst Du die Tiefe Deines Aushubs. Am besten eignet sich aber mindestens eine Tiefe von 1,20 Meter, damit der Pool komplett in der Erde verschwindet. Du kannst dazu ein Bauunternehmen beauftragen oder Dir einen Mini-Bagger leihen und selbst den Aushub vornehmen. Bodenplatte und Technik verlegen Die Bodenplatte bildet das Fundament für Deinen Swimmingpool. Erstelle dazu eine Schalung, die Du mit Beton befüllst. Dabei solltest Du schon die erforderlichen Rohrleitungen verlegen, damit das Wasser klar und keimfrei bleibt. Du benötigst Rohre für Filter, Pumpe, Skimmer, Ablauf und eventuell eine Beleuchtung. Pool im Rohbau Mauern oder Becken einsetzen Im nächsten Schritt musst Du die Wände mauern. Hier sind besonders Schalsteine zu empfehlen. Sie eignen sich gut um ein Becken zu erstellen. Vergiss bei dieser Variante nicht die entsprechende Technik zu verlegen, bevor sie mit Beton befüllt werden. Alternativ kann natürlich auch ein Stahlwandbecken eingesetzt werden. Dabei entfallen dann die nächsten Schritte. Dämmen, Verputzen und Isolieren Steht Dein Becken im Rohbau, kannst Du mit der Dämmung beginnen. Bringe an den Mauern Dämmmatten an bevor Du mit dem Verputzen startest. Ist das erledigt, empfiehlt es sich einen Isolieranstrich aufzutragen und die Außenwände mit Bitumenbahnen einzuflämmen, um Dein Becken gegen Feuchte aus der Erde zu schützen. Mit der Erde vom Aushub wird nun die Grube zwischen Becken und Erdreich verfüllt. Die Folie macht die Farbe Im vorletzten Schritt kleidest Du Dein Becken mit Folie aus. Die Folien sind in der Regel witterungsbeständig und damit resistent gegenüber Pilzen und Bakterien. Du kannst sie in verschiedenen Farben erwerben und dabei selbst entscheiden, wie Dein Pool erscheinen soll. Beim Auslegen ist darauf zu achten, dass Du überlappende Folienbahnen mit verklebst und versiegelst. Folien wir im Pool verlegt Wasser marsch! Deine Foliennähte sind dicht und die Technik angeschlossen, dann bleibt Dir nur noch den Wasserhahn aufzudrehen und den Pool zu befüllen. Deinem Badeerlebnis steht dann nichts mehr im Weg! Nach dem Poolbau kannst Du Dich noch der Gestaltung des Bereichs um das Schwimmbecken kümmern. Hier stehen Dir viele Möglichkeiten offen. Beispielsweise bietet es sich an mit Steinen oder Dielen einen Ruheort vom Schwimmen mit Garten- oder Loungemöbeln zu kreieren.",
           [
             "assets/Download.jpeg",
-            "assets/Pool_2-1024x683.jpeg",
-            "assets/unnamed.jpeg",
             "assets/heizungstechnik-schueller-pool-mit-wartungsluke.jpeg",
-            "assets/poolbau-desjoyaux-1024x624.jpeg"
+            "assets/pool_klein.jpeg",
+            "assets/Poolbau.jpeg",
+            "assets/unnamed.jpeg",
+          ],
+          [
+            "assets/612e312384f12086149721.jpeg",
+            "assets/Stihl-Steinflex-Trennschleifer@2x.jpeg",
+            "assets/Minibagger.jpeg",
+            "assets/Betonmischer.jpeg",
+            "assets/Betonruettler.jpeg",
+            "assets/pumpe.jpeg",
+            "assets/driver.jpg",
           ]);
 }

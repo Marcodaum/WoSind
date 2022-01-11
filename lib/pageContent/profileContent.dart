@@ -10,7 +10,7 @@ List<Row> profileContentRows(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       const Text(
-        "Abonennten \n\n 420",
+        "Abonennten \n\n 32",
         style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.bold,
@@ -18,24 +18,28 @@ List<Row> profileContentRows(BuildContext context) {
         ),
         textAlign: TextAlign.center,
       ),
-      Container(
-        width: 150.0,
-        height: 150.0,
-        margin: const EdgeInsets.all(10.0),
-        padding: const EdgeInsets.all(15.0),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          boxShadow: [mainLayout.boxShadow],
-          //borderRadius: BorderRadius.circular(10.0),
-          border: Border.all(
-            color: mainColors.selector_light_green,
-            width: 5,
-          ),
-        ),
-        child: Image.asset('assets/profilePicture.png'),
-      ),
+      SizedBox(
+          height: 150,
+          child: Container(
+              height: 150,
+              width: 150,
+              margin: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(15.0),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [mainLayout.boxShadow],
+                //borderRadius: BorderRadius.circular(10.0),
+                border: Border.all(
+                  color: mainColors.main_btn,
+                  width: 5,
+                ),
+              ),
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: Image.asset('assets/werk.png'),
+              ))),
       const Text(
-        "Abonniert \n\n 69",
+        "Abonniert \n\n 15",
         style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.bold,
@@ -67,6 +71,10 @@ List<Row> profileContentRows(BuildContext context) {
   rows.add(nameRow);
   rows.add(mainLayout().dividerRow());
   //rows.add(messagesRow);
+  rows.add(mainLayout().buttonRow("Gemietet"));
+  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().buttonRow("Vermietet"));
+  rows.add(mainLayout().dividerRow());
   rows.add(mainLayout().buttonRow("Nachrichten"));
   rows.add(mainLayout().dividerRow());
   rows.add(mainLayout().buttonRow("Persönliche Daten"));

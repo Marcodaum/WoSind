@@ -22,7 +22,7 @@ class PictureSelect {
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
                     child: FittedBox(
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
                       child: Image.asset(
                         this.detail_images[index],
                       ),

@@ -11,13 +11,20 @@ import 'elements/detailedImages.dart';
 
 class ProductPage extends State<Screen2>
     with Instruction, TickerProviderStateMixin {
-  ProductPage(String title_image, String title, String subtitle, String date,
-      String description, List<String> detail_images) {
+  ProductPage(
+      String title_image,
+      String title,
+      String subtitle,
+      String date,
+      String description,
+      List<String> description_images,
+      List<String> detail_images) {
     this.title_image = title_image;
     this.subtitle = subtitle;
     this.title = title;
     this.date = date;
     this.description = description;
+    this.description_images = description_images;
     this.detail_images = detail_images;
   }
   List<bool> isSelected = [true, true, true, true];
@@ -73,25 +80,18 @@ class ProductPage extends State<Screen2>
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Stack(
-            children: [
-              SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: AspectRatio(
-                          aspectRatio: 16 / 15,
-                          child: FittedBox(
-                            fit: BoxFit.cover,
-                            child: Image.asset(title_image),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )),
-            ],
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: AspectRatio(
+                aspectRatio: 16 / 15,
+                child: FittedBox(
+                  fit: BoxFit.fill,
+                  child: Image.asset(title_image),
+                ),
+              ),
+            ),
           ),
           ListView(
               controller: _controller,
@@ -111,13 +111,22 @@ class ProductPage extends State<Screen2>
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                          color: mainColors.background,
-                                          borderRadius:
-                                              mainLayout.borderRadiusTop),
+                                        color: mainColors.background,
+                                        borderRadius:
+                                            mainLayout.borderRadiusTop,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: mainColors.searchBarIcon_grey
+                                                .withOpacity(0.5),
+                                            blurRadius: 40,
+                                            offset: const Offset(0, 3), //
+                                          )
+                                        ],
+                                      ),
                                       child: Column(children: [
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                              20, 40, 0, 0),
+                                              20, 30, 0, 0),
                                           child: Column(
                                             children: [
                                               Align(
@@ -125,7 +134,7 @@ class ProductPage extends State<Screen2>
                                                 child: Text(
                                                   title,
                                                   style: mainLayout
-                                                      .projectPageHedlines,
+                                                      .projectPageTitle,
                                                 ),
                                               ),
                                             ],
@@ -143,7 +152,7 @@ class ProductPage extends State<Screen2>
                                                   style: const TextStyle(
                                                     fontSize: 15,
                                                     color: mainColors
-                                                        .Text_description_grey,
+                                                        .Text_description_orange,
                                                   ),
                                                 ),
                                               ),
@@ -156,33 +165,17 @@ class ProductPage extends State<Screen2>
                                           child: Column(
                                             children: const [
                                               Align(
-                                                  alignment:
-                                                      Alignment.centerLeft,
-                                                  child: Text(
-                                                    "Datum",
-                                                    style: mainLayout
-                                                        .projectPageHedlines,
-                                                  )),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              20, 30, 0, 0),
-                                          child: Column(
-                                            children: const [
-                                              Align(
                                                 alignment: Alignment.centerLeft,
                                                 child: Text("Beschreibung",
                                                     style: mainLayout
-                                                        .projectPageHedlines),
+                                                        .projectPageDescriptionHeadline),
                                               ),
                                             ],
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.fromLTRB(
-                                              20, 7, 20, 20),
+                                              20, 10, 20, 20),
                                           child: Column(
                                             children: [
                                               Align(
@@ -210,9 +203,9 @@ class ProductPage extends State<Screen2>
                                               scrollDirection: Axis.horizontal,
                                               shrinkWrap: true,
                                               children: List.generate(
-                                                  detail_images.length,
+                                                  description_images.length,
                                                   (index) => detailedImages(
-                                                          detail_images)
+                                                          description_images)
                                                       .scrollBar(
                                                           context, index)),
                                             ),
@@ -339,7 +332,7 @@ class ProductPage extends State<Screen2>
                                                   child: const Text(
                                                     "alle leihen",
                                                     style: TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: 15,
                                                     ),
                                                   ),
                                                 ))),
@@ -372,7 +365,7 @@ class ProductPage extends State<Screen2>
                                                   child: const Text(
                                                     "auswahl leihen",
                                                     style: TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: 15,
                                                     ),
                                                   ),
                                                 ))),
