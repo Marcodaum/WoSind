@@ -9,7 +9,7 @@ import 'package:wo_sind_app/pageContent/toolsContent.dart';
 import '../GUI/topAppBar.dart';
 import '../pageContent/marketplaceContent.dart';
 import '../pageContent/projectsContent.dart';
-import '../pageContent/productPage.dart';
+import 'pageContent/productPage.dart';
 import '../pageContent/profileContent.dart';
 import '../pageContent/settingsContent.dart';
 
