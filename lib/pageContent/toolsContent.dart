@@ -22,7 +22,17 @@ class _ProjectPageState extends State<toolPage> {
     return ListView(
       children: [
         mainLayout().placeholderRow(),
-        mainLayout().textRow_tools("Finde deine Werkzeuge"),
+        mainLayout().textRow("Vermiete eigenes Werkzeug"),
+        mainLayout().placeholderRow(),
+        IconButton(
+            padding: new EdgeInsets.all(0.0),
+            color: mainColors.Button_unselected,
+            onPressed: () {},
+            icon: Icon(Icons.add_circle_outline_rounded, size: 50.0)),
+        mainLayout().placeholderRow(),
+        mainLayout().textRow("oder..."),
+        mainLayout().placeholderRow(),
+        mainLayout().textRow("Finde passendes Werkzeuge"),
         RoundedSearchInput(
             hintText: "Bohrmaschine, Kettensäge, …",
             textController: TextEditingController()),

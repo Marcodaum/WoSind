@@ -75,6 +75,8 @@ List<Row> profileContentRows(BuildContext context) {
   rows.add(mainLayout().dividerRow());
   rows.add(mainLayout().buttonRow("Vermietet"));
   rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().buttonRow("Eigene Projekte"));
+  rows.add(mainLayout().dividerRow());
   rows.add(mainLayout().buttonRow("Nachrichten"));
   rows.add(mainLayout().dividerRow());
   rows.add(mainLayout().buttonRow("Persönliche Daten"));

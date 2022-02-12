@@ -86,7 +86,7 @@ class mainLayout {
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
-              color: mainColors.main_btn,
+              color: mainColors.tools_description,
             ),
           ),
         )

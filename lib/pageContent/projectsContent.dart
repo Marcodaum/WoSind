@@ -22,7 +22,17 @@ class _ProjectPageState extends State<projectPage> {
     return ListView(
       children: [
         mainLayout().placeholderRow(),
-        mainLayout().textRow_projects("Finde deine Projekte"),
+        mainLayout().textRow("Erstelle eigene Projekte"),
+        mainLayout().placeholderRow(),
+        IconButton(
+            padding: new EdgeInsets.all(0.0),
+            color: mainColors.Button_unselected,
+            onPressed: () {},
+            icon: Icon(Icons.add_circle_outline_rounded, size: 50.0)),
+        mainLayout().placeholderRow(),
+        mainLayout().textRow("oder..."),
+        mainLayout().placeholderRow(),
+        mainLayout().textRow("Finde deine Projekte"),
         RoundedSearchInput(
             hintText: "Hochbeet bauen, Terasse reinigen …",
             textController: TextEditingController()),
@@ -34,7 +44,7 @@ class _ProjectPageState extends State<projectPage> {
               height: 50,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  primary: mainColors.main_btn,
+                  primary: mainColors.tools_description,
                 ),
                 child: Text(
                   "Top Projekte",
@@ -43,7 +53,7 @@ class _ProjectPageState extends State<projectPage> {
                       //decoration: TextDecoration.underline,
                       fontSize: 15,
                       color: toolPage
-                          ? mainColors.main_btn
+                          ? mainColors.tools_description
                           : mainColors.Button_unselected,
                       shadows: const [
                         Shadow(
@@ -65,7 +75,7 @@ class _ProjectPageState extends State<projectPage> {
               height: 50,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  primary: mainColors.main_btn,
+                  primary: mainColors.tools_description,
                 ),
                 child: Text(
                   "Alle Projekte",
@@ -74,7 +84,7 @@ class _ProjectPageState extends State<projectPage> {
                     fontSize: 15,
                     color: toolPage
                         ? mainColors.Button_unselected
-                        : mainColors.main_btn,
+                        : mainColors.tools_description,
                   ),
                 ),
                 onPressed: () {
