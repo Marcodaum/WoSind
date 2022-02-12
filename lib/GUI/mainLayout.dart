@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'mainColors.dart';
 
 class mainLayout {
@@ -144,6 +145,34 @@ class mainLayout {
           ),
         )
       ],
+    );
+  }
+
+  Padding inputField(String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+      child: TextFormField(
+        decoration: InputDecoration(
+          border: UnderlineInputBorder(),
+          labelText: title,
+        ),
+      ),
+    );
+  }
+
+  Padding inputFieldOnlyNumbers(String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+      child: TextFormField(
+        decoration: InputDecoration(
+          border: UnderlineInputBorder(),
+          labelText: title,
+        ),
+        keyboardType: TextInputType.number,
+        inputFormatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:wo_sind_app/pageContent/productPage.dart';
 import '../GUI/mainLayout.dart';
 import '../GUI/mainColors.dart';
@@ -15,113 +16,149 @@ class toolPage extends StatefulWidget {
 }
 
 class _ProjectPageState extends State<toolPage> {
+  bool addPage = false;
   bool toolPage = true;
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        mainLayout().placeholderRow(),
-        mainLayout().textRow("Vermiete eigenes Werkzeug"),
-        mainLayout().placeholderRow(),
-        IconButton(
-            padding: new EdgeInsets.all(0.0),
-            color: mainColors.Button_unselected,
-            onPressed: () {},
-            icon: Icon(Icons.add_circle_outline_rounded, size: 50.0)),
-        mainLayout().placeholderRow(),
-        mainLayout().textRow("oder..."),
-        mainLayout().placeholderRow(),
-        mainLayout().textRow("Finde passendes Werkzeuge"),
-        RoundedSearchInput(
-            hintText: "Bohrmaschine, Kettensäge, …",
-            textController: TextEditingController()),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            SizedBox(
-              width: 140,
-              height: 50,
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  primary: mainColors.tools_description,
-                ),
-                child: Text(
-                  "Top Werkzeuge",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      //decoration: TextDecoration.underline,
-                      fontSize: 15,
-                      color: toolPage
-                          ? mainColors.tools_description
-                          : mainColors.Button_unselected,
-                      shadows: const [
-                        Shadow(
-                          blurRadius: 100.0,
-                          color: Colors.grey,
-                          offset: Offset(5.0, 5.0),
-                        ),
-                      ]),
-                ),
-                onPressed: () {
-                  setState(() {
-                    toolPage = true;
-                  });
-                },
-              ),
-            ),
-            SizedBox(
-              width: 140,
-              height: 50,
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  primary: mainColors.tools_description,
-                ),
-                child: Text(
-                  "Alle Werkzeuge",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: toolPage
-                        ? mainColors.Button_unselected
-                        : mainColors.tools_description,
+    return !addPage
+        ? ListView(
+            children: [
+              mainLayout().placeholderRow(),
+              mainLayout().textRow("Vermiete eigenes Werkzeug"),
+              mainLayout().placeholderRow(),
+              IconButton(
+                  padding: new EdgeInsets.all(0.0),
+                  color: mainColors.Button_unselected,
+                  onPressed: () {
+                    setState(() {
+                      addPage = true;
+                    });
+                  },
+                  icon: Icon(Icons.add_circle_outline_rounded, size: 50.0)),
+              mainLayout().placeholderRow(),
+              mainLayout().textRow("oder..."),
+              mainLayout().placeholderRow(),
+              mainLayout().textRow("Finde passendes Werkzeuge"),
+              RoundedSearchInput(
+                  hintText: "Bohrmaschine, Kettensäge, …",
+                  textController: TextEditingController()),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    width: 140,
+                    height: 50,
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: mainColors.tools_description,
+                      ),
+                      child: Text(
+                        "Top Werkzeuge",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            //decoration: TextDecoration.underline,
+                            fontSize: 15,
+                            color: toolPage
+                                ? mainColors.tools_description
+                                : mainColors.Button_unselected,
+                            shadows: const [
+                              Shadow(
+                                blurRadius: 100.0,
+                                color: Colors.grey,
+                                offset: Offset(5.0, 5.0),
+                              ),
+                            ]),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          toolPage = true;
+                        });
+                      },
+                    ),
                   ),
-                ),
-                onPressed: () {
-                  setState(() {
-                    toolPage = false;
-                  });
-                },
+                  SizedBox(
+                    width: 140,
+                    height: 50,
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: mainColors.tools_description,
+                      ),
+                      child: Text(
+                        "Alle Werkzeuge",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: toolPage
+                              ? mainColors.Button_unselected
+                              : mainColors.tools_description,
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          toolPage = false;
+                        });
+                      },
+                    ),
+                  )
+                ],
               ),
-            )
-          ],
-        ),
-        toolPage
-            ? recommendedRow(context, 'assets/driver.jpg',
-                "Kleinbohrer mit Zubehör", "Vermieter: Stefan Miller")
-            : recommendedRow(
-                context,
-                'assets/Stihl-Steinflex-Trennschleifer@2x.jpeg',
-                "Steinflex",
-                "Vermieter: Marco Daum"),
-        toolPage
-            ? recommendedRow(
-                context,
-                'assets/winkelschleifer.jpg',
-                "Winkelschleifer und Kleinbohrer",
-                "Vermieter: OBI-Markt Ingolstadt")
-            : recommendedRow(
-                context,
-                'assets/Vertikutierer-Hand-871470-blp-msg.jpeg',
-                "Vertikutiergerät",
-                "Vermieter: Ciprian Cosneac"),
-        toolPage
-            ? recommendedRow(context, 'assets/drill2.jpg', "Schlagbohrer",
-                "Vermieter: Jonas Jehle")
-            : recommendedRow(context, 'assets/612e312384f12086149721.jpeg',
-                "Rohrbiegemaschine", "Vermieter: Iris Eberl")
-      ],
-    );
+              toolPage
+                  ? recommendedRow(context, 'assets/driver.jpg',
+                      "Kleinbohrer mit Zubehör", "Vermieter: Stefan Miller")
+                  : recommendedRow(
+                      context,
+                      'assets/Stihl-Steinflex-Trennschleifer@2x.jpeg',
+                      "Steinflex",
+                      "Vermieter: Marco Daum"),
+              toolPage
+                  ? recommendedRow(
+                      context,
+                      'assets/winkelschleifer.jpg',
+                      "Winkelschleifer und Kleinbohrer",
+                      "Vermieter: OBI-Markt Ingolstadt")
+                  : recommendedRow(
+                      context,
+                      'assets/Vertikutierer-Hand-871470-blp-msg.jpeg',
+                      "Vertikutiergerät",
+                      "Vermieter: Ciprian Cosneac"),
+              toolPage
+                  ? recommendedRow(context, 'assets/drill2.jpg', "Schlagbohrer",
+                      "Vermieter: Jonas Jehle")
+                  : recommendedRow(
+                      context,
+                      'assets/612e312384f12086149721.jpeg',
+                      "Rohrbiegemaschine",
+                      "Vermieter: Iris Eberl")
+            ],
+          )
+        : ListView(
+            children: [
+              mainLayout().placeholderRow(),
+              mainLayout().textRow("Zurück zur Suche"),
+              mainLayout().placeholderRow(),
+              IconButton(
+                  padding: new EdgeInsets.all(0.0),
+                  color: mainColors.Button_unselected,
+                  onPressed: () {
+                    setState(() {
+                      addPage = false;
+                    });
+                  },
+                  icon: Icon(Icons.close, size: 50.0)),
+              mainLayout().placeholderRow(),
+              mainLayout().textRow("oder..."),
+              mainLayout().placeholderRow(),
+              mainLayout().textRow("Vermiete dein Werkzeug"),
+              mainLayout().placeholderRow(),
+              mainLayout().inputField("Titel"),
+              mainLayout().inputField("Werkzeug"),
+              mainLayout().inputField("Marke"),
+              mainLayout().inputField("Ort"),
+              mainLayout().inputFieldOnlyNumbers("Preis in €"),
+              mainLayout().inputField("Sicherheitsvorschriften"),
+            ],
+          );
   }
 }
 
