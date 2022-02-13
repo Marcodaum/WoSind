@@ -139,7 +139,7 @@ class _ProjectPageState extends State<toolPage> {
               mainLayout().placeholderRow(),
               IconButton(
                   padding: new EdgeInsets.all(0.0),
-                  color: mainColors.Button_unselected,
+                  color: mainColors.exit,
                   onPressed: () {
                     setState(() {
                       addPage = false;
@@ -151,12 +151,26 @@ class _ProjectPageState extends State<toolPage> {
               mainLayout().placeholderRow(),
               mainLayout().textRow("Vermiete dein Werkzeug"),
               mainLayout().placeholderRow(),
-              mainLayout().inputField("Titel"),
-              mainLayout().inputField("Werkzeug"),
-              mainLayout().inputField("Marke"),
-              mainLayout().inputField("Ort"),
-              mainLayout().inputFieldOnlyNumbers("Preis in €"),
+              mainLayout().inputField("Titel (*)"),
+              mainLayout().inputField("Werkzeug (*)"),
+              mainLayout().inputField("Marke (*)"),
+              mainLayout().inputField("Ort (*)"),
+              mainLayout().inputFieldOnlyNumbers("Preis in € (*)"),
               mainLayout().inputField("Sicherheitsvorschriften"),
+              mainLayout().placeholderRow(),
+              mainLayout().infoTextRow("(*) Feld muss ausgefüllt werden"),
+              mainLayout().placeholderRow(),
+              mainLayout().textRow("Werkzeug öffentlich anbieten"),
+              mainLayout().placeholderRow(),
+              IconButton(
+                  padding: new EdgeInsets.all(0.0),
+                  color: mainColors.done,
+                  onPressed: () {
+                    setState(() {
+                      addPage = false;
+                    });
+                  },
+                  icon: Icon(Icons.done, size: 50.0)),
             ],
           );
   }

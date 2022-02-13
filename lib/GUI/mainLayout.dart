@@ -95,6 +95,25 @@ class mainLayout {
     );
   }
 
+  Row infoTextRow(String text) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Align(
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 10,
+              color: mainColors.Text_description_grey,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
   Row textRow_tools(String text) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,

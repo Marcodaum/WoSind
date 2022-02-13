@@ -15,6 +15,11 @@ class mainColors {
   static const Color Text_white = Color.fromRGBO(255, 255, 255, 1);
   static const Color tools_description = Color.fromRGBO(0, 93, 90, 1);
 
+  static const Color exit = Color.fromARGB(255, 255, 0, 0);
+
+  static const Color notDone = Color.fromARGB(120, 120, 120, 120);
+  static const Color done = Color.fromARGB(255, 0, 200, 0);
+
   static const LinearGradient large_btn = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment(0.8, 0.0), // 10% of the width, so there are ten blinds.
