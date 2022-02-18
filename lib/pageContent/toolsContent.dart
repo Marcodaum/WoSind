@@ -2,7 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:wo_sind_app/GUI/marketplaceLayout.dart';
+import 'package:wo_sind_app/database/database.dart';
+import 'package:wo_sind_app/database/tool.dart';
 import 'package:wo_sind_app/pageContent/productPage.dart';
+import 'package:wo_sind_app/pageContent/projectsContent.dart';
 import '../GUI/mainLayout.dart';
 import '../GUI/mainColors.dart';
 import '../main.dart';
@@ -18,6 +22,17 @@ class toolPage extends StatefulWidget {
 class _ProjectPageState extends State<toolPage> {
   bool addPage = false;
   bool toolPage = true;
+
+  final imgController = TextEditingController();
+  final titleController = TextEditingController();
+  final toolController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final brandController = TextEditingController();
+  final locationController = TextEditingController();
+  final priceController = TextEditingController();
+  bool security = false;
+
+  var database = Database();
 
   @override
   Widget build(BuildContext context) {
@@ -103,33 +118,42 @@ class _ProjectPageState extends State<toolPage> {
                   )
                 ],
               ),
-              toolPage
-                  ? recommendedRow(context, 'assets/driver.jpg',
-                      "Kleinbohrer mit Zubehör", "Vermieter: Stefan Miller")
-                  : recommendedRow(
+              for (var tool in database.getHiredOut())
+                marketplaceLayout()
+                    .recommendedRow(context, tool.img, tool.title, "author"),
+              /*toolPage
+                  ? marketplaceLayout().recommendedRow(
+                      context,
+                      'assets/driver.jpg',
+                      "Kleinbohrer mit Zubehör",
+                      "Vermieter: Stefan Miller")
+                  : marketplaceLayout().recommendedRow(
                       context,
                       'assets/Stihl-Steinflex-Trennschleifer@2x.jpeg',
                       "Steinflex",
                       "Vermieter: Marco Daum"),
               toolPage
-                  ? recommendedRow(
+                  ? marketplaceLayout().recommendedRow(
                       context,
                       'assets/winkelschleifer.jpg',
                       "Winkelschleifer und Kleinbohrer",
                       "Vermieter: OBI-Markt Ingolstadt")
-                  : recommendedRow(
+                  : marketplaceLayout().recommendedRow(
                       context,
                       'assets/Vertikutierer-Hand-871470-blp-msg.jpeg',
                       "Vertikutiergerät",
                       "Vermieter: Ciprian Cosneac"),
               toolPage
-                  ? recommendedRow(context, 'assets/drill2.jpg', "Schlagbohrer",
+                  ? marketplaceLayout().recommendedRow(
+                      context,
+                      'assets/drill2.jpg',
+                      "Schlagbohrer",
                       "Vermieter: Jonas Jehle")
-                  : recommendedRow(
+                  : marketplaceLayout().recommendedRow(
                       context,
                       'assets/612e312384f12086149721.jpeg',
                       "Rohrbiegemaschine",
-                      "Vermieter: Iris Eberl")
+                      "Vermieter: Iris Eberl")*/
             ],
           )
         : ListView(
@@ -151,12 +175,39 @@ class _ProjectPageState extends State<toolPage> {
               mainLayout().placeholderRow(),
               mainLayout().textRow("Vermiete dein Werkzeug"),
               mainLayout().placeholderRow(),
-              mainLayout().inputField("Titel (*)"),
-              mainLayout().inputField("Werkzeug (*)"),
-              mainLayout().inputField("Marke (*)"),
-              mainLayout().inputField("Ort (*)"),
-              mainLayout().inputFieldOnlyNumbers("Preis in € (*)"),
-              mainLayout().inputField("Sicherheitsvorschriften"),
+              mainLayout().inputField("Bild", imgController),
+              mainLayout().inputField("Titel (*)", titleController),
+              mainLayout().inputField("Werkzeug (*)", toolController),
+              mainLayout().inputTextArea("Beschreibung", descriptionController),
+              mainLayout().inputField("Marke", brandController),
+              mainLayout().inputField("Ort (*)", locationController),
+              mainLayout()
+                  .inputFieldOnlyNumbers("Preis in € (*)", priceController),
+              mainLayout().placeholderRow(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Sicherheitsvorschriften (*)",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: mainColors.Text_description_grey,
+                      ),
+                    ),
+                  ),
+                  Checkbox(
+                    value: security,
+                    onChanged: (value) {
+                      setState(() {
+                        this.security = value!;
+                      });
+                    },
+                  )
+                ],
+              ),
               mainLayout().placeholderRow(),
               mainLayout().infoTextRow("(*) Feld muss ausgefüllt werden"),
               mainLayout().placeholderRow(),
@@ -167,12 +218,45 @@ class _ProjectPageState extends State<toolPage> {
                   color: mainColors.done,
                   onPressed: () {
                     setState(() {
+                      fillToolInDatabase(
+                          imgController.text,
+                          titleController.text,
+                          toolController.text,
+                          descriptionController.text,
+                          brandController.text,
+                          locationController.text,
+                          priceController.text,
+                          security);
+                      titleController.text = "";
+                      toolController.text = "";
+                      descriptionController.text = "";
+                      brandController.text = "";
+                      locationController.text = "";
+                      priceController.text = "";
+                      security = false;
                       addPage = false;
                     });
                   },
                   icon: Icon(Icons.done, size: 50.0)),
+              /*!database.hiredOutIsEmpty()
+                  ? mainLayout()
+                      .textRow_tools(database.getLastHiredOut().toString())
+                  : mainLayout().textRow("no entry"),*/
             ],
           );
+  }
+
+  void fillToolInDatabase(
+      String img,
+      String title,
+      String tool,
+      String description,
+      String brand,
+      String location,
+      String price,
+      bool security) {
+    database.fillToolInHiredOut(Tool(
+        0, img, title, tool, description, brand, location, price, security));
   }
 }
 
@@ -236,68 +320,4 @@ class RoundedSearchInput extends StatelessWidget {
       ),
     );
   }
-}
-
-Row recommendedRow(
-    BuildContext context, String image, String title, String author) {
-  return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-    TextButton(
-      onPressed: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => const Screen2()));
-      },
-      style: TextButton.styleFrom(primary: mainColors.selector_light_green),
-      child: Container(
-        width: 325,
-        height: 183,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: mainColors.Button_unselected,
-        ),
-        margin: const EdgeInsets.only(top: 10, right: 0, bottom: 0, left: 0),
-        padding: const EdgeInsets.only(top: 0, right: 0, bottom: 0, left: 0),
-        child: Stack(children: [
-          Align(
-              alignment: Alignment.center,
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Container(
-                      decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(image), fit: BoxFit.fill),
-                  )))),
-          Positioned(
-              // The Positioned widget is used to position the text inside the Stack widget
-              bottom: 0,
-              right: 0,
-              child: ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                      bottomRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20)),
-                  child: Container(
-                      // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
-                      width: 325,
-                      height: 40,
-                      color: Colors.black.withOpacity(0.5),
-                      margin: const EdgeInsets.only(bottom: 0),
-                      padding: const EdgeInsets.all(0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(title,
-                              style: const TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold)),
-                          Text(
-                            author,
-                            style: const TextStyle(
-                                fontSize: 12, color: Colors.white),
-                          ),
-                        ],
-                      ))))
-        ]),
-      ),
-    )
-  ]);
 }

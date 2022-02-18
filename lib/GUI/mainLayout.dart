@@ -167,10 +167,11 @@ class mainLayout {
     );
   }
 
-  Padding inputField(String title) {
+  Padding inputField(String title, TextEditingController controller) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
       child: TextFormField(
+        controller: controller,
         decoration: InputDecoration(
           border: UnderlineInputBorder(),
           labelText: title,
@@ -179,10 +180,12 @@ class mainLayout {
     );
   }
 
-  Padding inputFieldOnlyNumbers(String title) {
+  Padding inputFieldOnlyNumbers(
+      String title, TextEditingController controller) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
       child: TextFormField(
+        controller: controller,
         decoration: InputDecoration(
           border: UnderlineInputBorder(),
           labelText: title,
@@ -193,5 +196,17 @@ class mainLayout {
         ],
       ),
     );
+  }
+
+  Padding inputTextArea(String title, TextEditingController controller) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+        child: TextField(
+          controller: controller,
+          keyboardType: TextInputType.multiline,
+          maxLines: null,
+          decoration:
+              InputDecoration(border: UnderlineInputBorder(), labelText: title),
+        ));
   }
 }
