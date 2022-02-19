@@ -8,11 +8,11 @@ class Database {
 
   Database._internal() {
     _topTools[id++] = new Tool("assets/driver.jpg", "Akkuschrauber",
-        "Akkuschrauber", "abc", "Bosch", "Ingolstadt", "5", false, "OBI");
+        "Akkuschrauber", "abc", "Bosch", "Ingolstadt", "5", false, "Obi");
     _topTools[id++] = new Tool("assets/Betonmischer.jpeg", "Betonmischer",
-        "Betonmischer", "abc", "Bosch", "Ingolstadt", "5", false, "OBI");
+        "Betonmischer", "abc", "Bosch", "Ingolstadt", "5", false, "Bauhaus");
     _topTools[id++] = new Tool("assets/drill2.jpg", "Bohrer", "Bohrer", "abc",
-        "Bosch", "Ingolstadt", "5", false, "OBI");
+        "Bosch", "Ingolstadt", "5", false, "Hagebau");
   }
 
   // Methods, variables ...
