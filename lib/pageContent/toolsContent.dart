@@ -33,9 +33,13 @@ class _ProjectPageState extends State<toolPage> {
   bool security = false;
 
   var database = Database();
+  List<Tool> tools = [];
 
   @override
   Widget build(BuildContext context) {
+    toolPage
+        ? tools = database.getTopValues()
+        : tools = database.getAllValues();
     return !addPage
         ? ListView(
             children: [
@@ -118,7 +122,7 @@ class _ProjectPageState extends State<toolPage> {
                   )
                 ],
               ),
-              for (var tool in database.getHiredOut())
+              for (var tool in tools)
                 marketplaceLayout()
                     .recommendedRow(context, tool.img, tool.title, "author"),
               /*toolPage
@@ -255,8 +259,8 @@ class _ProjectPageState extends State<toolPage> {
       String location,
       String price,
       bool security) {
-    database.fillToolInHiredOut(Tool(
-        0, img, title, tool, description, brand, location, price, security));
+    database.addHiredOut(
+        Tool(img, title, tool, description, brand, location, price, security));
   }
 }
 

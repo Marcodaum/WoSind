@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:wo_sind_app/database/tool.dart';
 
 class Database {
@@ -9,28 +11,39 @@ class Database {
   }
 
   // Methods, variables ...
-  List<Tool> _hiredOut = [];
-  List<Tool> _hired = [];
+  int id = 0;
 
-  void fillToolInHiredOut(Tool tool) {
-    if (!hiredOutIsEmpty()) {
-      if (_hiredOut.first.img == 'assets/imagePlaceholder.png') {
-        _hiredOut.removeLast();
-      }
+  HashMap<int, Tool> _hired = new HashMap<int, Tool>();
+  HashMap<int, Tool> _hiredOut = new HashMap<int, Tool>();
+
+  HashMap<int, Tool> _topTools = new HashMap<int, Tool>();
+  HashMap<int, Tool> _allTools = new HashMap<int, Tool>();
+
+  void addHiredOut(Tool tool) {
+    _hiredOut[id++] = tool;
+
+    // test for showing data in top and all tools
+    if (id % 2 == 0) {
+      _topTools[id] = tool;
+    } else {
+      _allTools[id] = tool;
     }
-    _hiredOut.add(tool);
   }
 
-  void fillToolsInHiredOut(List<Tool> tools) {
-    _hiredOut.addAll(tools);
+  void addMultipleHiredOut(List<Tool> tools) {
+    tools.forEach((tool) {
+      _hiredOut[id++] = tool;
+    });
   }
 
-  void fillToolInHired(Tool tool) {
-    _hired.add(tool);
+  void addHired(Tool tool) {
+    _hired[id++] = tool;
   }
 
-  void fillToolsInHired(List<Tool> tools) {
-    _hired.addAll(tools);
+  void addMultipleHired(List<Tool> tools) {
+    tools.forEach((tool) {
+      _hired[id++] = tool;
+    });
   }
 
   bool hiredOutIsEmpty() {
@@ -41,12 +54,66 @@ class Database {
     return _hired.isEmpty;
   }
 
-  Tool getFirstHiredOut() {
+  List<Tool> getHiredOutValues() {
+    List<Tool> list = [];
+
+    _hiredOut.forEach((id, tool) {
+      list.add(tool);
+    });
+
+    return list;
+  }
+
+  List<Tool> getHiredValues() {
+    List<Tool> list = [];
+
+    _hired.forEach((id, tool) {
+      list.add(tool);
+    });
+
+    return list;
+  }
+
+  List<Tool> getTopValues() {
+    List<Tool> list = [];
+
+    _topTools.forEach((id, tool) {
+      list.add(tool);
+    });
+
+    return list;
+  }
+
+  List<Tool> getAllValues() {
+    List<Tool> list = [];
+
+    _allTools.forEach((id, tool) {
+      list.add(tool);
+    });
+
+    return list;
+  }
+
+  Tool? getToolById(int id) {
+    Tool? tool;
+    _hiredOut.forEach((key, value) {
+      if (key == id) {
+        tool = value;
+      }
+    });
+    _hired.forEach((key, value) {
+      if (key == id) {
+        tool = value;
+      }
+    });
+    return tool;
+  }
+
+  /*Tool getFirstHiredOut() {
     if (!hiredOutIsEmpty()) {
       return _hiredOut.first;
     } else {
-      return Tool(
-          0, 'assets/imagePlaceholder.png', "", "", "", "", "", "", false);
+      return Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false);
     }
   }
 
@@ -54,8 +121,7 @@ class Database {
     if (!hiredOutIsEmpty()) {
       return _hiredOut.last;
     } else {
-      return Tool(
-          0, 'assets/imagePlaceholder.png', "", "", "", "", "", "", false);
+      return Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false);
     }
   }
 
@@ -63,8 +129,7 @@ class Database {
     if (!hiredIsEmpty()) {
       return _hired.first;
     } else {
-      return Tool(
-          0, 'assets/imagePlaceholder.png', "", "", "", "", "", "", false);
+      return Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false);
     }
   }
 
@@ -72,8 +137,7 @@ class Database {
     if (!hiredIsEmpty()) {
       return _hired.first;
     } else {
-      return Tool(
-          0, 'assets/imagePlaceholder.png', "", "", "", "", "", "", false);
+      return Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false);
     }
   }
 
@@ -81,8 +145,8 @@ class Database {
     if (!hiredOutIsEmpty()) {
       return _hiredOut;
     } else {
-      _hiredOut.add(Tool(
-          0, 'assets/imagePlaceholder.png', "", "", "", "", "", "", false));
+      _hiredOut.add(
+          Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false));
       return _hiredOut;
     }
   }
@@ -91,9 +155,9 @@ class Database {
     if (!hiredIsEmpty()) {
       return _hired;
     } else {
-      _hired.add(Tool(
-          0, 'assets/imagePlaceholder.png', "", "", "", "", "", "", false));
+      _hired.add(
+          Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false));
       return _hired;
     }
-  }
+  }*/
 }

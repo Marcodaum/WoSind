@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class Tool {
-  int id = 0;
   String img = 'assets/imagePlaceholder.png';
   //Image img = Icon(Icons.camera) as Image;
   String title = "";
@@ -14,8 +13,8 @@ class Tool {
   String price = "";
   bool security = false;
 
-  Tool(int id, String img, String title, String description, String tool,
-      String brand, String location, String price, bool security) {
+  Tool(String img, String title, String description, String tool, String brand,
+      String location, String price, bool security) {
     this.img = img;
     this.title = title;
     this.description = description;
