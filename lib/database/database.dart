@@ -7,7 +7,12 @@ class Database {
   factory Database() => _instance;
 
   Database._internal() {
-    // init things inside this
+    _topTools[id++] = new Tool("assets/driver.jpg", "Akkuschrauber",
+        "Akkuschrauber", "abc", "Bosch", "Ingolstadt", "5", false, "OBI");
+    _topTools[id++] = new Tool("assets/Betonmischer.jpeg", "Akkuschrauber",
+        "Akkuschrauber", "abc", "Bosch", "Ingolstadt", "5", false, "OBI");
+    _topTools[id++] = new Tool("assets/drill2.jpg", "Akkuschrauber",
+        "Akkuschrauber", "abc", "Bosch", "Ingolstadt", "5", false, "OBI");
   }
 
   // Methods, variables ...
@@ -22,10 +27,6 @@ class Database {
   void addHiredOut(Tool tool) {
     _hiredOut[id++] = tool;
 
-    // test for showing data in top and all tools
-    if (id % 2 == 0) {
-      _topTools[id] = tool;
-    }
     _allTools[id] = tool;
   }
 

@@ -12,9 +12,10 @@ class Tool {
   String location = "";
   String price = "";
   bool security = false;
+  String author = "";
 
   Tool(String img, String title, String description, String tool, String brand,
-      String location, String price, bool security) {
+      String location, String price, bool security, String author) {
     this.img = img;
     this.title = title;
     this.description = description;
@@ -23,6 +24,7 @@ class Tool {
     this.location = location;
     this.price = price;
     this.security = security;
+    this.author = author;
   }
 
   @override

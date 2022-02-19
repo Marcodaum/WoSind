@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wo_sind_app/GUI/marketplaceLayout.dart';
 import 'package:wo_sind_app/database/database.dart';
+import 'package:wo_sind_app/database/profile.dart';
 import 'package:wo_sind_app/database/tool.dart';
 import 'package:wo_sind_app/pageContent/productPage.dart';
 import 'package:wo_sind_app/pageContent/projectsContent.dart';
@@ -34,6 +35,8 @@ class _ProjectPageState extends State<toolPage> {
 
   var database = Database();
   List<Tool> tools = [];
+
+  var profile = Profile();
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +127,7 @@ class _ProjectPageState extends State<toolPage> {
               ),
               for (var tool in tools)
                 marketplaceLayout()
-                    .recommendedRow(context, tool.img, tool.title, "author"),
+                    .recommendedRow(context, tool.img, tool.title, tool.author),
               /*toolPage
                   ? marketplaceLayout().recommendedRow(
                       context,
@@ -258,8 +261,8 @@ class _ProjectPageState extends State<toolPage> {
       String location,
       String price,
       bool security) {
-    database.addHiredOut(
-        Tool(img, title, tool, description, brand, location, price, security));
+    database.addHiredOut(Tool(img, title, tool, description, brand, location,
+        price, security, profile.name));
   }
 
   void clearInputs() {
