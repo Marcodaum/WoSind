@@ -128,39 +128,6 @@ class _ProjectPageState extends State<toolPage> {
               for (var tool in tools)
                 marketplaceLayout()
                     .recommendedRow(context, tool.img, tool.title, tool.author),
-              /*toolPage
-                  ? marketplaceLayout().recommendedRow(
-                      context,
-                      'assets/driver.jpg',
-                      "Kleinbohrer mit Zubehör",
-                      "Vermieter: Stefan Miller")
-                  : marketplaceLayout().recommendedRow(
-                      context,
-                      'assets/Stihl-Steinflex-Trennschleifer@2x.jpeg',
-                      "Steinflex",
-                      "Vermieter: Marco Daum"),
-              toolPage
-                  ? marketplaceLayout().recommendedRow(
-                      context,
-                      'assets/winkelschleifer.jpg',
-                      "Winkelschleifer und Kleinbohrer",
-                      "Vermieter: OBI-Markt Ingolstadt")
-                  : marketplaceLayout().recommendedRow(
-                      context,
-                      'assets/Vertikutierer-Hand-871470-blp-msg.jpeg',
-                      "Vertikutiergerät",
-                      "Vermieter: Ciprian Cosneac"),
-              toolPage
-                  ? marketplaceLayout().recommendedRow(
-                      context,
-                      'assets/drill2.jpg',
-                      "Schlagbohrer",
-                      "Vermieter: Jonas Jehle")
-                  : marketplaceLayout().recommendedRow(
-                      context,
-                      'assets/612e312384f12086149721.jpeg',
-                      "Rohrbiegemaschine",
-                      "Vermieter: Iris Eberl")*/
             ],
           )
         : ListView(
