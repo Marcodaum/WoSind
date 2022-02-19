@@ -25,9 +25,8 @@ class Database {
     // test for showing data in top and all tools
     if (id % 2 == 0) {
       _topTools[id] = tool;
-    } else {
-      _allTools[id] = tool;
     }
+    _allTools[id] = tool;
   }
 
   void addMultipleHiredOut(List<Tool> tools) {

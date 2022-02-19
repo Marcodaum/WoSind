@@ -170,6 +170,8 @@ class _ProjectPageState extends State<toolPage> {
                   color: mainColors.exit,
                   onPressed: () {
                     setState(() {
+                      clearInputs();
+
                       addPage = false;
                     });
                   },
@@ -231,12 +233,9 @@ class _ProjectPageState extends State<toolPage> {
                           locationController.text,
                           priceController.text,
                           security);
-                      titleController.text = "";
-                      toolController.text = "";
-                      descriptionController.text = "";
-                      brandController.text = "";
-                      locationController.text = "";
-                      priceController.text = "";
+
+                      clearInputs();
+
                       security = false;
                       addPage = false;
                     });
@@ -261,6 +260,17 @@ class _ProjectPageState extends State<toolPage> {
       bool security) {
     database.addHiredOut(
         Tool(img, title, tool, description, brand, location, price, security));
+  }
+
+  void clearInputs() {
+    imgController.text = "";
+    titleController.text = "";
+    toolController.text = "";
+    descriptionController.text = "";
+    brandController.text = "";
+    locationController.text = "";
+    priceController.text = "";
+    security = false;
   }
 }
 
