@@ -129,8 +129,8 @@ class _ProjectPageState extends State<toolPage> {
                   ? mainLayout().infoTextRow("Anzeige")
                   : mainLayout().infoTextRow(""),
               for (var tool in tools)
-                marketplaceLayout()
-                    .recommendedRow(context, tool.img, tool.title, tool.author),
+                marketplaceLayout().recommendedRow(context, tool.img,
+                    tool.title, tool.location, tool.price, tool.author),
             ],
           )
         : ListView(

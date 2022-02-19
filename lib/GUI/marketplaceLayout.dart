@@ -4,8 +4,8 @@ import '../main.dart';
 import 'mainColors.dart';
 
 class marketplaceLayout {
-  Row recommendedRow(
-      BuildContext context, String image, String title, String author) {
+  Row recommendedRow(BuildContext context, String image, String title,
+      String location, String price, String author) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       TextButton(
         onPressed: () {
@@ -34,6 +34,31 @@ class marketplaceLayout {
                     )))),
             Positioned(
                 // The Positioned widget is used to position the text inside the Stack widget
+                top: 0,
+                right: 0,
+                child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(20),
+                        topLeft: Radius.circular(20)),
+                    child: Container(
+                        // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
+                        width: 325,
+                        height: 30,
+                        color: mainColors.background.withOpacity(0.75),
+                        margin: const EdgeInsets.only(bottom: 0),
+                        padding: const EdgeInsets.all(0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(title + " - " + author,
+                                style: const TextStyle(
+                                    fontSize: 15,
+                                    color: mainColors.tools_description,
+                                    fontWeight: FontWeight.bold)),
+                          ],
+                        )))),
+            Positioned(
+                // The Positioned widget is used to position the text inside the Stack widget
                 bottom: 0,
                 right: 0,
                 child: ClipRRect(
@@ -43,25 +68,19 @@ class marketplaceLayout {
                     child: Container(
                         // We use this Container to create a black box that wraps the white text so that the user can read the text even when the image is white
                         width: 325,
-                        height: 40,
-                        color: Colors.black.withOpacity(0.5),
+                        height: 30,
+                        color: mainColors.background.withOpacity(0.75),
                         margin: const EdgeInsets.only(bottom: 0),
                         padding: const EdgeInsets.all(0),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(title,
-                                style: const TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold)),
-                            Text(
-                              author,
-                              style: const TextStyle(
-                                  fontSize: 12, color: Colors.white),
-                            ),
-                          ],
-                        ))))
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(location + " - " + price + "€",
+                                  style: const TextStyle(
+                                      fontSize: 15,
+                                      color: mainColors.tools_description,
+                                      fontWeight: FontWeight.bold)),
+                            ]))))
           ]),
         ),
       )
