@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:wo_sind_app/GUI/mainLayout.dart';
 import '../main.dart';
 import 'mainColors.dart';
 
 class marketplaceLayout {
-  Row recommendedRow(BuildContext context, String image, String title,
+  /*Row recommendedRow(BuildContext context, String image, String title,
       String location, String price, String author) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       TextButton(
@@ -85,5 +86,82 @@ class marketplaceLayout {
         ),
       )
     ]);
+  }*/
+
+  Column recommendedRow(BuildContext context, String image, String title,
+      String location, String price, String author) {
+    return Column(
+      children: [
+        mainLayout().placeholderRow(),
+        textRowTop(title + " - " + author),
+        Align(
+            alignment: Alignment.center,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(0.0),
+                child: Container(
+                    width: 325,
+                    height: 183,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(image), fit: BoxFit.fill),
+                    )))),
+        textRowBottom(location + " - " + price + "€")
+      ],
+    );
+  }
+
+  Row textRowTop(String text) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+            width: 325,
+            height: 30,
+            decoration: new BoxDecoration(
+              color: mainColors.tools_description.withOpacity(0.75),
+              borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+            ),
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                text,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: mainColors.Text_white,
+                ),
+              ),
+            ))
+      ],
+    );
+  }
+
+  Row textRowBottom(String text) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+            width: 325,
+            height: 30,
+            decoration: new BoxDecoration(
+              color: mainColors.tools_description.withOpacity(0.75),
+              borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.circular(20),
+                  bottomLeft: Radius.circular(20)),
+            ),
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                text,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: mainColors.Text_white,
+                ),
+              ),
+            ))
+      ],
+    );
   }
 }
