@@ -118,7 +118,7 @@ class marketplaceLayout {
             width: 325,
             height: 30,
             decoration: new BoxDecoration(
-              color: mainColors.Text_black.withOpacity(0.75),
+              color: mainColors.tools_description,
               borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(20), topLeft: Radius.circular(20)),
             ),
@@ -145,7 +145,7 @@ class marketplaceLayout {
             width: 325,
             height: 30,
             decoration: new BoxDecoration(
-              color: mainColors.Text_black.withOpacity(0.75),
+              color: mainColors.tools_description,
               borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(20),
                   bottomLeft: Radius.circular(20)),
