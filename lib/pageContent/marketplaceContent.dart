@@ -47,12 +47,12 @@ class _ProjectPageState extends State<toolPage> {
         ? ListView(
             children: [
               mainLayout().placeholderRow(),
-              mainLayout().textRow("Finde passendes Werkzeuge"),
+              mainLayout().textRow("Finde passende Werkzeuge"),
               RoundedSearchInput(
                   hintText: "Bohrmaschine, Kettensäge, …",
                   textController: TextEditingController()),
               mainLayout().placeholderRow(),
-              mainLayout().textRow("oder..."),
+              mainLayout().dividerRow(2),
               mainLayout().placeholderRow(),
               mainLayout().textRow("Vermiete eigenes Werkzeug"),
               mainLayout().placeholderRow(),
@@ -132,8 +132,13 @@ class _ProjectPageState extends State<toolPage> {
                   ? mainLayout().infoTextRow("Anzeige")
                   : mainLayout().infoTextRow(""),
               for (var tool in tools)
-                marketplaceLayout().recommendedRow(context, tool.img,
-                    tool.title, tool.location, tool.price, tool.author),
+                marketplaceLayout().recommendedRow(
+                    context,
+                    tool.getImage(),
+                    tool.getTitle(),
+                    tool.getLocation(),
+                    tool.getPrice(),
+                    tool.getAuthor()),
             ],
           )
         : ListView(
@@ -258,7 +263,7 @@ class RoundedSearchInput extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(
           top: 30.0, right: 40.0, left: 40.0, bottom: 20.0),
-      padding: const EdgeInsets.all(0),
+      padding: const EdgeInsets.all(10),
       decoration: const BoxDecoration(boxShadow: [
         BoxShadow(
             offset: Offset(12, 26),

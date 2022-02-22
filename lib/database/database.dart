@@ -112,7 +112,7 @@ class Database {
   List<Tool> getHiredOutByTool(String tool) {
     List<Tool> tools = [];
     _hiredOut.forEach((key, value) {
-      if (value.tool == tool) {
+      if (value.getTool() == tool) {
         tools.add(value);
       }
     });
@@ -122,7 +122,7 @@ class Database {
   List<Tool> getHiredOutByBrand(String brand) {
     List<Tool> tools = [];
     _hiredOut.forEach((key, value) {
-      if (value.brand == brand) {
+      if (value.getBrand() == brand) {
         tools.add(value);
       }
     });
@@ -132,7 +132,7 @@ class Database {
   List<Tool> getHiredOutByLocation(String location) {
     List<Tool> tools = [];
     _hiredOut.forEach((key, value) {
-      if (value.location == location) {
+      if (value.getLocation() == location) {
         tools.add(value);
       }
     });
@@ -142,7 +142,7 @@ class Database {
   List<Tool> getHiredOutByAuthor(String author) {
     List<Tool> tools = [];
     _hiredOut.forEach((key, value) {
-      if (value.author == author) {
+      if (value.getAuthor() == author) {
         tools.add(value);
       }
     });
@@ -152,7 +152,7 @@ class Database {
   List<Tool> getHiredByTool(String tool) {
     List<Tool> tools = [];
     _hired.forEach((key, value) {
-      if (value.tool == tool) {
+      if (value.getTool() == tool) {
         tools.add(value);
       }
     });
@@ -162,7 +162,7 @@ class Database {
   List<Tool> getHiredByBrand(String brand) {
     List<Tool> tools = [];
     _hired.forEach((key, value) {
-      if (value.brand == brand) {
+      if (value.getBrand() == brand) {
         tools.add(value);
       }
     });
@@ -172,7 +172,7 @@ class Database {
   List<Tool> getHiredByLocation(String location) {
     List<Tool> tools = [];
     _hired.forEach((key, value) {
-      if (value.location == location) {
+      if (value.getLocation() == location) {
         tools.add(value);
       }
     });
@@ -182,7 +182,7 @@ class Database {
   List<Tool> getHiredByAuthor(String author) {
     List<Tool> tools = [];
     _hired.forEach((key, value) {
-      if (value.author == author) {
+      if (value.getAuthor() == author) {
         tools.add(value);
       }
     });
