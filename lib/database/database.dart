@@ -57,8 +57,8 @@ class Database {
   List<Tool> getHiredOutValues() {
     List<Tool> list = [];
 
-    _hiredOut.forEach((id, tool) {
-      list.add(tool);
+    _hiredOut.forEach((key, value) {
+      list.add(value);
     });
 
     return list;
@@ -67,8 +67,8 @@ class Database {
   List<Tool> getHiredValues() {
     List<Tool> list = [];
 
-    _hired.forEach((id, tool) {
-      list.add(tool);
+    _hired.forEach((key, value) {
+      list.add(value);
     });
 
     return list;
@@ -77,8 +77,8 @@ class Database {
   List<Tool> getTopValues() {
     List<Tool> list = [];
 
-    _topTools.forEach((id, tool) {
-      list.add(tool);
+    _topTools.forEach((key, value) {
+      list.add(value);
     });
 
     return list;
@@ -87,8 +87,8 @@ class Database {
   List<Tool> getAllValues() {
     List<Tool> list = [];
 
-    _allTools.forEach((id, tool) {
-      list.add(tool);
+    _allTools.forEach((key, value) {
+      list.add(value);
     });
 
     return list;
@@ -109,55 +109,83 @@ class Database {
     return tool;
   }
 
-  /*Tool getFirstHiredOut() {
-    if (!hiredOutIsEmpty()) {
-      return _hiredOut.first;
-    } else {
-      return Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false);
-    }
+  List<Tool> getHiredOutByTool(String tool) {
+    List<Tool> tools = [];
+    _hiredOut.forEach((key, value) {
+      if (value.tool == tool) {
+        tools.add(value);
+      }
+    });
+    return tools;
   }
 
-  Tool getLastHiredOut() {
-    if (!hiredOutIsEmpty()) {
-      return _hiredOut.last;
-    } else {
-      return Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false);
-    }
+  List<Tool> getHiredOutByBrand(String brand) {
+    List<Tool> tools = [];
+    _hiredOut.forEach((key, value) {
+      if (value.brand == brand) {
+        tools.add(value);
+      }
+    });
+    return tools;
   }
 
-  Tool getFirstHired() {
-    if (!hiredIsEmpty()) {
-      return _hired.first;
-    } else {
-      return Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false);
-    }
+  List<Tool> getHiredOutByLocation(String location) {
+    List<Tool> tools = [];
+    _hiredOut.forEach((key, value) {
+      if (value.location == location) {
+        tools.add(value);
+      }
+    });
+    return tools;
   }
 
-  Tool getLastHired() {
-    if (!hiredIsEmpty()) {
-      return _hired.first;
-    } else {
-      return Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false);
-    }
+  List<Tool> getHiredOutByAuthor(String author) {
+    List<Tool> tools = [];
+    _hiredOut.forEach((key, value) {
+      if (value.author == author) {
+        tools.add(value);
+      }
+    });
+    return tools;
   }
 
-  List<Tool> getHiredOut() {
-    if (!hiredOutIsEmpty()) {
-      return _hiredOut;
-    } else {
-      _hiredOut.add(
-          Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false));
-      return _hiredOut;
-    }
+  List<Tool> getHiredByTool(String tool) {
+    List<Tool> tools = [];
+    _hired.forEach((key, value) {
+      if (value.tool == tool) {
+        tools.add(value);
+      }
+    });
+    return tools;
   }
 
-  List<Tool> getHired() {
-    if (!hiredIsEmpty()) {
-      return _hired;
-    } else {
-      _hired.add(
-          Tool('assets/imagePlaceholder.png', "", "", "", "", "", "", false));
-      return _hired;
-    }
-  }*/
+  List<Tool> getHiredByBrand(String brand) {
+    List<Tool> tools = [];
+    _hired.forEach((key, value) {
+      if (value.brand == brand) {
+        tools.add(value);
+      }
+    });
+    return tools;
+  }
+
+  List<Tool> getHiredByLocation(String location) {
+    List<Tool> tools = [];
+    _hired.forEach((key, value) {
+      if (value.location == location) {
+        tools.add(value);
+      }
+    });
+    return tools;
+  }
+
+  List<Tool> getHiredByAuthor(String author) {
+    List<Tool> tools = [];
+    _hired.forEach((key, value) {
+      if (value.author == author) {
+        tools.add(value);
+      }
+    });
+    return tools;
+  }
 }

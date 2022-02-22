@@ -43,15 +43,15 @@ class mainLayout {
     offset: const Offset(0, 3), // changes position of shadow
   );
 
-  Row dividerRow() {
+  Row dividerRow(double thickness) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       Expanded(
         child: Container(
             margin: const EdgeInsets.only(left: 15.0, right: 10.0),
-            child: const Divider(
+            child: Divider(
               color: Colors.black,
               height: 25,
-              thickness: 0.25,
+              thickness: thickness,
             )),
       )
     ]);

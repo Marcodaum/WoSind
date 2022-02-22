@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 class Tool {
   String img = 'assets/imagePlaceholder.png';
-  //Image img = Icon(Icons.camera) as Image;
   String title = "";
   String tool = "";
   String description = "";

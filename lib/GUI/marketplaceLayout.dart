@@ -93,7 +93,7 @@ class marketplaceLayout {
     return Column(
       children: [
         mainLayout().placeholderRow(),
-        textRowTop(title + " - " + author),
+        textRowTop(title + " - " + price + "€"),
         Align(
             alignment: Alignment.center,
             child: ClipRRect(
@@ -105,7 +105,7 @@ class marketplaceLayout {
                       image: DecorationImage(
                           image: AssetImage(image), fit: BoxFit.fill),
                     )))),
-        textRowBottom(location + " - " + price + "€")
+        textRowBottom(location + " - " + author)
       ],
     );
   }

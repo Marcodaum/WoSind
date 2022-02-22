@@ -13,31 +13,31 @@ List<Row> content() {
   rows.add(mainLayout().textRow("Einstellungen"));
   rows.add(mainLayout().placeholderRow());
 
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Privater Account"));
 
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Mitteilungen"));
 
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Events vergeben"));
 
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Kontoeinstellungen"));
 
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Hilfe-Center"));
 
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Version"));
 
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Datenschutz"));
 
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Nutzungsbedingungen"));
 
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Cookie-Richtlinien"));
   return rows;
 }

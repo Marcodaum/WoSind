@@ -69,22 +69,22 @@ List<Row> profileContentRows(BuildContext context) {
   );
   rows.add(profilePictureRow);
   rows.add(nameRow);
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   //rows.add(messagesRow);
   rows.add(mainLayout().buttonRow("Gemietet"));
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Vermietet"));
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Eigene Projekte"));
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Nachrichten"));
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Persönliche Daten"));
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("In anderen Apps teilen"));
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Profil bearbeiten"));
-  rows.add(mainLayout().dividerRow());
+  rows.add(mainLayout().dividerRow(0.25));
   return rows;
 }
 

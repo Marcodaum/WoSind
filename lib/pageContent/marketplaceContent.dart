@@ -47,6 +47,13 @@ class _ProjectPageState extends State<toolPage> {
         ? ListView(
             children: [
               mainLayout().placeholderRow(),
+              mainLayout().textRow("Finde passendes Werkzeuge"),
+              RoundedSearchInput(
+                  hintText: "Bohrmaschine, Kettensäge, …",
+                  textController: TextEditingController()),
+              mainLayout().placeholderRow(),
+              mainLayout().textRow("oder..."),
+              mainLayout().placeholderRow(),
               mainLayout().textRow("Vermiete eigenes Werkzeug"),
               mainLayout().placeholderRow(),
               IconButton(
@@ -59,12 +66,8 @@ class _ProjectPageState extends State<toolPage> {
                   },
                   icon: Icon(Icons.add_circle_outline_rounded, size: 50.0)),
               mainLayout().placeholderRow(),
-              mainLayout().textRow("oder..."),
+              mainLayout().dividerRow(2),
               mainLayout().placeholderRow(),
-              mainLayout().textRow("Finde passendes Werkzeuge"),
-              RoundedSearchInput(
-                  hintText: "Bohrmaschine, Kettensäge, …",
-                  textController: TextEditingController()),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -214,10 +217,6 @@ class _ProjectPageState extends State<toolPage> {
                     });
                   },
                   icon: Icon(Icons.done, size: 50.0)),
-              /*!database.hiredOutIsEmpty()
-                  ? mainLayout()
-                      .textRow_tools(database.getLastHiredOut().toString())
-                  : mainLayout().textRow("no entry"),*/
             ],
           );
   }
