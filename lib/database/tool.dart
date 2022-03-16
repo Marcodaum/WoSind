@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:wo_sind_app/database/profile.dart';
 
 class Tool {
   String _img = 'assets/imagePlaceholder.png';
@@ -11,10 +12,10 @@ class Tool {
   String _location = "";
   String _price = "";
   bool _security = false;
-  String _author = "";
+  Profile _author = new Profile();
 
   Tool(String img, String title, String description, String tool, String brand,
-      String location, String price, bool security, String author) {
+      String location, String price, bool security, Profile author) {
     this._img = img;
     this._title = title;
     this._description = description;
@@ -107,11 +108,11 @@ class Tool {
     this._security = security;
   }
 
-  String getAuthor() {
+  Profile getAuthor() {
     return this._author;
   }
 
-  void setAuthor(String author) {
+  void setAuthor(Profile author) {
     this._author = author;
   }
 }

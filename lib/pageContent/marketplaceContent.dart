@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wo_sind_app/GUI/marketplaceLayout.dart';
-import 'package:wo_sind_app/database/database.dart';
+import 'package:wo_sind_app/database/databaseSearch.dart';
+import 'package:wo_sind_app/database/databaseTools.dart';
 import 'package:wo_sind_app/database/profile.dart';
 import 'package:wo_sind_app/database/tool.dart';
 import 'package:wo_sind_app/pageContent/productPage.dart';
@@ -33,7 +34,7 @@ class _ProjectPageState extends State<toolPage> {
   final priceController = TextEditingController();
   bool security = false;
 
-  var database = Database();
+  var databaseTools = DatabaseTools();
   List<Tool> tools = [];
 
   var profile = Profile();
@@ -41,8 +42,8 @@ class _ProjectPageState extends State<toolPage> {
   @override
   Widget build(BuildContext context) {
     toolPage
-        ? tools = database.getTopValues()
-        : tools = database.getAllValues();
+        ? tools = databaseTools.getTopValues()
+        : tools = databaseTools.getAllValues();
     return !addPage
         ? ListView(
             children: [
@@ -152,7 +153,6 @@ class _ProjectPageState extends State<toolPage> {
                   onPressed: () {
                     setState(() {
                       clearInputs();
-
                       addPage = false;
                     });
                   },
@@ -235,8 +235,8 @@ class _ProjectPageState extends State<toolPage> {
       String location,
       String price,
       bool security) {
-    database.addHiredOut(Tool(img, title, tool, description, brand, location,
-        price, security, profile.name));
+    databaseTools.addHiredOut(Tool(img, title, tool, description, brand,
+        location, price, security, profile));
   }
 
   void clearInputs() {
@@ -254,7 +254,8 @@ class _ProjectPageState extends State<toolPage> {
 class RoundedSearchInput extends StatelessWidget {
   final TextEditingController textController;
   final String hintText;
-  const RoundedSearchInput(
+  var databaseSearch = DatabaseSearch();
+  RoundedSearchInput(
       {required this.textController, required this.hintText, Key? key})
       : super(key: key);
 
@@ -274,7 +275,7 @@ class RoundedSearchInput extends StatelessWidget {
       child: TextField(
         controller: textController,
         onChanged: (value) {
-          //Do something wi
+          databaseSearch.searchTool(textController.text);
         },
         decoration: InputDecoration(
           suffixIcon: Container(
@@ -282,11 +283,12 @@ class RoundedSearchInput extends StatelessWidget {
             height: 20,
             padding: const EdgeInsets.all(0),
             margin: const EdgeInsets.only(top: 5, right: 10, bottom: 5),
-            child: const Icon(
-              Icons.search,
-              color: mainColors.tools_description,
-              size: 25,
-            ),
+            child: IconButton(
+                onPressed: () {
+                  databaseSearch.searchTool(textController.text);
+                },
+                icon: Icon(Icons.search,
+                    size: 25, color: mainColors.tools_description)),
             decoration: const BoxDecoration(
                 shape: BoxShape.circle, color: mainColors.searchBarIcon_grey),
           ),

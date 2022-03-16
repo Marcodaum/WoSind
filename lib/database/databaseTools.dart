@@ -2,17 +2,17 @@ import 'dart:collection';
 
 import 'package:wo_sind_app/database/tool.dart';
 
-class Database {
-  static final Database _instance = Database._internal();
-  factory Database() => _instance;
+class DatabaseTools {
+  static final DatabaseTools _instance = DatabaseTools._internal();
+  factory DatabaseTools() => _instance;
 
-  Database._internal() {
-    _topTools[id++] = new Tool("assets/driver.jpg", "Akkuschrauber",
+  DatabaseTools._internal() {
+    /*_topTools[id++] = new Tool("assets/driver.jpg", "Akkuschrauber",
         "Akkuschrauber", "abc", "Bosch", "Ingolstadt", "5", false, "Obi");
     _topTools[id++] = new Tool("assets/Betonmischer.jpeg", "Betonmischer",
         "Betonmischer", "abc", "Bosch", "Train", "25", false, "Bauhaus");
     _topTools[id++] = new Tool("assets/drill2.jpg", "Bohrer", "Bohrer", "abc",
-        "Bosch", "Preith", "10", false, "Hagebau");
+        "Bosch", "Preith", "10", false, "Hagebau");*/
   }
 
   // Methods, variables ...

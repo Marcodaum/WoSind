@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wo_sind_app/GUI/mainLayout.dart';
+import 'package:wo_sind_app/database/profile.dart';
 import '../main.dart';
 import 'mainColors.dart';
 
@@ -89,7 +90,7 @@ class marketplaceLayout {
   }*/
 
   Column recommendedRow(BuildContext context, String image, String title,
-      String location, String price, String author) {
+      String location, String price, Profile author) {
     return Column(
       children: [
         mainLayout().placeholderRow(),
@@ -105,7 +106,7 @@ class marketplaceLayout {
                       image: DecorationImage(
                           image: AssetImage(image), fit: BoxFit.fill),
                     )))),
-        textRowBottom(location + " - " + author)
+        textRowBottom(location + " - " + author.getName())
       ],
     );
   }
