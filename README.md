@@ -1,6 +1,7 @@
 # wo_sind_app
 
 An app that gives instructions for home improvement projects and suggests the needed tools to finish the project. 
+
 The idea is already awarded by two startup-competitions (https://www.5-euro-business.de/, https://www.thi.de/studium/center-of-entrepreneurship/events/thidea/).
 
 ## Development state
