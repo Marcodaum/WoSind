@@ -1,10 +1,13 @@
 // ignore_for_file: file_names, camel_case_types
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wo_sind_app/GUI/marketplaceLayout.dart';
 import 'package:wo_sind_app/database/databaseSearch.dart';
 import 'package:wo_sind_app/database/databaseTools.dart';
+import 'package:wo_sind_app/database/postgresDB.dart';
 import 'package:wo_sind_app/database/profile.dart';
 import 'package:wo_sind_app/database/tool.dart';
 import 'package:wo_sind_app/pageContent/productPage.dart';
@@ -13,6 +16,8 @@ import '../GUI/mainLayout.dart';
 import '../GUI/mainColors.dart';
 import '../main.dart';
 import '../GUI/mainLayout.dart';
+
+import 'package:postgres/postgres.dart';
 
 class toolPage extends StatefulWidget {
   const toolPage({Key? key}) : super(key: key);
@@ -37,6 +42,8 @@ class _ProjectPageState extends State<toolPage> {
   var databaseTools = DatabaseTools();
   List<Tool> tools = [];
 
+  var database = PostgresDB();
+
   var profile = Profile();
 
   @override
@@ -47,16 +54,16 @@ class _ProjectPageState extends State<toolPage> {
     return !addPage
         ? ListView(
             children: [
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               mainLayout().textRow("Finde passende Werkzeuge"),
               RoundedSearchInput(
                   hintText: "Bohrmaschine, Kettensäge, …",
                   textController: TextEditingController()),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               mainLayout().dividerRow(2),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               mainLayout().textRow("Vermiete eigenes Werkzeug"),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               IconButton(
                   padding: new EdgeInsets.all(0.0),
                   color: mainColors.Button_unselected,
@@ -66,9 +73,9 @@ class _ProjectPageState extends State<toolPage> {
                     });
                   },
                   icon: Icon(Icons.add_circle_outline_rounded, size: 50.0)),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               mainLayout().dividerRow(2),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -144,9 +151,9 @@ class _ProjectPageState extends State<toolPage> {
           )
         : ListView(
             children: [
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               mainLayout().textRow("Zurück zur Suche"),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               IconButton(
                   padding: new EdgeInsets.all(0.0),
                   color: mainColors.exit,
@@ -157,11 +164,11 @@ class _ProjectPageState extends State<toolPage> {
                     });
                   },
                   icon: Icon(Icons.close, size: 50.0)),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               mainLayout().textRow("oder..."),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               mainLayout().textRow("Vermiete dein Werkzeug"),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               mainLayout().inputField("Bild", imgController),
               mainLayout().inputField("Titel (*)", titleController),
               mainLayout().inputField("Werkzeug (*)", toolController),
@@ -170,7 +177,7 @@ class _ProjectPageState extends State<toolPage> {
               mainLayout().inputField("Ort (*)", locationController),
               mainLayout()
                   .inputFieldOnlyNumbers("Preis in € (*)", priceController),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -195,11 +202,11 @@ class _ProjectPageState extends State<toolPage> {
                   )
                 ],
               ),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               mainLayout().infoTextRow("(*) Feld muss ausgefüllt werden"),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               mainLayout().textRow("Werkzeug öffentlich anbieten"),
-              mainLayout().placeholderRow(),
+              mainLayout().placeholderRow(20),
               IconButton(
                   padding: new EdgeInsets.all(0.0),
                   color: mainColors.done,
@@ -226,7 +233,7 @@ class _ProjectPageState extends State<toolPage> {
           );
   }
 
-  void fillToolInDatabase(
+  Future<void> fillToolInDatabase(
       String img,
       String title,
       String tool,
@@ -234,9 +241,12 @@ class _ProjectPageState extends State<toolPage> {
       String brand,
       String location,
       String price,
-      bool security) {
-    databaseTools.addHiredOut(Tool(img, title, tool, description, brand,
-        location, price, security, profile));
+      bool security) async {
+    /*databaseTools.addHiredOut(Tool(img, title, tool, description, brand,
+        location, price, security, profile));*/
+
+    database.fillInTool(
+        img, title, tool, description, brand, location, price, security);
   }
 
   void clearInputs() {

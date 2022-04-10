@@ -21,17 +21,17 @@ class _ProjectPageState extends State<projectPage> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        mainLayout().placeholderRow(),
+        mainLayout().placeholderRow(20),
         mainLayout().textRow("Erstelle eigene Projekte"),
-        mainLayout().placeholderRow(),
+        mainLayout().placeholderRow(20),
         IconButton(
             padding: new EdgeInsets.all(0.0),
             color: mainColors.Button_unselected,
             onPressed: () {},
             icon: Icon(Icons.add_circle_outline_rounded, size: 50.0)),
-        mainLayout().placeholderRow(),
+        mainLayout().placeholderRow(20),
         mainLayout().textRow("oder..."),
-        mainLayout().placeholderRow(),
+        mainLayout().placeholderRow(20),
         mainLayout().textRow("Finde deine Projekte"),
         RoundedSearchInput(
             hintText: "Hochbeet bauen, Terasse reinigen …",

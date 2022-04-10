@@ -26,6 +26,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "buffer",
+      "rootUri": "file:///Users/kilianmack/Documents/WoSind/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/buffer-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "characters",
       "rootUri": "file:///Users/kilianmack/Documents/WoSind/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0",
       "packageUri": "lib/",
@@ -116,14 +122,38 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "pedantic",
+      "rootUri": "file:///Users/kilianmack/Documents/WoSind/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "petitparser",
       "rootUri": "file:///Users/kilianmack/Documents/WoSind/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-4.4.0",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
     {
+      "name": "postgres",
+      "rootUri": "file:///Users/kilianmack/Documents/WoSind/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/postgres-2.4.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "provider",
       "rootUri": "file:///Users/kilianmack/Documents/WoSind/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/provider-6.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "sasl_scram",
+      "rootUri": "file:///Users/kilianmack/Documents/WoSind/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/sasl_scram-0.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "saslprep",
+      "rootUri": "file:///Users/kilianmack/Documents/WoSind/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/saslprep-1.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -182,6 +212,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "unorm_dart",
+      "rootUri": "file:///Users/kilianmack/Documents/WoSind/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/unorm_dart-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///Users/kilianmack/Documents/WoSind/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0",
       "packageUri": "lib/",
@@ -206,7 +242,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-02-18T18:49:15.642917Z",
+  "generated": "2022-04-09T18:15:36.391196Z",
   "generator": "pub",
   "generatorVersion": "2.14.4"
 }

@@ -3,6 +3,10 @@
 import 'package:flutter/material.dart';
 
 class mainColors {
+  // Colors for LOGIN
+  static const Color loginButtonText = Color.fromRGBO(0, 93, 90, 1);
+  static const Color loginButtonBackground = Color.fromRGBO(120, 120, 120, 0.5);
+
   static const Color main_btn = Color.fromRGBO(1, 139, 130, 1);
   static const Color heart_btn = Color.fromRGBO(140, 195, 155, 1);
   static const Color background = Color.fromRGBO(255, 255, 255, 1);

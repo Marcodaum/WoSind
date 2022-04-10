@@ -133,12 +133,12 @@ class mainLayout {
     );
   }
 
-  Row placeholderRow() {
+  Row placeholderRow(double size) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         SizedBox(
-          height: 20,
+          height: size,
           width: 100,
         ),
       ],
@@ -171,6 +171,21 @@ class mainLayout {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
       child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          border: UnderlineInputBorder(),
+          labelText: title,
+        ),
+      ),
+    );
+  }
+
+  Padding inputFieldPassword(String title, TextEditingController controller) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+      child: TextFormField(
+        obscureText: true,
+        obscuringCharacter: "*",
         controller: controller,
         decoration: InputDecoration(
           border: UnderlineInputBorder(),

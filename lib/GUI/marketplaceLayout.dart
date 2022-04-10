@@ -93,7 +93,7 @@ class marketplaceLayout {
       String location, String price, Profile author) {
     return Column(
       children: [
-        mainLayout().placeholderRow(),
+        mainLayout().placeholderRow(20),
         textRowTop(title + " - " + price + "€"),
         Align(
             alignment: Alignment.center,

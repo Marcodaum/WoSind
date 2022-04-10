@@ -9,9 +9,9 @@ ListView settingsContent(BuildContext context) {
 
 List<Row> content() {
   List<Row> rows = <Row>[];
-  rows.add(mainLayout().placeholderRow());
+  rows.add(mainLayout().placeholderRow(20));
   rows.add(mainLayout().textRow("Einstellungen"));
-  rows.add(mainLayout().placeholderRow());
+  rows.add(mainLayout().placeholderRow(20));
 
   rows.add(mainLayout().dividerRow(0.25));
   rows.add(mainLayout().buttonRow("Privater Account"));
