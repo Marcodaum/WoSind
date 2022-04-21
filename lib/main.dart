@@ -42,6 +42,7 @@ class _HomeState extends State<Home> {
   int _selectedPage = 1;
 
   bool login = true;
+  bool wrongInput = false;
 
   TextEditingController usernameController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
@@ -58,10 +59,25 @@ class _HomeState extends State<Home> {
                 Center(child: mainLayout().textRow("LOGIN")),
                 Center(
                     child: mainLayout()
-                        .inputField("Username/E-Mail", usernameController)),
+                        .inputField("Benutzername", usernameController)),
                 Center(
                     child: mainLayout()
-                        .inputFieldPassword("Password", passwordController)),
+                        .inputFieldPassword("Passwort", passwordController)),
+                wrongInput
+                    ? Center(
+                        child: Center(
+                            child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            mainLayout().textRowError(
+                                "Falsches Passwort oder Benutzername"),
+                            mainLayout().placeholderRow(20),
+                          ],
+                        )),
+                      )
+                    : Center(
+                        child: mainLayout().placeholderRow(20),
+                      ),
                 Center(
                     child: Center(
                         child: Row(
@@ -81,7 +97,37 @@ class _HomeState extends State<Home> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold),
                           ),
-                          onPressed: () {},
+                          onPressed: () async {
+                            if (await checkRegister(usernameController.text,
+                                passwordController.text)) {
+                              var connection = PostgreSQLConnection(
+                                  "localhost", 5432, "WoSind-Tools",
+                                  username: "kilianmack",
+                                  password: "Keig17411mgd");
+                              await connection.open();
+                              await connection.query(
+                                  "INSERT INTO users VALUES (@username, @name, @mail, @password, @geburtsdatum, @location)",
+                                  substitutionValues: {
+                                    "username": usernameController.text.trim(),
+                                    "name": " ",
+                                    "mail": " ",
+                                    "password": passwordController.text.trim(),
+                                    "geburtsdatum": "1950-01-01",
+                                    "location": 0
+                                  });
+
+                              setState(() {
+                                login = false;
+                                wrongInput = false;
+                              });
+                            } else {
+                              setState(() {
+                                login = true;
+                                wrongInput = true;
+                                passwordController.text = "";
+                              });
+                            }
+                          },
                         )),
                     Container(
                         margin: EdgeInsets.all(10),
@@ -96,15 +142,16 @@ class _HomeState extends State<Home> {
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold)),
                           onPressed: () async {
-                            if (await checkLogin(usernameController.text,
-                                passwordController.text)) {
-                              print("yes");
-                              setState(() {
+                            if (await checkLogin(usernameController.text.trim(),
+                                passwordController.text.trim())) {
+                              setState(() async {
                                 login = false;
+                                wrongInput = false;
                               });
                             } else {
                               setState(() {
                                 login = true;
+                                wrongInput = true;
                                 passwordController.text = "";
                               });
                             }
@@ -169,14 +216,20 @@ class _HomeState extends State<Home> {
     var passwordOfUser = await connection
         .query("SELECT pwd FROM users WHERE username = '$name'");
 
+    await connection.close();
+
     String returnedPassword = passwordOfUser.toString().replaceAll('[', "");
     returnedPassword = returnedPassword.replaceAll(']', "");
 
-    print(returnedPassword);
-    print(password);
-
     if (returnedPassword == password) {
-      print("yes1");
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  static Future<bool> checkRegister(String name, String password) async {
+    if (name != "") {
       return true;
     } else {
       return false;

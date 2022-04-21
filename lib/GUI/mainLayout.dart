@@ -224,4 +224,23 @@ class mainLayout {
               InputDecoration(border: UnderlineInputBorder(), labelText: title),
         ));
   }
+
+  Row textRowError(String text) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Align(
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 15,
+              color: mainColors.loginWrongInputErrorText,
+            ),
+          ),
+        )
+      ],
+    );
+  }
 }
