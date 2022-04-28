@@ -11,6 +11,7 @@ import 'package:wo_sind_app/pageContent/marketplaceContent.dart';
 import '../GUI/topAppBar.dart';
 import '../pageContent/marketplaceContent.dart';
 import '../pageContent/projectsContent.dart';
+import 'backend/loginRegister.dart';
 import 'pageContent/productPage.dart';
 import '../pageContent/profileContent.dart';
 import '../pageContent/settingsContent.dart';
@@ -144,7 +145,7 @@ class _HomeState extends State<Home> {
                           onPressed: () async {
                             if (await checkLogin(usernameController.text.trim(),
                                 passwordController.text.trim())) {
-                              setState(() async {
+                              setState(() {
                                 login = false;
                                 wrongInput = false;
                               });
@@ -209,19 +210,13 @@ class _HomeState extends State<Home> {
   }
 
   static Future<bool> checkLogin(String name, String password) async {
-    var connection = PostgreSQLConnection("localhost", 5432, "WoSind-Tools",
-        username: "kilianmack", password: "Keig17411mgd");
-    await connection.open();
+    LoginRegister loginRegister = new LoginRegister();
 
-    var passwordOfUser = await connection
-        .query("SELECT pwd FROM users WHERE username = '$name'");
+    if (await loginRegister.usernameExists(name) == false) {
+      return false;
+    }
 
-    await connection.close();
-
-    String returnedPassword = passwordOfUser.toString().replaceAll('[', "");
-    returnedPassword = returnedPassword.replaceAll(']', "");
-
-    if (returnedPassword == password) {
+    if (await loginRegister.passwordCorrect(name, password) == true) {
       return true;
     } else {
       return false;
@@ -229,8 +224,13 @@ class _HomeState extends State<Home> {
   }
 
   static Future<bool> checkRegister(String name, String password) async {
-    if (name != "") {
-      return true;
+    LoginRegister loginRegister = new LoginRegister();
+    if (loginRegister.passwordRequirements(password) == true) {
+      if (await loginRegister.usernameExists(name) == false) {
+        return true;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }
